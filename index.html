@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -83,7 +83,7 @@
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -101,7 +101,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -133,7 +133,7 @@
 
 <meta name="generator" content="Hexo 7.1.1"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -182,7 +182,27 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -192,7 +212,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -258,9 +278,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2024-03-28T01:25:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2024-03-28T01:25:48+08:00">
                 2024-03-28
               </time>
             
@@ -300,12 +320,27 @@
       
         
           
-            <h1 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h1><p>我选择的主题是：NexT<br>在博客文件夹路径下执行</p>
+            <h1 id="NexT主题启用"><a href="#NexT主题启用" class="headerlink" title="NexT主题启用"></a>NexT主题启用</h1><p>我选择的主题是：NexT<br>在博客文件夹路径下执行</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/next-theme/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
 <p>下载完成后可以在博客文件夹里看到有一个themes文件夹，里面就有next配置文件，我们只需要在博客根目录下的_config.yml配置文件里找到theme，将其修改为next即可。<br><img src="/2024/03/28/%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/2.png"><br>然后执行<code>hexo -s</code>即可查看效果<br>但是我这里除了问题，我这里打开是下面这个样子<br><img src="/2024/03/28/%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/1.png"><br>查了一下原因是：原因是hexo在5.0之后把swig给删除了需要自己手动安装</p>
-<pre><code> npm i hexo-renderer-swig
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> npm i hexo-renderer-swig</span><br><span class="line">```   </span><br><span class="line">果然，安装之后就可以了  </span><br><span class="line">![](主题配置/3.png)</span><br><span class="line"># 更改主题语言为中文</span><br><span class="line">这里把language设置为`zh-Hans`即可。</span><br><span class="line">![](主题配置/4.png)  </span><br><span class="line">看效果  </span><br><span class="line">![](主题配置/5.png)</span><br><span class="line"># 增加标签页和分类页</span><br><span class="line">在next主题配置文件里(next里的_config.yml文件)</span><br><span class="line">把tags和categories前面的`#`注释去掉就可以了  </span><br><span class="line">![](主题配置/6.png)  </span><br><span class="line">看效果  </span><br><span class="line">![](主题配置/7.png)  </span><br><span class="line">添加之后点进去是看不到效果的，需要再配置点东西  </span><br><span class="line">创建了两个文件，一个是tags，一个是categories</span><br></pre></td></tr></table></figure>
+<p>hexo n page tags<br>hexo n page categories</p>
+<pre><code>这两个文件生成完之后，需要对其进行稍作修改
+![](主题配置/9.png)
+![](主题配置/8.png)  
+修改完之后，我点`标签`看效果，却发现是
+![](主题配置/10.png)  
+我去查了下，才知道结果出在next里的_config.yml配置文件里了  
+&gt; 将配置文件里 || 之前所有的空格删掉，这是一个小bug，修改之后如下图。
+
+![](主题配置/11.png)    
+然后看效果  
+![](主题配置/12.png)
+![](主题配置/13.png)
+
+
+
 </code></pre>
-<p>果然，安装之后就可以了<br><img src="/2024/03/28/%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/3.png"></p>
 
           
         
@@ -383,9 +418,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2024-03-26T19:51:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2024-03-26T19:51:48+08:00">
                 2024-03-26
               </time>
             
@@ -557,7 +592,7 @@
                 <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -607,7 +642,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -615,7 +650,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
