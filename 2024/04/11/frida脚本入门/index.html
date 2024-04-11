@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="frida脚本入门," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Frida脚本概念&emsp;&emsp;Frida脚本就是利用Firda动态插桩框架，使用Frida导出的API和方法对内存空间里的对象方法进行监视、修改或者替换的一段代码。Frida的API是用JavaScript实现的，所以可以充分利用JavaScript的匿名函数优势以及大量的Hook(钩子函数)和回调函数的API。Firda版本的“Hello World”   123456setTime">
+<meta property="og:type" content="article">
+<meta property="og:title" content="frida脚本入门">
+<meta property="og:url" content="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="白乐天">
+<meta property="og:description" content="Frida脚本概念&emsp;&emsp;Frida脚本就是利用Firda动态插桩框架，使用Frida导出的API和方法对内存空间里的对象方法进行监视、修改或者替换的一段代码。Frida的API是用JavaScript实现的，所以可以充分利用JavaScript的匿名函数优势以及大量的Hook(钩子函数)和回调函数的API。Firda版本的“Hello World”   123456setTime">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/1.png">
+<meta property="og:image" content="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/2.png">
+<meta property="og:image" content="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/3.png">
+<meta property="og:image" content="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/4.png">
+<meta property="og:image" content="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/5.png">
+<meta property="og:image" content="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/6.png">
+<meta property="og:image" content="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/7.png">
+<meta property="og:image" content="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/5.png">
+<meta property="og:image" content="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/8.png">
+<meta property="og:image" content="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/9.png">
+<meta property="og:image" content="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/10.png">
+<meta property="og:image" content="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/11.png">
+<meta property="article:published_time" content="2024-04-11T07:14:35.000Z">
+<meta property="article:modified_time" content="2024-04-11T16:06:27.493Z">
+<meta property="article:author" content="白乐天">
+<meta property="article:tag" content="frida脚本入门">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2024/04/11/frida脚本入门/"/>
+
+
+
+
+
+  <title>frida脚本入门 | 白乐天</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">白乐天</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/android.svg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">frida脚本入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2024-04-11T15:14:35+08:00">
+                2024-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/frida/" itemprop="url" rel="index">
+                    <span itemprop="name">frida</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Frida脚本概念"><a href="#Frida脚本概念" class="headerlink" title="Frida脚本概念"></a>Frida脚本概念</h1><p>&emsp;&emsp;Frida脚本就是利用Firda动态插桩框架，使用Frida导出的API和方法对内存空间里的对象方法进行监视、修改或者替换的一段代码。Frida的API是用JavaScript实现的，所以可以充分利用JavaScript的匿名函数优势以及大量的Hook(钩子函数)和回调函数的API。<br><strong>Firda版本的“Hello World”</strong>  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(</span><br><span class="line">    <span class="keyword">function</span> (<span class="params"></span>)&#123;</span><br><span class="line">    <span class="title class_">Java</span>.<span class="title function_">perform</span>(<span class="keyword">function</span> (<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;hello world!&quot;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>代码从外层向里看，首先我们把一个匿名函数作为参数传递给了setTimeout()函数，在这个匿名函数中体中调用了Frida的API函数Java.perform()，这个API函数本身又接受了一个匿名函数作为参数，该匿名函数最终调用console.log()函数来打印“hello world!”字符串。<br>这里调用setTimeout方法是因为该方法将函数注册到JavaScript运行库中，然后在JavaScript运行库中调用Java.perform()将函数注册到App的Java运行库中并在其中执行该函数。<br><img src="/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/1.png"><br>上面的命令中，-U参数是指USB设备，-l参数用于指定注入脚本所在的路径，后面跟上要注入的脚本，最后的android.process.media则为Android设备上正在运行的进程名。在Android中，App进程的名字都是App的包名，这是App进程的唯一标志。  </p>
+<h1 id="Java层Hook基础"><a href="#Java层Hook基础" class="headerlink" title="Java层Hook基础"></a>Java层Hook基础</h1><p>学习Frida在Android Java中的Hook功能。为了清除了解App的运行内容，这里先编写一个简单的App用于练习。创建App的过程在Android开发中，这里直接给处App中MainActivity代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.r0ysue.demo02;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Handler;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Timer;</span><br><span class="line"><span class="keyword">import</span> java.util.TimerTask;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Timer mTimer;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        mTimer = <span class="keyword">new</span> <span class="title class_">Timer</span>();</span><br><span class="line">        mTimer.scheduleAtFixedRate(<span class="keyword">new</span> <span class="title class_">TimerTask</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">                <span class="comment">// 这里调用你的函数</span></span><br><span class="line">                fun(<span class="number">50</span>, <span class="number">30</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="number">0</span>, <span class="number">1000</span>); <span class="comment">// 0 毫秒后开始执行，然后每隔 1000 毫秒执行一次</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> &#123;</span><br><span class="line">        Log.d(<span class="string">&quot;r0ysue.sum&quot;</span>, String.valueOf(x + y));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>App逻辑是每次间隔1秒打印一次fun(50,30)函数的运行结果。运行结果显示在控制台中。<br><img src="/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/2.png"><br>确认app正常运行且函数fun被调用，编写frida脚本，目标是编写Hook fun()函数并打印处fun()函数的参数值。Frida脚本的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function main()&#123;</span><br><span class="line">    console.log(&quot;Script loaded succeessfully&quot;);</span><br><span class="line">    Java.perform(function ()&#123;</span><br><span class="line">        console.log(&quot;Inside java perform function&quot;);</span><br><span class="line">        var MainActivity = Java.use(&#x27;com.r0ysue.demo02.MainActivity&#x27;);</span><br><span class="line">        console.log(&quot;Jaav.Use.Successfully!&quot;) //定位类成功！</span><br><span class="line">        MainActivity.fun.implementation = function(x,y)&#123;</span><br><span class="line">            console.log(&quot;x=&gt;&quot;,x,&quot;y=&gt;&quot;,y);</span><br><span class="line">            var ret_value = this.fun(x, y);</span><br><span class="line">            return ret_value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">setImmediate(main);</span><br></pre></td></tr></table></figure>
+<p>通过命令使用Frida的CLI模式以attach模式注入app<br><code>frida -U -l demo02.js com.r0ysue.demo02</code><br><img src="/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/3.png"><br>从运行结果可以看到参数值打印出来了。<br>&emsp;&emsp;分析脚本内容：使用function关键字顶一个了一个main()函数，用于存放Hook脚本，然后调用Frida的API函数Java.perform()将脚本中的内容注入到Java运行库，API参数是一个匿名函数，函数内容是监控和修改Java函数逻辑的主体内容。Java.perform()函数很重要，任何对App中Java层的操作都必须包裹在这个函数中。<br>&emsp;&emsp;在Java.perform()函数包裹的匿名函数中，首先调用了Frida的API函数Java.use()，这个函数的参数是Hook的函数所在类的类名，参数的类型是一个字符串类型。函数的返回值动态地为相应Java类获取一个JavaScript Wrapper，通俗理解就是Javascript对象。<br>&emsp;&emsp;获取到JavaScript对象后，通过“.”符号连接fun这个对应的函数名，然后加上implementation关键字表示实现MainActivity对象的fun()函数，最后通过“&#x3D;”连接一个匿名函数，参数内容和原Java的内容一致。不同的是，Javascript是一个弱类型的语言，不需要指明参数类型。此时针对MainActivity类的fun函数的Hook框架就完成了。<br>&emsp;&emsp;匿名函数内容取决于逆向开发和分析人员想修改这个被Hook的函数的哪些运行逻辑。简言之，就是重新运行原函数内容，最后将这个函数的返回值直接通过return指令返回。<br>&emsp;&emsp;也可以传递不同的参数，简单修改程序逻辑：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function main()&#123;</span><br><span class="line">    console.log(&quot;Script loaded succeessfully&quot;);</span><br><span class="line">    Java.perform(function ()&#123;</span><br><span class="line">        console.log(&quot;Inside java perform function&quot;);</span><br><span class="line">        var MainActivity = Java.use(&#x27;com.r0ysue.demo02.MainActivity&#x27;);</span><br><span class="line">        console.log(&quot;Jaav.Use.Successfully!&quot;) //定位类成功！</span><br><span class="line">        MainActivity.fun.implementation = function(x,y)&#123;</span><br><span class="line">            console.log(&quot;x=&gt;&quot;,x,&quot;y=&gt;&quot;,y);</span><br><span class="line">            var ret_value = this.fun(2,5);</span><br><span class="line">            return ret_value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">setImmediate(main);</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;重新保存脚本内容，由于Frida脚本是即时生效的，因此不需要重新执行注入命令。查看日志<br><img src="/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/4.png">  </p>
+<p>&emsp;&emsp;setImmediate(Frida的API函数)函数传递的参数是要被执行的函数，比如main参数，表示Frida注入App后立即执行main()函数。<br><strong>为App加点新功能</strong><br>新的MainActivity类的内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">package com.r0ysue.demo02;</span><br><span class="line"></span><br><span class="line">import androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line">import android.os.Bundle;</span><br><span class="line">import android.util.Log;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import android.os.Handler;</span><br><span class="line"></span><br><span class="line">import java.util.Timer;</span><br><span class="line">import java.util.TimerTask;</span><br><span class="line"></span><br><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line">    private Timer mTimer;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        mTimer = new Timer();</span><br><span class="line">        mTimer.scheduleAtFixedRate(new TimerTask() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line">                // 这里调用你的函数</span><br><span class="line">                fun(50, 30);</span><br><span class="line">                Log.d(&quot;r0ysue.string&quot;,fun(&quot;LoWeRcAsE Me!!!!!&quot;));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, 0, 1000); // 0 毫秒后开始执行，然后每隔 1000 毫秒执行一次</span><br><span class="line">    &#125;</span><br><span class="line">    void fun(int x, int y) &#123;</span><br><span class="line">        Log.d(&quot;r0ysue.sum&quot;, String.valueOf(x + y));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    String fun(String x)&#123;</span><br><span class="line">        return x.toLowerCase();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/5.png"><br>fun()方法有了重载，在参数是两个int类型的情况下，返回两个整数之和；当参数是String类型时，返回字符串的小写形式。<br>如果使用之前的脚本，就会报错，这是函数重载导致Frida不知道具体应该Hook哪一个函数导致，我们做相应的修改就可以了。<br><img src="/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/6.png">  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function main()&#123;</span><br><span class="line">    console.log(&quot;Script loaded succeessfully&quot;);</span><br><span class="line">    Java.perform(function ()&#123;</span><br><span class="line">        console.log(&quot;Inside java perform function&quot;);</span><br><span class="line">        var MainActivity = Java.use(&#x27;com.r0ysue.demo02.MainActivity&#x27;);</span><br><span class="line">        console.log(&quot;Jaav.Use.Successfully!&quot;) //定位类成功！</span><br><span class="line">        MainActivity.fun.overload(&#x27;int&#x27;, &#x27;int&#x27;).implementation = function(x,y)&#123;</span><br><span class="line">            console.log(&quot;x=&gt;&quot;,x,&quot;y=&gt;&quot;,y);</span><br><span class="line">            var ret_value = this.fun(2,5);</span><br><span class="line">            return ret_value;</span><br><span class="line">        &#125;</span><br><span class="line">        MainActivity.fun.overload(&#x27;java.lang.String&#x27;).implementation = function(s)&#123;</span><br><span class="line">            console.log(&quot;s:&quot;,s);</span><br><span class="line">            var ret_value = this.fun(&quot;hello&quot;);</span><br><span class="line">            return ret_value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">setImmediate(main);</span><br></pre></td></tr></table></figure>
+<p>这里我把两个fun函数都Hook了<br><img src="/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/7.png">  </p>
+<h1 id="Java层主动调用"><a href="#Java层主动调用" class="headerlink" title="Java层主动调用"></a>Java层主动调用</h1><p><strong>主动调用</strong>：主动调用就是强制调用一个函数去执行。<br><strong>被动调用</strong>：是由App按照正常逻辑去执行函数，函数的执行完全依靠与用户交互完成程序逻辑进而间接调用到关键函数，而主动调用则可以直接调用关键函数，主动性更强。<br>&emsp;&emsp;在Java中，类的函数可以分为两种：类函数和实例方法。通俗讲就是静态方法和动态方法。类函数用static修饰，和对应类是绑定的，如果类函数还被public关键词修饰，在外部就可以直接通过类去调用；实例方法则没有关键字static修饰，在外部只能通过创建对应类的实例再通过这个实例去调用。Frida中主动调用的类型会根据方法类型区分开。<br>&emsp;&emsp;类函数的主动调用，直接使用Java.use()函数找到类进行调用即可；如果是实例方法的主动调用，则需要找到对应的实例后对方法进行调用。这里用到了Frida中非常重要的API函数Java.choose()，这个函数可以在Java的堆中寻找指定类的实例。<br>继续为MainActivity添加代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">package com.r0ysue.demo02;</span><br><span class="line"></span><br><span class="line">import androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line">import android.os.Bundle;</span><br><span class="line">import android.util.Log;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import android.os.Handler;</span><br><span class="line"></span><br><span class="line">import java.util.Timer;</span><br><span class="line">import java.util.TimerTask;</span><br><span class="line"></span><br><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line">    private Timer mTimer;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        mTimer = new Timer();</span><br><span class="line">        mTimer.scheduleAtFixedRate(new TimerTask() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line">                // 这里调用你的函数</span><br><span class="line">                fun(50, 30);</span><br><span class="line">                Log.d(&quot;r0ysue.string&quot;,fun(&quot;LoWeRcAsE Me!!!!!&quot;));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, 0, 1000); // 0 毫秒后开始执行，然后每隔 1000 毫秒执行一次</span><br><span class="line">    &#125;</span><br><span class="line">    void fun(int x, int y) &#123;</span><br><span class="line">        Log.d(&quot;r0ysue.sum&quot;, String.valueOf(x + y));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    String fun(String x)&#123;</span><br><span class="line">        return x.toLowerCase();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void secret()&#123;</span><br><span class="line">        Log.d(&quot;r0ysue.secret&quot;,&quot;this is secret func&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    static void staticSecret()&#123;</span><br><span class="line">        Log.d(&quot;r0ysue&quot;,&quot;this is static secret func&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里添加了两个secret()函数：一个是没有static修饰的secret实例方法，一个是有static关键字修饰的staticSecret类方法。运行：<br><img src="/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/5.png"><br>App中，两个新加的函数并没有被调用。接下来完成两个隐藏函数的主动调用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function main()&#123;</span><br><span class="line">    console.log(&quot;Script loaded sucessfully&quot;)</span><br><span class="line">    Java.perform(function ()&#123;</span><br><span class="line">        console.log(&quot;Inside java perform fuction&quot;)</span><br><span class="line"></span><br><span class="line">        //静态函数主动调用</span><br><span class="line">        var MainActivity=Java.use(&#x27;com.r0ysue.demo02.MainActivity&#x27;)</span><br><span class="line">        MainActivity.staticSecret()</span><br><span class="line"></span><br><span class="line">        //动态函数主动调用</span><br><span class="line">        Java.choose(&#x27;com.r0ysue.demo02.MainActivity&#x27;,&#123;</span><br><span class="line">            onMatch: function (instance)&#123;</span><br><span class="line">                console.log(&#x27;instance found&#x27;,instance)</span><br><span class="line">                instance.secret()</span><br><span class="line">            &#125;,</span><br><span class="line">            onComplete:function ()&#123;</span><br><span class="line">                console.log(&#x27;secrch Complete&#x27;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">setImmediate(main)</span><br></pre></td></tr></table></figure>
+<p>将脚本注入App后，App运行日志变成了如下图，可以看到两个secret()函数已经执行了。<br><img src="/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/8.png"><br>可以发现静态的staticSecret()函数和Hook时使用的方式差不多，都是使用<code>Java.use</code>这个API去获取MainActivity类，在获取对应的类对象后通过”.”连接staticSecret方法名，最终以和Java中一样的方式直接调用静态方法staticSecret函数；动态方法secret需要先通过<code>Java.choose</code>这个API从内存中获取相应类的实例对象，然后与才能通过这个实例对象去调用动态的secret()函数。<br>&emsp;&emsp;如果需要主动调用动态函数，必须确保存在相应类的对象，否则无法进入Java.choose这个API的回调onMatch逻辑中。</p>
+<h1 id="RPC及其自动化"><a href="#RPC及其自动化" class="headerlink" title="RPC及其自动化"></a>RPC及其自动化</h1><p>&emsp;&emsp;Frida存在两种操作模式，第一种命令行模式，在上面的实践中已经使用了，现在介绍些RPC模式以及使用RPC完成自动化的相关知识。<br>&emsp;&emsp;Frida中，可以用Python完成JavaScript脚本对进程的注入以及相应的Hook。<br>先修改demo,修改后的代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">package com.r0ysue.demo02;</span><br><span class="line"></span><br><span class="line">import androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line">import android.os.Bundle;</span><br><span class="line">import android.util.Log;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import android.os.Handler;</span><br><span class="line"></span><br><span class="line">import java.util.Timer;</span><br><span class="line">import java.util.TimerTask;</span><br><span class="line"></span><br><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line">    private String total = &quot;hello&quot;;</span><br><span class="line">    private Timer mTimer;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        mTimer = new Timer();</span><br><span class="line">        mTimer.scheduleAtFixedRate(new TimerTask() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line">                // 这里调用你的函数</span><br><span class="line">                fun(50, 30);</span><br><span class="line">                Log.d(&quot;r0ysue.string&quot;,fun(&quot;LoWeRcAsE Me!!!!!&quot;));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, 0, 1000); // 0 毫秒后开始执行，然后每隔 1000 毫秒执行一次</span><br><span class="line">    &#125;</span><br><span class="line">    void fun(int x, int y) &#123;</span><br><span class="line">        Log.d(&quot;r0ysue.sum&quot;, String.valueOf(x + y));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    String fun(String x)&#123;</span><br><span class="line">        return x.toLowerCase();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void secret()&#123;</span><br><span class="line">        total+=&quot; secretFunc&quot;;</span><br><span class="line">        Log.d(&quot;r0ysue.secret&quot;,&quot;this is secret func&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static void staticSecret()&#123;</span><br><span class="line">        Log.d(&quot;r0ysue&quot;,&quot;this is static secret func&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;代码中，增加了一个字符串类型的实例变量total，同时每次调用secret()函数字符串进行扩展。<br>&emsp;&emsp;我们现在的目的是获取total这个实力变量的值。<br>&emsp;&emsp;在主动调用时需要注意的是，Java中的变量也存在是否使用static修饰的区别。在用Frida对Java中变量进行处理时也要区分是否使用static修饰：类变量，使用static修饰，可以直接通过类进行获取；实例变量，不使用static修饰，和特定的对象绑定在一起。<br>js脚本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">function CallSecretFunc()&#123;</span><br><span class="line">    Java.perform(function ()&#123;</span><br><span class="line">        //动态函数主动调用</span><br><span class="line">        Java.choose(&#x27;com.r0ysue.demo02.MainActivity&#x27;,&#123;</span><br><span class="line">            onMatch: function (instance)&#123;</span><br><span class="line">                instance.secret()</span><br><span class="line">            &#125;,</span><br><span class="line">            onComplete:function ()&#123;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">function getTotalValue()&#123;</span><br><span class="line">    Java.perform(function ()&#123;</span><br><span class="line">        var MainActivity = Java.use(&#x27;com.r0ysue.demo02.MainActivity&#x27;)</span><br><span class="line"></span><br><span class="line">        //动态函数主动调用</span><br><span class="line">        Java.choose(&#x27;com.r0ysue.demo02.MainActivity&#x27;,&#123;</span><br><span class="line">            onMatch:function (instance)&#123;</span><br><span class="line">                //instance.secret()</span><br><span class="line">                console.log(&#x27;total value = &#x27;,instance.total.value)</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">            onComplete:function ()&#123;</span><br><span class="line">                console.log(&#x27;seatch Complete&#x27;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">getTotalValue()</span><br></pre></td></tr></table></figure>
+<p><img src="/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/9.png"><br>实际上只需要在total之后加上一个.value关键词就可以获取变量的值。如果直接使用类去获取实例变量的值，会出错。<br>如果调用CallSecretFunc()函数，然后再次获取total的值，就会发现total的值变为了hello secretFunc<br><img src="/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/10.png"><br>在确认我们的函数没有写错且功能达到预期后，接下来开始远程调用。将CallSecretFunc()函数和getTotalValue()函数导出，使得外部可以调用，在JavaScript代码末尾加上RPC相关代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpc.exports=&#123;</span><br><span class="line">    callsecretfunc:CallSecretFunc,</span><br><span class="line">    gettotalvalue:getTotalValue</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这部分代码的功能是将CallSecretFunc()函数和getTotalValue()函数分别导出为callsecretfunc和gettotalvalue。需要注意的是，导出名不可以有大写字母或者下划线。接下来在外部就可以调用这两个函数了。<br><strong>外部调用</strong><br>python代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import frida,sys</span><br><span class="line">def on_message(message,data):</span><br><span class="line">    if message[&#x27;type&#x27;]==&#x27;send&#x27;:</span><br><span class="line">        print(&quot;* &#123;0&#125;&quot;.format(message[&#x27;payload&#x27;]))</span><br><span class="line">    else:</span><br><span class="line">        print(message)</span><br><span class="line"></span><br><span class="line">device = frida.get_usb_device()</span><br><span class="line">process = device.attach(&#x27;com.r0ysue.demo02&#x27;)</span><br><span class="line">with open (&#x27;4.js&#x27;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:</span><br><span class="line">    jscode=f.read()</span><br><span class="line">script=process.create_script(jscode)</span><br><span class="line"></span><br><span class="line">script.on(&#x27;message&#x27;,on_message)</span><br><span class="line">script.load()</span><br><span class="line"></span><br><span class="line">command=&quot;&quot;</span><br><span class="line">while 1==1:</span><br><span class="line">    comand=input(&quot;\nEnter command:\n1:Exit\n2:Call secret function\n3:Get Total Value\nchoice:&quot;)</span><br><span class="line">    if comand==&quot;1&quot;:</span><br><span class="line">        break</span><br><span class="line">    elif comand==&quot;2&quot;:</span><br><span class="line">        script.exports.callsecretfunc()</span><br><span class="line">    elif comand==&quot;3&quot;:</span><br><span class="line">        script.exports.gettotalvalue()</span><br></pre></td></tr></table></figure>
+<p><img src="/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/11.png"><br>重新运行App，然后直接运行loader.py，运行结果如上图。和单纯执行JavaScript是一致的。<br>首先通过frida.get_usb_devices()获取到USB设备句柄；然后通过device.attach(‘com.r0ysue.demo02’) 进程进行注入；接着用creat_script()函数加载编写的JavaScript代码，并使用script.on(‘message’.on_message)注册自己的消息对应的函数，每当JavaScript想要自己输出时都会经过这里指定的on_message进行；最后，也是最重要的RPC调用代码，即通过script.exports访问所有我们在javaScript中定义的导出名，进而调用导出函数。就完成了RPC远程调用，达到主机上可以随意调用App代码的目的。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/" rel="tag"><i class="fa fa-android"></i> frida脚本入门</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2024/04/10/java-%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6/" rel="next" title="[java]集合进阶">
+                <i class="fa fa-chevron-left"></i> [java]集合进阶
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/android.svg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/blttttt" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Frida%E8%84%9A%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">Frida脚本概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%B1%82Hook%E5%9F%BA%E7%A1%80"><span class="nav-number">2.</span> <span class="nav-text">Java层Hook基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%B1%82%E4%B8%BB%E5%8A%A8%E8%B0%83%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">Java层主动调用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RPC%E5%8F%8A%E5%85%B6%E8%87%AA%E5%8A%A8%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">RPC及其自动化</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">白乐天</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("1/1/2024 00:00:00"); //修改为你的网站开始运行的时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
