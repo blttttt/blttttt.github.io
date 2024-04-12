@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Objection是基于Frida的工具。 Objection介绍&emsp;&emsp;在Frida提供的各种API基础之上可以实现无数的具体功能，Objection可以说是一个将各种常用功能整合进工具中供我们直接在命令行中使用的利器，Objection甚至可以不写一行代码就能进行App的逆向分析。&emsp;&emsp;Objection集成的功能主要支持Android和iOS两大移动平台。在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objection快速逆向">
+<meta property="og:url" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/index.html">
+<meta property="og:site_name" content="白乐天">
+<meta property="og:description" content="Objection是基于Frida的工具。 Objection介绍&emsp;&emsp;在Frida提供的各种API基础之上可以实现无数的具体功能，Objection可以说是一个将各种常用功能整合进工具中供我们直接在命令行中使用的利器，Objection甚至可以不写一行代码就能进行App的逆向分析。&emsp;&emsp;Objection集成的功能主要支持Android和iOS两大移动平台。在">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/1.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/2.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/3.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/4.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/5.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/6.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/7.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/8.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/10.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/9.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/11.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/12.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/13.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/14.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/15.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/16.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/17.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/18.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/19.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/20.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/21.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/22.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/23.png">
+<meta property="og:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/24.png">
+<meta property="article:published_time" content="2024-04-12T04:18:29.000Z">
+<meta property="article:modified_time" content="2024-04-12T13:26:47.585Z">
+<meta property="article:author" content="白乐天">
+<meta property="article:tag" content="Objection快速逆向">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/1.png">
+
+
+<link rel="canonical" href="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/","path":"2024/04/12/Objection快速逆向/","title":"Objection快速逆向"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Objection快速逆向 | 白乐天</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">白乐天</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">16</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">23</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Objection%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">Objection介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Objection%E4%B8%89%E5%A4%A7%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="nav-number">1.1.</span> <span class="nav-text">Objection三大组成部分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Objection%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">Objection安装使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">2.2.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="白乐天"
+      src="/images/android.svg">
+  <p class="site-author-name" itemprop="name">白乐天</p>
+  <div class="site-description" itemprop="description">在安卓逆向和爬虫的道路上渐行渐远!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/blttttt" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;blttttt" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Objection快速逆向 | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Objection快速逆向
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-04-12 12:18:29 / 修改时间：21:26:47" itemprop="dateCreated datePublished" datetime="2024-04-12T12:18:29+08:00">2024-04-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/frida/" itemprop="url" rel="index"><span itemprop="name">frida</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Objection是基于Frida的工具。</p>
+<h1 id="Objection介绍"><a href="#Objection介绍" class="headerlink" title="Objection介绍"></a>Objection介绍</h1><p>&emsp;&emsp;在Frida提供的各种API基础之上可以实现无数的具体功能，Objection可以说是一个将各种常用功能整合进工具中供我们直接在命令行中使用的利器，Objection甚至可以不写一行代码就能进行App的逆向分析。<br>&emsp;&emsp;Objection集成的功能主要支持Android和iOS两大移动平台。在对Android的支持中，Objection可以快速完成如内存搜索、类和模块搜索、方法Hook以及打印参数、返回值、调用栈等常用功能。  </p>
+<h2 id="Objection三大组成部分"><a href="#Objection三大组成部分" class="headerlink" title="Objection三大组成部分"></a>Objection三大组成部分</h2><p>第一部分指Objection重打包的相关组件。Objection可以将Frida运行时所需要的frida-gadget.so重打包进App中，从而完成Frida的无root调试。<br>第二部分指Objection本身。Objection是一个Python的pypi包，可以和包含frida-gadget.so这个文件的App进行交互，运行Frida的Hook脚本，并分析Hook结果。<br>第三部分指Objection从TypeScript项目编译而成的一个agent.js文件。该文件在App运行过程中插了Frida运行库，使得Objection支持的所有的功能成为可能。<br>Objection依托Frida完成了对应用的注入以及对函数的Hook模板，使用时只需要将具体的类填充进去即可完成相应的Hook测试。  </p>
+<h1 id="Objection安装使用"><a href="#Objection安装使用" class="headerlink" title="Objection安装使用"></a>Objection安装使用</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Objection的运行条件：<br>1.Python的版本大于3.4。可通过<code>python -V</code> 查看<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/1.png"><br>2.Python的包管理软件pip的版本大于9.0.可通过<code>pip --version</code>查看版本。<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/2.png"><br>3.使用pip命令安装Objection。<br>&emsp;&emsp;在安装前，要知道Frida版本更新很快，不同的Frida可能支持的API不尽相同，要尽量选择Objection在Frida相应版本靠近的。可以通过在pypi官网查看Objection不同版本的发布时间，同时使用GitHub Frida的仓库查看查看Frida发布时间进行对比确认。<br>先查看自己的Frida版本<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/3.png"><br>找到发布时间<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/4.png"><br>查Objection版本发布时间，这里最新的是1.11.0<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/5.png"><br>pip安装<br><code>pip install objection==1.11.0</code><br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/6.png"><br>查看版本<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/7.png"></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>使用界面和基本命令如下<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/8.png"><br>Objection默认通过USB连接设备，这里不必和Frida的命令行一样通过指定USB模式连接，同时主要通过<code>-g</code>参数指定注入的进程并通过explore命令进入REPL模式。<br>进入REPL模式后便可以使用Objection进行Hook的常用命令。<br>Objection支持通过<code>-N</code>参数来指定网络中的设备并通过-h参数和-p参数来指定对应设备的IP和端口以进行连接，从而对网络设备的注入与Hook。<br>此外还可以通过patchapk命令将frida-gadget.so打包进App等。<br>现在以Android系统基本应用”设置”为例来介绍Objection的REPL模式常用命令。<br>先确认手机使用USB线连接手机后，运行相应的frida-sever，运行“设置”应用以通过frida-ps找到对于应的App及其包名，具体</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frida-ps -U | grep setting </span><br></pre></td></tr></table></figure>
+<p>在Windows中代码要稍微修改下<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/10.png"><br>找到设置的包名com.android.settings后，通过objection注入“设置”应用，注入成功后便进入了Objection的REPL界面，具体操作命令及结果如下<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/9.png"><br>在学习Objection的REPL界面命令之前，首先要了解空格键的作用。在Objection REPL 界面中，当不知道命令时通过按空格键就会揭示可用的命令，出现提示后通过上下选择键及回车键便可以输入命令。<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/11.png"><br>（1）help命令。知道当前命令效果时，在当前命令前加help（如help env）再回车就会出现当前命令的解释信息<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/12.png"><br>（2）jobs命令。作业系统很好用，用于查看和管理当前所执行Hook的任务，可以同时运行多项Hook作业。<br>（3）Frida命令。查看Frida相关信息<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/13.png"><br>（4）内存漫游相关命令。Objection可以快速便捷地打印出内存中的各类相关信息。</p>
+<ul>
+<li>可以使用以下命令列出内存中的所有类<br><code>android hooking list classes</code><br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/14.png"><br>把类都列出来了<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/15.png"> </li>
+<li>可以使用以下命令在内存中所有已加载的类中搜索包含特定关键词的类。<br><code>android hooking search classes 类名</code><br>这里搜索display关键词的类<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/16.png">  </li>
+<li>使用以下命令从内存中搜索所有包含关键词key的方法。<br><code>android hooking search method &lt;key&gt;</code><br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/17.png">  </li>
+<li>搜索到感兴趣的类后，可以使用以下命令查看关心的类的所有方法。<br><code>android hooking list class_methods</code><br>这里以android.hardware.display.DisplayManager这个类为例<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/18.png">  </li>
+<li>以上是基础的Java类相关的内容。在Android中，四大组件很值得关注，Objection在这方面也提供支持，通过以下命令列出进程中所有的activity。<br><code>android hooking list activities</code><br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/19.png">   </li>
+<li>通过以下命令列出进程所有的service。<br><code>android hooking list services</code><br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/20.png"><br>需要列出其他两个组件信息时，只要将对应的地方更换为receivers和providers即可<br>（5）Hook相关命令。通过以下命令对指定的方法进行Hook。<br><code>android hooking watch class_method &lt;methodName&gt;</code><br>这里选择Java中File类的构造函数进行Hook，结果如下：<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/21.png"><br>&emsp;&emsp;上述命令中，我们加上了–dump-args –dump-backtrace –dump-return三个参数，分别用于打印函数的参数、调用栈以及返回值。这三个参数对逆向分析的帮助很大：有些函数的明文和密文非常有可能放在参数和返回值中，而打印调用栈可以让分析者快速进行调用链的溯源。<br>&emsp;&emsp;此时虽然只确定了Hook构造函数，但是默认会Hook对应方法的所有重载。<br>&emsp;&emsp;最后一行输出的<code>(agent) Registering job 883246.</code>，这表示Hook被作为一个“作业添加到Objection的作业系统中了”，此时运行<code>jobs list</code>命令就可以查看到这个“作业”的相关信息，如下图，可以看到Job ID对应的是883246，同时Hooks对应的6正是Hook的函数的数量。<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/22.png"><br>&emsp;&emsp;当我们在“设置”应用中任意位置进行点击时，会发现<code>java.io.File.File(java.io.File, java.lang.String)</code>函数被调用。在Backtrace之后打印的调用栈中，可以清除看到这个构造函数的调用来源<br>&emsp;&emsp;调用栈的顺序是从下至上的，其中的信息有文件路径，文件名，返回值。<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/23.png"><br>测试完了根据“作业”的ID来删除“作业”，取消对这些函数的Hook<br><code>jobs kill &lt;id&gt;</code><br>最终执行结果<br><img src="/2024/04/12/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/24.png"></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Objection%E5%BF%AB%E9%80%9F%E9%80%86%E5%90%91/" rel="tag">Objection快速逆向</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/04/11/frida%E8%84%9A%E6%9C%AC%E5%85%A5%E9%97%A8/" rel="prev" title="frida脚本入门">
+                  <i class="fa fa-angle-left"></i> frida脚本入门
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">白乐天</span>
+  </div>
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("01/01/2024 00:00:00"); //修改为你的网站开始运行的时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
