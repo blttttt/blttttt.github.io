@@ -84,7 +84,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">18</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">25</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">21</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">28</span></a></li>
   </ul>
 </nav>
 
@@ -123,18 +123,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -160,6 +160,264 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/15/Frida%E5%BC%80%E5%8F%91%E6%80%9D%E6%83%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/15/Frida%E5%BC%80%E5%8F%91%E6%80%9D%E6%83%B3/" class="post-title-link" itemprop="url">Frida开发思想</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-04-15 21:15:31 / 修改时间：23:25:39" itemprop="dateCreated datePublished" datetime="2024-04-15T21:15:31+08:00">2024-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/frida/" itemprop="url" rel="index"><span itemprop="name">frida</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="定位：Objection辅助定位"><a href="#定位：Objection辅助定位" class="headerlink" title="定位：Objection辅助定位"></a>定位：Objection辅助定位</h1><p>&emsp;&emsp;Objection在逆向过程中最强大的功能是从海量的代码中定位关键的程序逻辑。Frida需要每次手动编写代码取Hook静态分析的函数，进而观察其参数和返回值是否与需求相符。，Objection将常用的一些功能集成在一起，使得逆向开发和分析人员在分析过程中不需要浪费经历在编写代码上。<br>&emsp;&emsp;以Junior为例<a target="_blank" rel="noopener" href="https://github.com/r0ysue/AndroidFridaBeginnersBook/blob/main/Chap04/junior.apk">Junior</a><br>&emsp;&emsp;使用adb命令将Junior.apk安装并启动，首先使用Objection遍历App所有的activity</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb install -t junior.apk</span><br></pre></td></tr></table></figure>
+<p><img src="/2024/04/15/Frida%E5%BC%80%E5%8F%91%E6%80%9D%E6%83%B3/1.png"><br><img src="/2024/04/15/Frida%E5%BC%80%E5%8F%91%E6%80%9D%E6%83%B3/2.png">  </p>
+<p>&emsp;&emsp;安装和遍历后发现，这个App共有17个activity，这里选择分析的是activity为计算器的相关活动<code>com.example.junior.CalculatorActivity</code>,并用指令去启动这个活动。<br><img src="/2024/04/15/Frida%E5%BC%80%E5%8F%91%E6%80%9D%E6%83%B3/3.png"><br>&emsp;&emsp;同时手机上的activity也被成功启动了，打开了计算器页面。<br>&emsp;&emsp;接下来选取减法作为我们的分析目标，利用Jadx反编译，找到CalculatorActivity，在其onCreate()函数中可以看到注册了很多事件<br><img src="/2024/04/15/Frida%E5%BC%80%E5%8F%91%E6%80%9D%E6%83%B3/4.png"><br>经过测试发现，每次按“等号”按钮后计算结果都会被打印出来。据此找到等号“按钮”的id为<code>btn_equal</code>，根据id找到对应的点击事件响应onClick函数中属于“等号”的部分。<br><img src="/2024/04/15/Frida%E5%BC%80%E5%8F%91%E6%80%9D%E6%83%B3/5.png"><br>从代码中发现最终真实的点击“等号”按钮后的主要代码在caculate()函数中。验证想法：为防止原码和真实运行代码不同，使用以下命令验证是否存在caculate()函数。<br><img src="/2024/04/15/Frida%E5%BC%80%E5%8F%91%E6%80%9D%E6%83%B3/6.png"><br>说明caculate()函数确实存在。 </p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/15/Objection%E7%BB%93%E5%90%88Jeb%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/15/Objection%E7%BB%93%E5%90%88Jeb%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98/" class="post-title-link" itemprop="url">Objection结合Jeb分析实战</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-04-15 16:21:10 / 修改时间：21:12:32" itemprop="dateCreated datePublished" datetime="2024-04-15T16:21:10+08:00">2024-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/frida/" itemprop="url" rel="index"><span itemprop="name">frida</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>apk位置在<code>https://github.com/r0ysue/AndroidFridaBeginnersBook/tree/main/Chap04</code><br>注意：这里一定要把apk安装在模拟器上！这里一定要把apk安装在模拟器上！这里一定要把apk安装在模拟器上！</p>
+<h1 id="Jadx分析"><a href="#Jadx分析" class="headerlink" title="Jadx分析"></a>Jadx分析</h1><p>&emsp;&emsp;使用Jadx将App拖入进行初步分析，查看AndroidManifest.xml内容，这个文件会记录一些App相关的属性信息，包括App的包名、版本号、所申请的权限信息、四大组件信息以及入口类等信息。<br>AndroidManifest.xml文件信息：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span> <span class="attr">android:versionCode</span>=<span class="string">&quot;1&quot;</span> <span class="attr">android:versionName</span>=<span class="string">&quot;1.0&quot;</span> <span class="attr">package</span>=<span class="string">&quot;com.shimeng.qq2693533893&quot;</span> <span class="attr">platformBuildVersionCode</span>=<span class="string">&quot;21&quot;</span> <span class="attr">platformBuildVersionName</span>=<span class="string">&quot;5.0-1521886&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-sdk</span> <span class="attr">android:minSdkVersion</span>=<span class="string">&quot;14&quot;</span> <span class="attr">android:targetSdkVersion</span>=<span class="string">&quot;21&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.RECEIVE_BOOT_COMPLETED&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.RECEIVE_USER_PRESENT&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.RECEIVE_SMS&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.SYSTEM_ALERT_WINDOW&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.GET_TASKS&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.INTERNET&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.VIBRATE&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.BROADCAST_STICKY&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.ACCESS_NETWORK_STATE&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.CALL_PHONE&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.SEND_SMS&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.READ_PHONE_STATE&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">application</span> <span class="attr">android:theme</span>=<span class="string">&quot;@style/MT_Bin&quot;</span> <span class="attr">android:label</span>=<span class="string">&quot;@string/app_name&quot;</span> <span class="attr">android:icon</span>=<span class="string">&quot;@drawable/MT_Bin_res_0x7f020002&quot;</span> <span class="attr">android:debuggable</span>=<span class="string">&quot;true&quot;</span> <span class="attr">android:allowBackup</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:label</span>=<span class="string">&quot;@string/app_name&quot;</span> <span class="attr">android:name</span>=<span class="string">&quot;com.shimeng.qq2693533893.MainActivity&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.MAIN&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.LAUNCHER&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">service</span> <span class="attr">android:name</span>=<span class="string">&quot;com.shimeng.qq2693533893.MyServiceOne&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">receiver</span> <span class="attr">android:name</span>=<span class="string">&quot;com.shimeng.qq2693533893.MyBroadcast&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">intent-filter</span> <span class="attr">android:priority</span>=<span class="string">&quot;2147483647&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.BOOT_COMPLETED&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.BATTERY_CHANGED&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.DATA_ACTIVITY&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.DATA_STATE&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.DATE_CHANGED&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.server.checkin.FOTA_CANCEL&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.MEDIABUTTON&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.BOOT_COMPLETED&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.REBOOT&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.USER_PRESENT&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.MEDIA_MOUNTED&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.MEDIA_SCANNER_STARTED&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.MEDIA_SCANNER_FINISHED&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.TIME_SET&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.TIME_TICK&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.UMS_CONNECTED&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.WALLPAPER_CHANGED&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.PACKAGE_ADDED&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.PACKAGE_REMOVED&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.PHONE_STATE&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.SCREEN_OFF&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.SCREEN_ON&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.SERVICE_STATE&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.SIG_STR&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.ALTERNATIVE&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.SETTINGS&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.net.conn.CONNECTIVITY_CHANGE&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.net.wifi.WIFI_STATE_CHANGED&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.net.wifi.STATE_CHANGE&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.HOME&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">application</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;App的包名就是进程唯一的标志（com.shimeng.qq2693533893），根据activity、service、等标签可以确认App的四大组件的信息。这个App只有一个activity，因此MainActivity就是入口类。<br>&emsp;&emsp;也可以通过intent-filter标签中的action属性信息和category属性信息标志入口类，入口类的action属性为<code>android.intent.action.MAIN</code>，而category属性则为<code>android.intent.category.LAUNCHER</code>。<br>&emsp;&emsp;查看入口类代码，在左侧界面选中并点击MainActivity后，会显示翻译出的MainActivity内容。<br><img src="/2024/04/15/Objection%E7%BB%93%E5%90%88Jeb%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98/1.png"><br>&emsp;&emsp;这个activity是通过startService()函数启动了一个名为com.shimeng.qq2693533893.MyServiceOne的服务。查看MyServiceOne类的内容，代码很复杂，而且由于混淆信息导致静态代码可读性不好。<br>&emsp;&emsp;这时要是想快速分析程序逻辑就要选择使用Objection进行动态调试，在开始动态调试前还要解决一些问题。<br>&emsp;&emsp;在开始前提到过要在模拟器中运行这个恶意应用，因为如果模拟器的系统被恶意代码攻击或者损坏了，可以直接删除后重新创建一个全新的系统。<br>&emsp;&emsp;在恶意app打开应用后，adb连接会自动断开，并且无法通过USB连接。<br>&emsp;&emsp;使用Jadx查看App的包结构会发现有一个USBLock的相关类<br><img src="/2024/04/15/Objection%E7%BB%93%E5%90%88Jeb%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98/2.png"><br>&emsp;&emsp;查看内容会发现，类中执行了一个<code>setprop persist.sys.usb.config none</code>的命令，它与getprop相对，setprop用于Android系统的某个属性。搜索<code>persist.sys.usb.config</code>会发现这个属性与设置USB调试相关，属性被设置为none时，就会导致adb调试被禁用，达到断开连接的作用。<br>&emsp;&emsp;如果无法使用USB连接，就无法通过adb启动frida-server，无法进行Objection进行连接。<br>&emsp;&emsp;我们可以使用Termux软件。他是一个安卓手机的Linux模拟器，可以在手机上模拟Linux环境，它提供一个命令行界面，让用户与系统互动，实际上就是个普通手机App。下载地址在这里<a target="_blank" rel="noopener" href="https://github.com/termux/termux-app/releases">Termux</a>下载好后通过adb安装到模拟器上。<br>&emsp;&emsp;安装好后打开<br><img src="/2024/04/15/Objection%E7%BB%93%E5%90%88Jeb%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98/3.png"><br>模拟器默认root过，直接用<code>su</code>命令启用root权限。运行<code>frida-sever -help</code>来查看帮助信息，发现frida-sever其实是支持使用网络模式进行监听的<br><img src="/2024/04/15/Objection%E7%BB%93%E5%90%88Jeb%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98/4.png"><br>Objection默认使用USB模式连接，但也可通过USB模式连接，但可以通过<code>-N</code>参数使用网络模式，使用时通过<code>-h</code>参数指定IP地址、<code>-p</code>参数指定端口去实现网络模式链接。  </p>
+<h6 id="出bug了，无法继续向下进行！！！"><a href="#出bug了，无法继续向下进行！！！" class="headerlink" title="出bug了，无法继续向下进行！！！"></a>出bug了，无法继续向下进行！！！</h6>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/15/adb%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/15/adb%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">adb命令</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-04-15 11:36:45 / 修改时间：11:59:26" itemprop="dateCreated datePublished" datetime="2024-04-15T11:36:45+08:00">2024-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/adb/" itemprop="url" rel="index"><span itemprop="name">adb</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="常用简单命令"><a href="#常用简单命令" class="headerlink" title="常用简单命令"></a>常用简单命令</h1><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>adb devices</td>
+<td>获取设备列表和设备的状态</td>
+</tr>
+<tr>
+<td>adb -s xxx(序列号) shell</td>
+<td>指定连接设备使用命令</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -199,7 +457,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-04-15 09:11:35 / 修改时间：09:13:00" itemprop="dateCreated datePublished" datetime="2024-04-15T09:11:35+08:00">2024-04-15</time>
+      <time title="创建时间：2024-04-15 09:11:35 / 修改时间：11:35:11" itemprop="dateCreated datePublished" datetime="2024-04-15T09:11:35+08:00">2024-04-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -221,7 +479,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <h1 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h1><p>pixel 3，o版，4G+64G，android 11<br>win11<br>解锁OEM和BL，可能已经被解开过了  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/04/15/%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -375,7 +641,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-13 14:14:36" itemprop="dateModified" datetime="2024-04-13T14:14:36+08:00">2024-04-13</time>
+      <time title="修改时间：2024-04-15 13:53:31" itemprop="dateModified" datetime="2024-04-15T13:53:31+08:00">2024-04-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -727,227 +993,6 @@
     
     <div class="post-body" itemprop="articleBody">
           
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/10/java-%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/10/java-%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">[java]字符串</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-10 13:09:24" itemprop="dateCreated datePublished" datetime="2024-04-10T13:09:24+08:00">2024-04-10</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/10/java-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/10/java-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">[java]面向对象</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-10 13:09:01" itemprop="dateCreated datePublished" datetime="2024-04-10T13:09:01+08:00">2024-04-10</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/08/java-%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/08/java-%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">[java]方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-04-08 20:32:21 / 修改时间：20:37:38" itemprop="dateCreated datePublished" datetime="2024-04-08T20:32:21+08:00">2024-04-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="What-is-方法？"><a href="#What-is-方法？" class="headerlink" title="What is 方法？"></a>What is 方法？</h1><p>方法(method)是程序中最小的执行单元。<br><img src="/2024/04/08/java-%E6%96%B9%E6%B3%95/1.jpg"><br>main方法是主方法。metnod1是自己写的方法。<br>方法定义：将一些代码打包在一起，这个过程称为方法的定义。<br>方法调用：方法定义后不是直接运行的，需要手动调用才能执行。  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> 返回值类型 方法名 (参数)&#123;</span><br><span class="line">    方法体;</span><br><span class="line">    retuan 返回值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="有返回值方法的调用格式"><a href="#有返回值方法的调用格式" class="headerlink" title="有返回值方法的调用格式"></a>有返回值方法的调用格式</h2><p>直接调用<br>赋值调用<br>输出调用<br><strong>注意事项</strong><br>方法的返回值类型为void,表示该方法没有返回值，return语句可以省略不写，写了return 后面就不能跟具体的数据。<br>return 语句下面不能编写代码，因为执行不到，属于无效的代码。  </p>
-<h1 id="方法的重载"><a href="#方法的重载" class="headerlink" title="方法的重载"></a>方法的重载</h1><p>在同一个类中，定义了多个同名的方法，这些同名的方法具有同种功能。<br>每个方法具有不同的参数类型或参数个数，这些同名的方法，就构成了重载的关系。<br>简记：在同一个类中，方法名相同，参数不同的方法。与返回值无关。<br>参数不同：个数不同，类型不同，顺序不同  </p>
-<h1 id="方法调用的基本原理"><a href="#方法调用的基本原理" class="headerlink" title="方法调用的基本原理"></a>方法调用的基本原理</h1><p>调用方法时，方法会进入栈中，先进后出的原理。<br>方法执行时入栈，执行完毕出栈。  </p>
-<h2 id="基本数据类型和引用数据类型"><a href="#基本数据类型和引用数据类型" class="headerlink" title="基本数据类型和引用数据类型**"></a>基本数据类型和引用数据类型**</h2><p><strong>基本</strong><br>整数<br>浮点数<br>布尔<br>字符<br><strong>引用</strong><br>除了基本都是引用</p>
-<h2 id="方法的值传递和址传递"><a href="#方法的值传递和址传递" class="headerlink" title="方法的值传递和址传递"></a>方法的值传递和址传递</h2><p>略</p>
-
       
     </div>
 
