@@ -19,25 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="白乐天">
-<meta property="og:url" content="http://example.com/tags/Activity/index.html">
+    <meta name="description" content="基础知识&emsp;&emsp;在Java字节码中，寄存器都是32位的，能够支持任何类型，64位类型（Long&#x2F;Double）用两个寄存器表示，寄存器的命名方式有p命名法和v命名法。p命名法通常用与表示函数参数，比如p0、p1等，v命名法用于表示函数内部的变量，比如v0、v1等。&emsp;&emsp;数据类型有两种，基本数据类型和引用类型。    数据类型 Java文件中的数据表示方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="smali基础语法">
+<meta property="og:url" content="http://example.com/2024/04/20/smali/index.html">
 <meta property="og:site_name" content="白乐天">
-<meta property="og:description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+<meta property="og:description" content="基础知识&emsp;&emsp;在Java字节码中，寄存器都是32位的，能够支持任何类型，64位类型（Long&#x2F;Double）用两个寄存器表示，寄存器的命名方式有p命名法和v命名法。p命名法通常用与表示函数参数，比如p0、p1等，v命名法用于表示函数内部的变量，比如v0、v1等。&emsp;&emsp;数据类型有两种，基本数据类型和引用类型。    数据类型 Java文件中的数据表示方式">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-20T08:54:00.000Z">
+<meta property="article:modified_time" content="2024-04-20T09:25:15.629Z">
 <meta property="article:author" content="白乐天">
+<meta property="article:tag" content="samli">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/tags/Activity/">
+<link rel="canonical" href="http://example.com/2024/04/20/smali/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/Activity/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/04/20/smali/","path":"2024/04/20/smali/","title":"smali基础语法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: Activity | 白乐天</title>
+<title>smali基础语法 | 白乐天</title>
   
 
 
@@ -96,7 +99,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -109,6 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -159,50 +163,156 @@
 
     </div>
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">Activity
-          <small>标签</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/20/smali/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="smali基础语法 | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          smali基础语法
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
+
+      <time title="创建时间：2024-04-20 16:54:00 / 修改时间：17:25:15" itemprop="dateCreated datePublished" datetime="2024-04-20T16:54:00+08:00">2024-04-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/smali/" itemprop="url" rel="index"><span itemprop="name">smali</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><p>&emsp;&emsp;在Java字节码中，寄存器都是32位的，能够支持任何类型，64位类型（Long&#x2F;Double）用两个寄存器表示，寄存器的命名方式有p命名法和v命名法。p命名法通常用与表示函数参数，比如p0、p1等，v命名法用于表示函数内部的变量，比如v0、v1等。<br>&emsp;&emsp;数据类型有两种，基本数据类型和引用类型。</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>Java文件中的数据表示方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V</td>
+<td>void</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>B</td>
+<td>byte</td>
+</tr>
+<tr>
+<td>S</td>
+<td>short</td>
+</tr>
+<tr>
+<td>C</td>
+<td>char</td>
+</tr>
+<tr>
+<td>I</td>
+<td>int</td>
+</tr>
+<tr>
+<td>J</td>
+<td>long</td>
+</tr>
+<tr>
+<td>F</td>
+<td>float</td>
+</tr>
+<tr>
+<td>D</td>
+<td>double</td>
+</tr>
+<tr>
+<td>&emsp;&emsp;引用类型中的对象类型通常以“Lpackage&#x2F;name&#x2F;ObjectName;”的形式表示。其中L表示这是一个对象类型，“;”标识对象名称的结束，中间的package&#x2F;name表示对象的包名，ObjectName表示对象名。最终这样的形式相比于Java源代码中package.name.ObjectName类的完整表示，比如com.r0ysue.demo02.MainActivity类，最终表示”Lcom&#x2F;r0ysue&#x2F;demo02&#x2F;MainActivity;”。</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp;&emsp;数组通常只需要在类型的前面加上“[”即可。比如，整型数据int []用smali语言的形式就表示[I,对象数组也是类似，[Ljava&#x2F;lang&#x2F;String表示一个String字符串的数组类型。</td>
+<td></td>
+</tr>
+<tr>
+<td>&emsp;&emsp;Smali文件中，“#”用于注释，类似于编写Java代码时的“&#x2F;&#x2F;”符号。</td>
+<td></td>
+</tr>
+</tbody></table>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-04-04T18:50:20+08:00"
-              content="2024-04-04">
-          04-04
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/04/04/android-Activity/" itemprop="url">
-            <span itemprop="name">[android]Activity</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/samli/" rel="tag">samli</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/04/19/re-tools/" rel="prev" title="逆向工具">
+                  <i class="fa fa-angle-left"></i> 逆向工具
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
+
 
 </div>
   </main>
