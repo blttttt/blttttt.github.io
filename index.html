@@ -205,7 +205,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-23 16:04:09" itemprop="dateModified" datetime="2024-04-23T16:04:09+08:00">2024-04-23</time>
+      <time title="修改时间：2024-04-23 21:15:55" itemprop="dateModified" datetime="2024-04-23T21:15:55+08:00">2024-04-23</time>
     </span>
 
   
@@ -343,63 +343,64 @@ public void onClick(View v) &#123;
 <h2 id="百分比布局"><a href="#百分比布局" class="headerlink" title="百分比布局"></a>百分比布局</h2><p>&emsp;&emsp;前面的布局中只有LinearLayout支持使用layout_weight属性来实现按比例指定大小的功能，其他两种都不支持。如果想要用RelativeLayout来实现让两个按钮评分布局宽度的效果，则比较困难。<br>&emsp;&emsp;为此，Android引入了新的布局方式来解决这个问题——百分比布局。这种布局中，不再使用wrap_content、match_parent等方式指定控件的大小了，而是允许直接直指定控件所占的百分比，这样可以轻松实现平分布局甚至任意比例分割布局的效果。<br>&emsp;&emsp;百分比布局提供了PercentFrameLayout和PercentRelativeLayout这两个全新的布局。Android将百分比布局定义在了suport库中，我们只需要在项目的build.gradle中添加百分比布局库的依赖，就能保证百分比布局在Android所有系统版本上的兼容性了。<br>&emsp;&emsp;打开app&#x2F;build.gradle文件，在dependencies闭包中添加如下内容：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    implementation (&quot;androidx.percentlayout:percentlayout:1.0.0&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>每当修改了任何gradle文件时，Android Studio都会弹出提示，需要我们再次同步才能使项目正常工作，点击<code>Sync Now</code>即可。修改activity_main.xml中的代码：</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;match_parent&quot;
-    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;&gt;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Button 1 --&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/button1&quot;</span><br><span class="line">        android:text=&quot;Button1&quot;</span><br><span class="line">        android:layout_width=&quot;0dp&quot;</span><br><span class="line">        android:layout_height=&quot;0dp&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintEnd_toStartOf=&quot;@id/button2&quot;</span><br><span class="line">        app:layout_constraintBottom_toTopOf=&quot;@id/button3&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Button 2 --&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/button2&quot;</span><br><span class="line">        android:text=&quot;Button2&quot;</span><br><span class="line">        android:layout_width=&quot;0dp&quot;</span><br><span class="line">        android:layout_height=&quot;0dp&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintEnd_toEndOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintStart_toEndOf=&quot;@id/button1&quot;</span><br><span class="line">        app:layout_constraintBottom_toTopOf=&quot;@id/button4&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Button 3 --&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/button3&quot;</span><br><span class="line">        android:text=&quot;Button3&quot;</span><br><span class="line">        android:layout_width=&quot;0dp&quot;</span><br><span class="line">        android:layout_height=&quot;0dp&quot;</span><br><span class="line">        app:layout_constraintStart_toStartOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintEnd_toStartOf=&quot;@id/button4&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@id/button1&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Button 4 --&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/button4&quot;</span><br><span class="line">        android:text=&quot;Button4&quot;</span><br><span class="line">        android:layout_width=&quot;0dp&quot;</span><br><span class="line">        android:layout_height=&quot;0dp&quot;</span><br><span class="line">        app:layout_constraintEnd_toEndOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;</span><br><span class="line">        app:layout_constraintStart_toEndOf=&quot;@id/button3&quot;</span><br><span class="line">        app:layout_constraintTop_toBottomOf=&quot;@id/button2&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line">![](android-UI/8.png)   </span><br><span class="line"># 创建自定义控件</span><br><span class="line">控件和布局的继承结构  </span><br><span class="line">![](android-UI/9.png)   </span><br><span class="line">&amp;emsp;&amp;emsp;所用的控件都是直接或间接继承自View的，所用的布局都是直接或间接继承自ViewGroup的。View是Android中最基本的一种UI组件，它可以在屏幕上绘制一块矩形区域，并能影响这块区域的各种事件，我们使用的各种控件其实就是在View的基础之上添加了各自特有的功能。而ViewGroup则是一种特殊的View，它包含了很多子View和子ViewGroup，是一个放置控件和布局的容器。</span><br><span class="line">&amp;emsp;&amp;emsp;创建一个UICustomViews项目。</span><br><span class="line">## 引入布局</span><br><span class="line">&amp;emsp;&amp;emsp;在iPhone中，几乎每个应用的界面顶部都会有一个标题栏，标题栏上会有一到两个按钮可用于返回或其他操作。这里我们创建自定义标题栏。  </span><br><span class="line">&amp;emsp;&amp;emsp;只需要加入两个Button和一个TextView，然后在布局中摆放好就可以了。</span><br><span class="line">为了减少代码重复，可以使用引入布局的方式来解决这个问题，新建一个布局title.xml:</span><br></pre></td></tr></table></figure>
+<?xml version="1.0" encoding="utf-8"?>
+<p><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent"></LinearLayout></p>
+<pre><code>&lt;Button
+    android:id=&quot;@+id/title_back&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_gravity=&quot;top&quot;
+    android:layout_margin=&quot;5dp&quot;
+    android:text=&quot;Back&quot;
+    android:textColor=&quot;#fff&quot; /&gt;
 
-    &lt;!-- Button 1 --&gt;
-    &lt;Button
-        android:id=&quot;@+id/button1&quot;
-        android:text=&quot;Button1&quot;
-        android:layout_width=&quot;0dp&quot;
-        android:layout_height=&quot;0dp&quot;
-        app:layout_constraintTop_toTopOf=&quot;parent&quot;
-        app:layout_constraintStart_toStartOf=&quot;parent&quot;
-        app:layout_constraintEnd_toStartOf=&quot;@id/button2&quot;
-        app:layout_constraintBottom_toTopOf=&quot;@id/button3&quot; /&gt;
+&lt;TextView
+    android:id=&quot;@+id/title_text&quot;
+    android:layout_width=&quot;0dp&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_gravity=&quot;top&quot;
+    android:layout_weight=&quot;1&quot;
+    android:gravity=&quot;center&quot;
+    android:text=&quot;Title Text&quot;
+    android:textColor=&quot;#000&quot;
+    android:textSize=&quot;24sp&quot;/&gt;
 
-    &lt;!-- Button 2 --&gt;
-    &lt;Button
-        android:id=&quot;@+id/button2&quot;
-        android:text=&quot;Button2&quot;
-        android:layout_width=&quot;0dp&quot;
-        android:layout_height=&quot;0dp&quot;
-        app:layout_constraintTop_toTopOf=&quot;parent&quot;
-        app:layout_constraintEnd_toEndOf=&quot;parent&quot;
-        app:layout_constraintStart_toEndOf=&quot;@id/button1&quot;
-        app:layout_constraintBottom_toTopOf=&quot;@id/button4&quot; /&gt;
-
-    &lt;!-- Button 3 --&gt;
-    &lt;Button
-        android:id=&quot;@+id/button3&quot;
-        android:text=&quot;Button3&quot;
-        android:layout_width=&quot;0dp&quot;
-        android:layout_height=&quot;0dp&quot;
-        app:layout_constraintStart_toStartOf=&quot;parent&quot;
-        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;
-        app:layout_constraintEnd_toStartOf=&quot;@id/button4&quot;
-        app:layout_constraintTop_toBottomOf=&quot;@id/button1&quot; /&gt;
-
-    &lt;!-- Button 4 --&gt;
-    &lt;Button
-        android:id=&quot;@+id/button4&quot;
-        android:text=&quot;Button4&quot;
-        android:layout_width=&quot;0dp&quot;
-        android:layout_height=&quot;0dp&quot;
-        app:layout_constraintEnd_toEndOf=&quot;parent&quot;
-        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;
-        app:layout_constraintStart_toEndOf=&quot;@id/button3&quot;
-        app:layout_constraintTop_toBottomOf=&quot;@id/button2&quot; /&gt;
-
-&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;
+&lt;Button
+    android:id=&quot;@+id/title_edit&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_gravity=&quot;top&quot;
+    android:layout_margin=&quot;5dp&quot;
+    android:text=&quot;Edit&quot;
+    android:textColor=&quot;#fff&quot;
+    /&gt;
 </code></pre>
-<p><img src="/2024/04/22/android-UI/8.png">   </p>
-<h1 id="创建自定义控件"><a href="#创建自定义控件" class="headerlink" title="创建自定义控件"></a>创建自定义控件</h1><p>控件和布局的继承结构<br><img src="/2024/04/22/android-UI/9.png"><br>所用的控件都是直接或间接继承自View的，所用的布局都是直接或间接继承自ViewGroup的。View是Android中最基本的一种UI组件，它可以在屏幕上绘制一块矩形区域，并能影响这块区域的各种事件，我们使用的各种控件其实就是在View的基础之上添加了各自特有的功能。而ViewGroup则是一种特殊的View，它包含了很多子View和子ViewGroup，是一个放置控件和布局的容器。</p>
-<h2 id="引入布局"><a href="#引入布局" class="headerlink" title="引入布局"></a>引入布局</h2><p>&emsp;&emsp;在iPhone中，几乎每个应用的界面顶部都会有一个标题栏，标题栏上会有一到两个按钮可用于返回或其他操作。这里我们创建自定义标题栏。</p>
 
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&amp;emsp;&amp;emsp;在这里使用了android:layout_margin属性，它可以指定控件在上下左右方向上偏移的距离，也可以用android:layout_marginLeft或android:layout_marginTop等属性单独指定控件在某个方向上偏移的距离。  </span><br><span class="line">&amp;emsp;&amp;emsp;标题栏布局编写完成，剩下就是在程序中使用标题栏，修改activity_main.xml中代码：</span><br><span class="line">```xml</span><br><span class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;&gt;</span><br><span class="line">    &lt;include layout=&quot;@layout/title&quot;/&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure>
+&emsp;&emsp;隐藏系统自带标题
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">    super.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line">    ActionBar actionbar= getSupportActionBar();</span><br><span class="line">    if (actionbar!= null)&#123;</span><br><span class="line">        actionbar.hide();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+&emsp;&emsp;通过调用getSupportActionBar()方法来获得ActionBar的实例，然后调用ActionBar的hide()方法将标题隐藏起来。  
+## 创建自定义控件
+&emsp;&emsp;新建TitleLayout继承自LinearLayout,让它成为我们自定义的标题栏控件：
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class TitleLayout extends LinearLayout &#123;</span><br><span class="line">    public TitleLayout(Context context, @Nullable AttributeSet attrs) &#123;</span><br><span class="line">        super(context, attrs);</span><br><span class="line">        LayoutInflater.from(context).inflate(R.layout.title,this);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+&emsp;&emsp;我们重写了LinearLayout中带有两个参数的构造函数，在布局中引入TitleLayout控件就会调用这个构造函数。然后在构造函数中需要对标题栏布局进行动态加载，借助LayoutInflater来实现。通过LayoutInflater的from()方法可以构建出一个LayoutInflater对象，然后调用inflate()方法动态加载一个布局文件，inflate()方法接收两个参数，第一个参数是要加载布局文件的id这里我们传入R.id.title，第二个参数给加载好的布局再添加一个父布局，这里我们想要指定为TitleLayout，传入this。  
+&emsp;&emsp;在布局文件中添加这个自定义控件，修改activity_main.xml中的代码：
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;&gt;</span><br><span class="line">    &lt;com.example.uicustomviews.TitleLayout </span><br><span class="line">        tools:ignore=&quot;MissingClass&quot;  </span><br><span class="line">        android:layout_height=&quot;match_parent&quot; </span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;/&gt;</span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure>
+&emsp;&emsp;添加自定义控件和添加普通控件的方式基本一样，只不过在添加自定义控件时，我们要指明控件的完整类名。  
+&emsp;&emsp;为标题栏的按钮注册点击事件，修改TitleLayout中的代码：
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TitleLayout</span> <span class="keyword">extends</span> <span class="title class_">LinearLayout</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">TitleLayout</span><span class="params">(Context context, <span class="meta">@Nullable</span> AttributeSet attrs)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(context, attrs);</span><br><span class="line">        LayoutInflater.from(context).inflate(R.layout.title,<span class="built_in">this</span>);</span><br><span class="line">        <span class="type">Button</span> <span class="variable">titleedit</span> <span class="operator">=</span> (Button) findViewById(R.id.title_edit);</span><br><span class="line">        <span class="type">Button</span> <span class="variable">titleback</span> <span class="operator">=</span> (Button) findViewById(R.id.title_back);</span><br><span class="line">        titleback.setOnClickListener(<span class="keyword">new</span> <span class="title class_">OnClickListener</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClick</span><span class="params">(View v)</span> &#123;</span><br><span class="line">                ((Activity)getContext()).finish();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        titleedit.setOnClickListener(<span class="keyword">new</span> <span class="title class_">OnClickListener</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClick</span><span class="params">(View v)</span> &#123;</span><br><span class="line">                Toast.makeText(getContext(),<span class="string">&quot;You cliclk Edit button&quot;</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+&emsp;&emsp;先通过findViewById()方法得到按钮实例然后调用setOnClickListener()方法给两个按钮注册点击事件，当点击返回按钮时，销毁当前的活动，当点击编辑按钮时弹出一段文本。  
+&emsp;&emsp;这样每当在一个布局中引入TitleLayout时，返回按钮和编辑按钮的点击事件就已经自动实现好了。
+# ListView
+&emsp;&emsp;由于手机屏幕空间都比较有限，能够一次性在屏幕上显示的内容不多，当我们的程序中有大量的数据需要展示时，就可以借助ListView来实现。ListView允许用户通过手指上下滑动的方式将屏幕外的数据滚动到屏幕内，同时屏幕上原有的数据则会滚动出屏幕。  
+## ListView的简单用法
+&emsp;&emsp;先新建一个ListViewTest项目，让Android Studio自动帮我们创建好活动。修改activity_main.xml中的代码：
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</span><br><span class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    tools:context=&quot;.MainActivity&quot;&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;ListView</span><br><span class="line">        android:id=&quot;@+id/list_view&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;</span><br><span class="line">        /&gt;</span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure>
+修改MainActivity中的代码：
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line">    private String[] data = &#123;&quot;Apple&quot;,&quot;Banana&quot;,&quot;Orange&quot;,&quot;Watermelon&quot;,</span><br><span class="line">            &quot;Pear&quot;,&quot;Grape&quot;,&quot;Pineapple&quot;,&quot;Strawberry&quot;,&quot;Cherry&quot;,&quot;Mango&quot;,</span><br><span class="line">            &quot;Apple&quot;,&quot;Banana&quot;,&quot;Orange&quot;,&quot;Watermelon&quot;,</span><br><span class="line">            &quot;Pear&quot;,&quot;Grape&quot;,&quot;Pineapple&quot;,&quot;Strawberry&quot;,&quot;Cherry&quot;,&quot;Mango&quot;&#125;;</span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(</span><br><span class="line">                MainActivity.this, android.R.layout.simple_list_item_1,data</span><br><span class="line">        );</span><br><span class="line">        ListView listView= (ListView) findViewById(R.id.list_view);</span><br><span class="line">        listView.setAdapter(adapter);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+&emsp;&emsp;我们用了data数组来测试，里面包含了很多水果的名称。不过数组中的数据是无法直接传递给ListView的，我们还需要借助适配器来完成。Android中提供了很多适配器的实现类，其中ArrayAdapter较好用。它可以通过泛型来指定要适配的数据类型，然后在构造函数中把要适配的数据传入。ArrayAdapter有多个构造函数的重载，根据实际情况选择最合适的一种。ArrayAdapter的构造函数中依次传入当前上下文、ListView子项布局的id，以及要适配的数据。我们使用了android.R.layout.simple_list_item_1作为ListView子项布局的id，这是一个Android内置的布局文件，里面只有一个TextView，用于简单地显示一段文本。  
+&emsp;&emsp;最后调用ListView的setAdapter()方法，将构建好的适配器对象传递进去，ListView和数据之间的关联就建立完成了。
       
     </div>
 
