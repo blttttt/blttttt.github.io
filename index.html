@@ -84,7 +84,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">29</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">46</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">31</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">48</span></a></li>
   </ul>
 </nav>
 
@@ -123,18 +123,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -160,6 +160,212 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/25/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/25/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">爬虫基础</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-25 21:25:09" itemprop="dateCreated datePublished" datetime="2024-04-25T21:25:09+08:00">2024-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-04-26 12:20:11" itemprop="dateModified" datetime="2024-04-26T12:20:11+08:00">2024-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Http基本原理"><a href="#Http基本原理" class="headerlink" title="Http基本原理"></a>Http基本原理</h1><h2 id="URI和URL"><a href="#URI和URL" class="headerlink" title="URI和URL"></a>URI和URL</h2><p>&emsp;&emsp;<strong>URI</strong>全称：Uniform Resource Identifier，即统一资源标志符；<strong>URL</strong>的全称为Uniform Resource Locator，即统一资源定位符。举例：<a target="_blank" rel="noopener" href="https://github.com/favicon.ico">https://github.com/favicon.ico</a> 既是一个URI，也是一个URL。即有favicon.ico这样一个图标资源，我们用URI&#x2F;URL指定了访问它的唯一方式，其中包括https、访问路径（根目录）和资源名称。通过这样一个链接，就可以从互联网中找到某个资源，这个链接就是URI&#x2F;URL。<br>&emsp;&emsp;URL是URI的子集。除了URL，URI还包括一个子类，是URN（Uniform Resource Name），即统一资源名称。URN只为资源命名，而不指定如何定位资源。<br>&emsp;&emsp;<strong>URL</strong>基本格式：<br><code>scheme://[username:password@]hostname[:port][/path][;parameters][?query][#gragment]</code> 其中，中括号包括的内容代表非必要部分，如 <a target="_blank" rel="noopener" href="https://www.baidu.com这个url,这里只包含了scheme、hostname两部分,没有part、parameters、query、fragment./">https://www.baidu.com这个URL，这里只包含了scheme、hostname两部分，没有part、parameters、query、fragment。</a>  </p>
+<ul>
+<li><p>scheme：协议。常见协议有http、https、ftp等，另外scheme也被称作protocol，都代表协议的意思。  </p>
+</li>
+<li><p>username、passward: 用户名和密码。某些情况下URL需要提供用户名和密码才能访问，这时候把用户名和密码放在host前面。如<a target="_blank" rel="noopener" href="https://ssr3.scrape.center这个url需要用户名和密码才能访问,直接写为https//admin:admin@ssr3.scrape.center%E5%B0%B1%E8%83%BD%E7%9B%B4%E6%8E%A5%E8%AE%BF%E9%97%AE%E3%80%82">https://ssr3.scrape.center这个URL需要用户名和密码才能访问，直接写为https://admin:admin@ssr3.scrape.center就能直接访问。</a></p>
+</li>
+<li><p>hostname：主机地址。可以是域名或IP地址，比如<a target="_blank" rel="noopener" href="https://www.baidu.com这个url中的hostname就是www.baidu.com,这就是百度的二级域名.比如https//8.8.8.8%EF%BC%8C%E8%BF%99%E4%B8%AAURL%E4%B8%AD%E7%9A%84hostname%EF%BC%8C%E5%AE%83%E6%98%AF%E4%B8%80%E4%B8%AAIP%E5%9C%B0%E5%9D%80%E3%80%82">https://www.baidu.com这个URL中的hostname就是www.baidu.com，这就是百度的二级域名。比如https://8.8.8.8，这个URL中的hostname，它是一个IP地址。</a>  </p>
+</li>
+<li><p>port：端口。这是服务器设定的服务端口，比如<a href="https://8.8.8.8:12345，这个URL中的端口就是12345。但是有些URL中没有端口信息，使用了默认端口。http协议的默认端口是80，https协议的默认端口是443。所以">https://8.8.8.8:12345，这个URL中的端口就是12345。但是有些URL中没有端口信息，使用了默认端口。http协议的默认端口是80，https协议的默认端口是443。所以</a> <a target="_blank" rel="noopener" href="https://www.baidu.com/">https://www.baidu.com</a> 其实相当于<a target="_blank" rel="noopener" href="https://www.baidu.com/">https://www.baidu.com:443</a>, <a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a> 相当于<a href="http://www.baidu.com:80。">http://www.baidu.com:80。</a>  </p>
+</li>
+<li><p>path：路径。指的是网络资源在服务器中的指定地址，比如 <a target="_blank" rel="noopener" href="https://github.com/favicon.ico">https://github.com/favicon.ico</a> 中的path就是 favicon.ico ，指的是访问Github根目录下的favicon.ico。</p>
+</li>
+<li><p>paremeters：参数。用来指定访问某个资源时的附加信息，比如<a target="_blank" rel="noopener" href="https://8.8.8.8:12345/hello;user%E4%B8%AD%E7%9A%84user%E5%B0%B1%E6%98%AFparameters%E3%80%82%E4%BD%86%E6%98%AFparameters%E7%8E%B0%E5%9C%A8%E7%94%A8%E7%9A%84%E5%B0%91%EF%BC%8C%E5%BE%88%E5%A4%9A%E4%BA%BA%E6%8A%8A%E5%8F%82%E6%95%B0%E5%90%8E%E9%9D%A2%E7%9A%84query%E9%83%A8%E5%88%86%E7%A7%B0%E4%B8%BA%E5%8F%82%E6%95%B0%EF%BC%8C%E7%94%9A%E8%87%B3%E6%8A%8Aparameters%E5%92%8Cquery%E6%B7%B7%E7%94%A8%E3%80%82%E4%B8%A5%E6%A0%BC%E6%9D%A5%E8%AF%B4%EF%BC%8Cparameters%E6%98%AF%60;%60%E5%90%8E%E9%9D%A2%E7%9A%84%E9%83%A8%E5%88%86%E3%80%82">https://8.8.8.8:12345/hello;user中的user就是parameters。但是parameters现在用的少，很多人把参数后面的query部分称为参数，甚至把parameters和query混用。严格来说，parameters是`;`后面的部分。</a>  </p>
+</li>
+<li><p>query: 查询。用于查询某类资源，如果有多个查询用&amp;隔开。query很常见，比如<a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=nba&ie=utf-8">https://www.baidu.com/s?wd=nba&amp;ie=utf-8</a> ，其中query部分就是wd&#x3D;nba&amp;ie&#x3D;utf-8，这里指定了wd是nba，ie是utf-8。我们平时见到的参数、GET请求参数、parameters、params等称呼多情况指代的也是query。  </p>
+</li>
+<li><p>fragment: 片段。它是对资源描述的部分补充，可以理解为资源内部的书签。有两个主要应用，一个是单页面路由，如前端框架Vue、Reat都可以借助它来做到路由管理；另一个是坐HTML锚点，用它控制一个页面打开时自动下滑滚动到某个特定位置。</p>
+</li>
+</ul>
+<h2 id="HTTP和HTTPS"><a href="#HTTP和HTTPS" class="headerlink" title="HTTP和HTTPS"></a>HTTP和HTTPS</h2><p>&emsp;&emsp;<strong>HTTP</strong>：超文本传输协议，其作用是把超文本数据从网络传输到本地浏览器，能够保证高效而准确地传输超文本文档。<br>&emsp;&emsp;<strong>HTTPS</strong>：是以安全为目标的HTTP通道，简单讲就是HTTP安全版，即在HTTP下加入SSL层，简称HTTPS。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/24/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/24/git/" class="post-title-link" itemprop="url">git</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-24 23:20:04" itemprop="dateCreated datePublished" datetime="2024-04-24T23:20:04+08:00">2024-04-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-04-25 00:33:09" itemprop="dateModified" datetime="2024-04-25T00:33:09+08:00">2024-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h1><p>官网下载安装即可</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>使用命令<code>git -v</code>查看git版本<br>初次使用git需要设置用户名以及邮箱  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;用户名&quot;</span><br><span class="line">git config --global user.email &quot;邮箱&quot;</span><br></pre></td></tr></table></figure>
+<p>然后使用<code>git config -l</code>查看配置信息  </p>
+<h1 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h1><h2 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h2><p>找一个合适的地方创建一个空目空，然后在该目录下打开终端，输入<code>git init</code>命令，会创建出一个<code>.git</code>目录，这个目录存放了git仓库的所有数据。  </p>
+<h2 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h2><p>这个命令可以从github或者gitee这种远程服务器上克隆一个已经存在的仓库。<br>使用格式就是<code>git clone 仓库地址</code></p>
+<h1 id="工作区域和工作状态"><a href="#工作区域和工作状态" class="headerlink" title="工作区域和工作状态"></a>工作区域和工作状态</h1><h2 id="三个工作区域"><a href="#三个工作区域" class="headerlink" title="三个工作区域"></a>三个工作区域</h2><h3 id="工作区"><a href="#工作区" class="headerlink" title="工作区"></a>工作区</h3><p><code>.git</code>所在的目录</p>
+<h3 id="暂存区"><a href="#暂存区" class="headerlink" title="暂存区"></a>暂存区</h3><p><code>.git/index</code></p>
+<h3 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h3><p><code>.git/objext</code></p>
+<h2 id="四种工作状态"><a href="#四种工作状态" class="headerlink" title="四种工作状态"></a>四种工作状态</h2><ul>
+<li>未跟踪（Untrack）<br>指我们新建的还没有被git管理的文件</li>
+<li>未修改（Unmodified）<br>指已经被git管理但是文件内容还没有发生变化</li>
+<li>已修改（Modified）<br>指已经修改过但是还没有添加到暂存区里的文件</li>
+<li>已暂存（Staged）<br>指修改后并且已经添加到了暂存区里的文件</li>
+</ul>
+<h1 id="添加和提交文件"><a href="#添加和提交文件" class="headerlink" title="添加和提交文件"></a>添加和提交文件</h1><p>涉及到的命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git status //查看仓库的状态</span><br><span class="line">git add    //添加到暂存区</span><br><span class="line">git commit //提交</span><br></pre></td></tr></table></figure>
+<p>可以先执行一下<code>git status</code>命令，会提示没有提交的文件，然后我们在仓库目录下创建一个txt文件，再执行<code>git status</code>，提示这个文件未被跟踪，我们使用<code>git add xxx.txt</code>，该文件已经被添加到了暂存区，接下来使用<code>git commit</code>命令提交文件到仓库中，使用这个命令时要用<code>-m</code>参数指定提交信息，如果不指定，那么提交时会进入一个交互式界面，默认用vim来编辑提交信息，然后提交完成。这里提交的文件是暂存区里的文件。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -205,7 +411,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-23 21:15:55" itemprop="dateModified" datetime="2024-04-23T21:15:55+08:00">2024-04-23</time>
+      <time title="修改时间：2024-04-25 21:24:25" itemprop="dateModified" datetime="2024-04-25T21:24:25+08:00">2024-04-25</time>
     </span>
 
   
@@ -400,7 +606,40 @@ public void onClick(View v) &#123;
 修改MainActivity中的代码：
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line">    private String[] data = &#123;&quot;Apple&quot;,&quot;Banana&quot;,&quot;Orange&quot;,&quot;Watermelon&quot;,</span><br><span class="line">            &quot;Pear&quot;,&quot;Grape&quot;,&quot;Pineapple&quot;,&quot;Strawberry&quot;,&quot;Cherry&quot;,&quot;Mango&quot;,</span><br><span class="line">            &quot;Apple&quot;,&quot;Banana&quot;,&quot;Orange&quot;,&quot;Watermelon&quot;,</span><br><span class="line">            &quot;Pear&quot;,&quot;Grape&quot;,&quot;Pineapple&quot;,&quot;Strawberry&quot;,&quot;Cherry&quot;,&quot;Mango&quot;&#125;;</span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(</span><br><span class="line">                MainActivity.this, android.R.layout.simple_list_item_1,data</span><br><span class="line">        );</span><br><span class="line">        ListView listView= (ListView) findViewById(R.id.list_view);</span><br><span class="line">        listView.setAdapter(adapter);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 &emsp;&emsp;我们用了data数组来测试，里面包含了很多水果的名称。不过数组中的数据是无法直接传递给ListView的，我们还需要借助适配器来完成。Android中提供了很多适配器的实现类，其中ArrayAdapter较好用。它可以通过泛型来指定要适配的数据类型，然后在构造函数中把要适配的数据传入。ArrayAdapter有多个构造函数的重载，根据实际情况选择最合适的一种。ArrayAdapter的构造函数中依次传入当前上下文、ListView子项布局的id，以及要适配的数据。我们使用了android.R.layout.simple_list_item_1作为ListView子项布局的id，这是一个Android内置的布局文件，里面只有一个TextView，用于简单地显示一段文本。  
-&emsp;&emsp;最后调用ListView的setAdapter()方法，将构建好的适配器对象传递进去，ListView和数据之间的关联就建立完成了。
+&emsp;&emsp;最后调用ListView的setAdapter()方法，将构建好的适配器对象传递进去，ListView和数据之间的关联就建立完成了。  
+## 定制ListView的界面
+&emsp;&emsp;首先准备一组图片，分别对应上面提供的每一种水果，让这些水果名称的旁边都有一个图样。（资源文件名只能包含小写字母，不能包含大写字母）。  
+&emsp;&emsp;定义实体类，作为ListView适配器的适配类型。新建类Fruit:
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Fruit &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int imageId;</span><br><span class="line">    public Fruit(String name,int imageId)&#123;</span><br><span class="line">        this.name=name;</span><br><span class="line">        this.imageId=imageId;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getName()&#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line">    public int getImageId()&#123;</span><br><span class="line">        return imageId;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+&emsp;&emsp;Fruit类中只有两个字段，name表示水果的名字，imageId表示水果对应图片的资源id。  
+&emsp;&emsp;为ListView的子项指定我们自定义的布局，在layout目录下新建fruit_item.xml：
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;&gt;</span><br><span class="line">    &lt;ListView</span><br><span class="line">        android:id=&quot;@+id/fruit_image&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;/&gt;</span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id=&quot;@+id/fruit_name&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_gravity=&quot;center&quot;</span><br><span class="line">        android:layout_marginLeft=&quot;10dp&quot;/&gt;</span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure>
+&emsp;&emsp;这个布局里，定义了一个ImageView用于显示水果的图片，又定义了一个TextView用于显示水果名称，让TextView在垂直方向上居中显示。   
+&emsp;&emsp;然后创建自定义适配器，这个适配器继承自ArrayAdapter，并将泛型指定为Fruit类。新建类FruitAdapter:
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class FruitAdapter extends ArrayAdapter&lt;Fruit&gt; &#123;</span><br><span class="line">    private int resourceId;</span><br><span class="line"></span><br><span class="line">    public FruitAdapter(@NonNull Context context, int textViewResourceId, @NonNull List&lt;Fruit&gt; objects) &#123;</span><br><span class="line">        super(context,textViewResourceId, objects);</span><br><span class="line">        resourceId=textViewResourceId;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @NonNull</span><br><span class="line">    @Override</span><br><span class="line">    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) &#123;</span><br><span class="line">        Fruit fruit = getItem(position);  //获取当前项的Fruit实例</span><br><span class="line">        View view = LayoutInflater.from(getContext()).inflate(resourceId,parent,false);</span><br><span class="line">        ImageView fruitImage = (ImageView) view.findViewById(R.id.fruit_image);</span><br><span class="line">        TextView fruitName = (TextView) view.findViewById(R.id.fruit_name);</span><br><span class="line">        fruitImage.setImageResource(fruit.getImageId());</span><br><span class="line">        fruitName.setText(fruit.getName());</span><br><span class="line">        return view;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+&emsp;&emsp;FruitAdapter重写了父类的一组构造函数，用于将上下文、ListView子项布局的id和数据都传递过来。另外又重写了getView()方法，这个方法在每个子项被滚动到屏幕内的时候会被调用。在getView()方法中，首先通过getItem()方法得到当前项的Fruit实例，然后使用LayoutInflater来为这个子项加载我们传入的布局。   
+&emsp;&emsp;这里LayoutInflater的inflate()方法，接收三个参数，前两个参数已经知道了，第三个参数指定成了false，表示只让我们在父布局中声明的layout属性生效，但不为这个View添加父布局，因为一旦View有了父布局之后，它就不能再添加到ListView中了。  
+&emsp;&emsp;往下，接下来调用View的findVIewById()方法分别获取到ImageView和TextView的实例，并分别调用他们的setImageResource()和setText()方法来设置显示的图片和文字，最后将布局返回，这样自定义的适配器就完成了。修改MainActivity中的代码：
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Fruit&gt; fruitList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        initFruits();</span><br><span class="line">        <span class="type">FruitAdapter</span> <span class="variable">adapter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FruitAdapter</span>(MainActivity.<span class="built_in">this</span>,R.layout.fruit_item,fruitList);</span><br><span class="line">        <span class="type">ListView</span> <span class="variable">listView</span> <span class="operator">=</span> (ListView) findViewById(R.id.list_view);</span><br><span class="line">        listView.setAdapter(adapter);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">initFruits</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; <span class="number">2</span>;i++)&#123;</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">apple</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;Apple&quot;</span> , R.drawable.Apple);</span><br><span class="line">            fruitList.add(apple);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">banana</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;banana&quot;</span>,R.drawable.Banana);</span><br><span class="line">            fruitList.add(banana);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">orange</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;orange&quot;</span>,R.drawable.Orange);</span><br><span class="line">            fruitList.add(orange);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">cherry</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;cherry&quot;</span>,R.drawable.Cherry);</span><br><span class="line">            fruitList.add(cherry);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">grape</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;grape&quot;</span>,R.drawable.Grape);</span><br><span class="line">            fruitList.add(grape);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">mongo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;mongo&quot;</span>,R.drawable.Mango);</span><br><span class="line">            fruitList.add(mongo);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">peach</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;peach&quot;</span>,R.drawable.Peach);</span><br><span class="line">            fruitList.add(peach);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">pear</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;pear&quot;</span>,R.drawable.Pear);</span><br><span class="line">            fruitList.add(pear);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">strawberry</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;strawberry&quot;</span>,R.drawable.Strawberry);</span><br><span class="line">            fruitList.add(strawberry);</span><br><span class="line">            Fruit watermelon= <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;watermelon&quot;</span>,R.drawable.Watermelon);</span><br><span class="line">            fruitList.add(watermelon);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+这里添加了一个initFruits()方法，用于初始化所有的水果数据。在Fruit类的构造函数中将水果的名字和对应的id注入，然后把创建好的对象添加到水果列表中。然后用for循环将所有的水果数据添加了两遍，如果只添加一遍，数据还不足以充满整个屏幕。接着在onCreat()方法创建了FruitAdapter对象，将FruitAdapter作为适配器传递给ListView，定制ListView界面完成。  
+## ListView的点击事件
+&emsp;&emsp;修改MainActivity的点击事件：
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) &#123;</span><br><span class="line">            Fruit fruit = fruitList.get(position);</span><br><span class="line">            Toast.makeText(MainActivity.this,fruit.getName(),Toast.LENGTH_SHORT).show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+&emsp;&emsp;使用setOnItemClickListener()方法为ListView注册了一个监听器，当用户点击了ListView中任何一个子项时，就会回调onItemClick()方法。在这个方法中通过position参数来判断用户点击的是哪一个子项，然后获取到相应的水果，并通过Toast将水果名字显示出来。  
+# 滚动控件RecyclerView
+&emsp;&emsp;可以说是一个增强版的ListView,不仅可以轻松实现和ListView同样的效果，还优化了ListView中存在的各种不足之处。我们先新建一个RecycleView项目。
+## RecycleView基本用法
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">androidx.constraintlayout.widget.ConstraintLayout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:context</span>=<span class="string">&quot;.MainActivity&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">androidx.recyclerview.widget.RecyclerView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/recycle_view&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">androidx.constraintlayout.widget.ConstraintLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+&emsp;&emsp;在布局中加入RecycleView也很简单，先为RecycleView指定id，然后将宽度和高度都设置为match_parent，这样Recycle就占满了整个布局的空间。需注意，RecycleView并不是内置在系统SDK中的，所以需要把完整的包路径写出来。  
+&emsp;&emsp;接下来想要使用RecycleView来实现和ListView相同的效果，就要准备一份同样的水果图片。我们直接把从ListViewTest项目中的图片复制过来就可以了，另外也把Fruit类和fruit_item.xml也复制过来。  
+&emsp;&emsp;接下来为RecycleView准备一个适配器，新建FruitAdapter类，让这个适配器继承自RecycleView.Adapter，并将泛型指定为FruitAdapter.ViewHolder。ViewHolder是我们在FruitAdapter中定义的一个内部类：
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">public class FruitAdapter extends RecyclerView.Adapter&lt;FruitAdapter.ViewHolder&gt; &#123;</span><br><span class="line"></span><br><span class="line">    private List&lt;Fruit&gt; mFruitList;</span><br><span class="line"></span><br><span class="line">    static class ViewHolder extends RecyclerView.ViewHolder&#123;</span><br><span class="line">        ImageView fruitImage;</span><br><span class="line">        TextView fruitName;</span><br><span class="line"></span><br><span class="line">        public ViewHolder(View view)&#123;</span><br><span class="line">            super(view);</span><br><span class="line">            fruitImage=(ImageView) view.findViewById(R.id.fruit_image);</span><br><span class="line">            fruitName=(TextView) view.findViewById(R.id.fruit_name);</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public FruitAdapter(List&lt;Fruit&gt; fruitList)&#123;</span><br><span class="line">        mFruitList = fruitList;</span><br><span class="line">    &#125;</span><br><span class="line">    @NonNull</span><br><span class="line">    @Override</span><br><span class="line">    public FruitAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) &#123;</span><br><span class="line">        View view = LayoutInflater.from(parent.getContext())</span><br><span class="line">                .inflate(R.layout.fruit_item,parent,false);</span><br><span class="line">        ViewHolder holder = new ViewHolder(view);</span><br><span class="line">        return holder;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onBindViewHolder(@NonNull FruitAdapter.ViewHolder holder, int position) &#123;</span><br><span class="line">        Fruit fruit = mFruitList.get(position);</span><br><span class="line">        holder.fruitImage.setImageResource(fruit.getImageId());</span><br><span class="line">        holder.fruitName.setText(fruit.getName());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public int getItemCount() &#123;</span><br><span class="line">        return mFruitList.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+&emsp;&emsp;这段代码看上去有点长，但是它要比ListView的适配器要容易理解。我们先定义内部类ViewHolder，ViewHolder要继承自RecycleView.ViewHolder。然后ViewHolder的构造函数中传入一个View参数，这个参数通常就是RecycleView子项的最外层布局，那么我们可以通过findViewById()方法来获取ImageView和TextView的实例。  
+&emsp;&emsp;往下，FruitAdapter中也有一个构造函数，这个方法用于把要展示的数据源传进来，并赋值给一个全局变量mFruitList，后续操作都将在这个数据源的基础上进行。 
+&emsp;&emsp;由于FruitAdapter是继承自RecycleView.Adapter的，就必须重写onCreaterHolder()、onBindViewHolder()和getItemCount()这3个方法。onCreateViewHolder()方法用于创建ViewHolder实例，我们在这个方法中将fruit_item布局加载进来，然后创建一个ViewHolder实例，并把加载出来的布局传入到构造函数中，最后将ViewHolder的实例返回。onBindViewHolder()方法是用于对RecycleView子项的数据进行赋值的，会在每个子项被滚动到屏幕内的时候执行，这里我们通过position参数得到当前项的Fruit实例，然后再将数据设置到ViewHolder的ImageView和TextView当中。getItemCount()就非常简单，它用于告诉RecycleView一共有多少子项，直接返回数据源的长度就可以了。  
+&emsp;&emsp;适配器准备好，开始使用RecycleVIew了，修改MainActivity中的代码。
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Fruit&gt; fruitList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        initFruit();</span><br><span class="line">        <span class="type">RecyclerView</span> <span class="variable">recyclerView</span> <span class="operator">=</span> (RecyclerView) findViewById(R.id.recycle_view);</span><br><span class="line">        <span class="type">LinearLayoutManager</span> <span class="variable">layoutManager</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LinearLayoutManager</span>(<span class="built_in">this</span>);</span><br><span class="line">        recyclerView.setLayoutManager(layoutManager);</span><br><span class="line">        <span class="type">FruitAdapter</span> <span class="variable">adapter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FruitAdapter</span>(fruitList);</span><br><span class="line">        recyclerView.setAdapter(adapter);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">initFruit</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;<span class="number">2</span>;i++)&#123;</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">apple</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;Apple&quot;</span> , R.drawable.apple);</span><br><span class="line">            fruitList.add(apple);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">banana</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;banana&quot;</span>,R.drawable.banana);</span><br><span class="line">            fruitList.add(banana);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">orange</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;orange&quot;</span>,R.drawable.orange);</span><br><span class="line">            fruitList.add(orange);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">cherry</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;cherry&quot;</span>,R.drawable.cherry);</span><br><span class="line">            fruitList.add(cherry);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">grape</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;grape&quot;</span>,R.drawable.grape);</span><br><span class="line">            fruitList.add(grape);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">mongo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;mongo&quot;</span>,R.drawable.mango);</span><br><span class="line">            fruitList.add(mongo);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">peach</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;peach&quot;</span>,R.drawable.peach);</span><br><span class="line">            fruitList.add(peach);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">pear</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;pear&quot;</span>,R.drawable.pear);</span><br><span class="line">            fruitList.add(pear);</span><br><span class="line">            Fruit watermelon= <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;watermelon&quot;</span>,R.drawable.watermelon);</span><br><span class="line">            fruitList.add(watermelon);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -923,142 +1162,6 @@ public void onClick(View v) &#123;
       <span class="post-meta-item-text">发表于</span>
 
       <time title="创建时间：2024-04-19 00:01:03" itemprop="dateCreated datePublished" datetime="2024-04-19T00:01:03+08:00">2024-04-19</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/19/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/19/%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="post-title-link" itemprop="url">线性表</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-19 00:00:41" itemprop="dateCreated datePublished" datetime="2024-04-19T00:00:41+08:00">2024-04-19</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/19/%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/19/%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">算法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-19 00:00:20" itemprop="dateCreated datePublished" datetime="2024-04-19T00:00:20+08:00">2024-04-19</time>
     </span>
 
   
