@@ -84,7 +84,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">35</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">52</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">38</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">19</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">55</span></a></li>
   </ul>
 </nav>
 
@@ -123,18 +123,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -160,6 +160,256 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/08/%E6%8A%93%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/08/%E6%8A%93%E5%8C%85/" class="post-title-link" itemprop="url">抓包</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-05-08 13:05:51 / 修改时间：13:20:23" itemprop="dateCreated datePublished" datetime="2024-05-08T13:05:51+08:00">2024-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%93%E5%8C%85/" itemprop="url" rel="index"><span itemprop="name">抓包</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="抓包介绍"><a href="#抓包介绍" class="headerlink" title="抓包介绍"></a>抓包介绍</h1><p>&emsp;&emsp;在安卓App逆向分析中，抓包通常是指通过一些手段获取App与服务器之间传输的明文网络数据信息，这些网络数据信息往往是逆向分析的切入点，通过抓包得到的信息可以快速定位关键接口函数的位置。<br>&emsp;&emsp;抓包两种情况</p>
+<ul>
+<li><strong>Hook抓包</strong><br>指通过对发包函数的Hook来达到抓包的作用。</li>
+<li><strong>中间人抓包</strong><br>指将原来一段完整的客户端-服务器的通信方式割裂成两段客户端-服务器的通信。<br>中间人抓包在OSI七层网络模型结构中通常又被分为两种情形  <ul>
+<li>应用层：Http(s)协议抓包。</li>
+<li>会话层：Socket通信抓包。</li>
+</ul>
+</li>
+</ul>
+<p>&emsp;&emsp;中间人抓包方式通常会通过抓包工具完成数据的截取，常用工具有Wireshark、BurpSuite、Charles、Fiddler等。<br>&emsp;&emsp;抓应用层的Http(s)协议数据，推荐的专业工具是BurpSuite，如果只是简单抓包，也可以用Charles。如果是会话层，可选择Charles、tcpdump和WireShark组合的方式。  </p>
+<h1 id="HTTP-s-协议抓包配置"><a href="#HTTP-s-协议抓包配置" class="headerlink" title="HTTP(s)协议抓包配置"></a>HTTP(s)协议抓包配置</h1><p>&emsp;&emsp;以Charles和BurpSuite作为抓包工具对App进行抓包环境配置，并通过浏览器访问HTTP网站进行验证。  </p>
+<h2 id="HTTP抓包配置"><a href="#HTTP抓包配置" class="headerlink" title="HTTP抓包配置"></a>HTTP抓包配置</h2><p>&emsp;&emsp;为了达到抓包目的，首先要将手机和测试手机连接在同一个局域网中且确保手机和计算机能互相访问。  </p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/08/Xposed/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/08/Xposed/" class="post-title-link" itemprop="url">Xposed</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-05-08 12:52:08 / 修改时间：12:59:11" itemprop="dateCreated datePublished" datetime="2024-05-08T12:52:08+08:00">2024-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Xposed/" itemprop="url" rel="index"><span itemprop="name">Xposed</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Xposed是比Frida框架更早的Hook框架。  </p>
+<h1 id="Xposed框架简介"><a href="#Xposed框架简介" class="headerlink" title="Xposed框架简介"></a>Xposed框架简介</h1><p>&emsp;&emsp;Xposed框架是一套开源的、在Android root模式下运行的框架，它可以在不修改原码的情况下通过Hook方式去影响程序的运行。<br>&emsp;&emsp;可惜的是，Xposed很久没更新了，且每次编写Xpsed模块代码都要重启手机以使新加入的功能生效，这样很低效。<br>&emsp;&emsp;但是出现了很多基于Xposed框架的衍生品，如EdXposed。  </p>
+<h1 id><a href="#" class="headerlink" title></a></h1>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/07/%E5%AF%B9APP%E8%BF%9B%E8%A1%8C%E5%88%86%E6%9E%90%E5%92%8C%E7%A0%B4%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/07/%E5%AF%B9APP%E8%BF%9B%E8%A1%8C%E5%88%86%E6%9E%90%E5%92%8C%E7%A0%B4%E8%A7%A3/" class="post-title-link" itemprop="url">对APP进行分析和破解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-05-07 20:08:38 / 修改时间：20:36:04" itemprop="dateCreated datePublished" datetime="2024-05-07T20:08:38+08:00">2024-05-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/frida/" itemprop="url" rel="index"><span itemprop="name">frida</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>这里以去除两个App的升级提示弹窗作为案例来对前面的一些技术进行实践。  </p>
+<h1 id="未加固App"><a href="#未加固App" class="headerlink" title="未加固App"></a>未加固App</h1><p>&emsp;&emsp;去除一个未加固App的升级提示弹窗，App样本放置在随书附件Chap05&#x2F;zhibo.apk中。<br>&emsp;&emsp;将zhibo.apk样本安装到手机上。<br><code>adb install zhibo.apk</code><br>&emsp;&emsp;安装完成后，手动打开App，进入主页会出现一个提示应用要升级的弹窗。<br>&emsp;&emsp;我们分析和破解的目的就是永久消除这个App的升级提示弹窗，使App能够实现永不升级并且正常使用的效果。<br>&emsp;&emsp;先用</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1287,269 +1537,6 @@ public void onClick(View v) &#123;
 &emsp;&emsp;由于FruitAdapter是继承自RecycleView.Adapter的，就必须重写onCreaterHolder()、onBindViewHolder()和getItemCount()这3个方法。onCreateViewHolder()方法用于创建ViewHolder实例，我们在这个方法中将fruit_item布局加载进来，然后创建一个ViewHolder实例，并把加载出来的布局传入到构造函数中，最后将ViewHolder的实例返回。onBindViewHolder()方法是用于对RecycleView子项的数据进行赋值的，会在每个子项被滚动到屏幕内的时候执行，这里我们通过position参数得到当前项的Fruit实例，然后再将数据设置到ViewHolder的ImageView和TextView当中。getItemCount()就非常简单，它用于告诉RecycleView一共有多少子项，直接返回数据源的长度就可以了。  
 &emsp;&emsp;适配器准备好，开始使用RecycleVIew了，修改MainActivity中的代码。
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Fruit&gt; fruitList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        initFruit();</span><br><span class="line">        <span class="type">RecyclerView</span> <span class="variable">recyclerView</span> <span class="operator">=</span> (RecyclerView) findViewById(R.id.recycle_view);</span><br><span class="line">        <span class="type">LinearLayoutManager</span> <span class="variable">layoutManager</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LinearLayoutManager</span>(<span class="built_in">this</span>);</span><br><span class="line">        recyclerView.setLayoutManager(layoutManager);</span><br><span class="line">        <span class="type">FruitAdapter</span> <span class="variable">adapter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FruitAdapter</span>(fruitList);</span><br><span class="line">        recyclerView.setAdapter(adapter);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">initFruit</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;<span class="number">2</span>;i++)&#123;</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">apple</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;Apple&quot;</span> , R.drawable.apple);</span><br><span class="line">            fruitList.add(apple);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">banana</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;banana&quot;</span>,R.drawable.banana);</span><br><span class="line">            fruitList.add(banana);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">orange</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;orange&quot;</span>,R.drawable.orange);</span><br><span class="line">            fruitList.add(orange);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">cherry</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;cherry&quot;</span>,R.drawable.cherry);</span><br><span class="line">            fruitList.add(cherry);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">grape</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;grape&quot;</span>,R.drawable.grape);</span><br><span class="line">            fruitList.add(grape);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">mongo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;mongo&quot;</span>,R.drawable.mango);</span><br><span class="line">            fruitList.add(mongo);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">peach</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;peach&quot;</span>,R.drawable.peach);</span><br><span class="line">            fruitList.add(peach);</span><br><span class="line">            <span class="type">Fruit</span> <span class="variable">pear</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;pear&quot;</span>,R.drawable.pear);</span><br><span class="line">            fruitList.add(pear);</span><br><span class="line">            Fruit watermelon= <span class="keyword">new</span> <span class="title class_">Fruit</span>(<span class="string">&quot;watermelon&quot;</span>,R.drawable.watermelon);</span><br><span class="line">            fruitList.add(watermelon);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/21/%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7DataGrip/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/21/%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7DataGrip/" class="post-title-link" itemprop="url">[数据库]图形化界面工具DataGrip</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-04-21 18:20:49 / 修改时间：18:51:37" itemprop="dateCreated datePublished" datetime="2024-04-21T18:20:49+08:00">2024-04-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>官网搜索下载即可</p>
-<h1 id="连接Mysql"><a href="#连接Mysql" class="headerlink" title="连接Mysql"></a>连接Mysql</h1><p>新建项目<br><img src="/2024/04/21/%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7DataGrip/1.png"><br>连接Mysql<br><img src="/2024/04/21/%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7DataGrip/2.png"><br>填写配置信息，这里只需填写user(root)和密码,然后下载驱动包，测试连接，成功后点击ok即可<br><img src="/2024/04/21/%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7DataGrip/3.png"><br>选择展示所有数据库<br><img src="/2024/04/21/%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7DataGrip/4.png">  </p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>创建数据库 右键项目-&gt;new-&gt;schema<br>创建表 右键数据库-&gt;new-&gt;table<br><img src="/2024/04/21/%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7DataGrip/5.png"><br>修改表 右键表-&gt;Modify Table  </p>
-<h2 id="新建查询"><a href="#新建查询" class="headerlink" title="新建查询"></a>新建查询</h2><p>右键数据库-&gt;New-&gt;Query&#x2F;Console  </p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/20/smali/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/20/smali/" class="post-title-link" itemprop="url">smali基础语法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-20 16:54:00" itemprop="dateCreated datePublished" datetime="2024-04-20T16:54:00+08:00">2024-04-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-21 15:33:42" itemprop="dateModified" datetime="2024-04-21T15:33:42+08:00">2024-04-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/smali/" itemprop="url" rel="index"><span itemprop="name">smali</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><p>&emsp;&emsp;在Java字节码中，寄存器都是32位的，能够支持任何类型，64位类型（Long&#x2F;Double）用两个寄存器表示，寄存器的命名方式有p命名法和v命名法。p命名法通常用与表示函数参数，比如p0、p1等，v命名法用于表示函数内部的变量，比如v0、v1等。  </p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/04/20/smali/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/19/re-tools/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/19/re-tools/" class="post-title-link" itemprop="url">逆向工具</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-19 23:27:26" itemprop="dateCreated datePublished" datetime="2024-04-19T23:27:26+08:00">2024-04-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-27 16:15:00" itemprop="dateModified" datetime="2024-04-27T16:15:00+08:00">2024-04-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%80%86%E5%90%91/" itemprop="url" rel="index"><span itemprop="name">逆向</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="010Editor"><a href="#010Editor" class="headerlink" title="010Editor"></a>010Editor</h1><p>下载地址<br><a target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-1863194-1-1.html">吾爱破解010Editor</a><br><a target="_blank" rel="noopener" href="https://www.sweetscape.com/010editor/">官网010Editor</a><br>激活码  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">用户名:www.budingwang.com 注册码:CR96-4B9C-6470-303F  </span><br><span class="line">用户名:www.budingwang.com 注册码:CR71-DD9C-C1D3-55D8</span><br><span class="line">用户名:www.budingwang.com 注册码:CRE7-D59C-98D4-EF4E</span><br><span class="line">用户名:www.budingwang.com 注册码:CR2C-A19C-E8F5-6185</span><br><span class="line">用户名:www.budingwang.com 注册码:CR5F-BA9C-6A95-9CF6</span><br></pre></td></tr></table></figure>
-<p>已无效</p>
-<h1 id="apktool"><a href="#apktool" class="headerlink" title="apktool"></a>apktool</h1><p>下载地址<br><a target="_blank" rel="noopener" href="https://apktool.org/docs/install">apktool</a><br><img src="/2024/04/19/re-tools/1.png"><br>首先，创建一个要放置apktool的文件夹<br>第一步，右键<code>1</code>，重命名为<code>apktool.bat</code>保存到创建的文件夹中<br>第二步，点击二，下载，下载好后移动到创建的文件夹中<br><img src="/2024/04/19/re-tools/2.png"><br>第三步，添加到环境变量<br><img src="/2024/04/19/re-tools/3.png"><br>最后，在终端输入cmd输入apktool验证是否成功安装<br><img src="/2024/04/19/re-tools/4.png"><br>安装成功！</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>反编译Android应用程序包  <code>apktool d apk_file.apk</code><br><img src="/2024/04/19/re-tools/5.png"><br>反编译结果<br><img src="/2024/04/19/re-tools/6.png">  </p>
 
       
     </div>
