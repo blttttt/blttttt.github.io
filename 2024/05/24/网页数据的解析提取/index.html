@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2024/05/24/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A7%A3%E6%9E%90%E6%8F%90%E5%8F%96/1.png">
 <meta property="article:published_time" content="2024-05-24T10:33:31.000Z">
-<meta property="article:modified_time" content="2024-05-24T10:58:21.343Z">
+<meta property="article:modified_time" content="2024-05-28T06:31:49.106Z">
 <meta property="article:author" content="白乐天">
 <meta property="article:tag" content="网页数据解析提取">
 <meta name="twitter:card" content="summary">
@@ -89,7 +89,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">43</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">21</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">58</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">45</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">22</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">60</span></a></li>
   </ul>
 </nav>
 
@@ -129,18 +129,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -204,9 +204,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-05-24 18:33:31 / 修改时间：18:58:21" itemprop="dateCreated datePublished" datetime="2024-05-24T18:33:31+08:00">2024-05-24</time>
+      <time title="创建时间：2024-05-24 18:33:31" itemprop="dateCreated datePublished" datetime="2024-05-24T18:33:31+08:00">2024-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-05-28 14:31:49" itemprop="dateModified" datetime="2024-05-28T14:31:49+08:00">2024-05-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -263,7 +269,11 @@
 </tbody></table>
 <p>例：<code>//title[@lang=&#39;eng&#39;]</code> 代表选择所有名称为title，同时属性lang的值为eng的节点。<br>后面根据lxml库，利用XPath对HTML进行解析。  </p>
 <h2 id="安装lxml"><a href="#安装lxml" class="headerlink" title="安装lxml"></a>安装lxml</h2><p>可以使用pip3 来安装：<br><code>pip3 install lxml</code><br><img src="/2024/05/24/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A7%A3%E6%9E%90%E6%8F%90%E5%8F%96/1.png"></p>
-<h2 id="实例引入"><a href="#实例引入" class="headerlink" title="实例引入"></a>实例引入</h2>
+<h2 id="实例引入"><a href="#实例引入" class="headerlink" title="实例引入"></a>实例引入</h2><p>感受XPath对网页进行解析过程<br>相关代码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line">text = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&lt;div&gt;</span></span><br><span class="line"><span class="string">    &lt;ul&gt;</span></span><br><span class="line"><span class="string">        &lt;li class=&quot;&quot;item-0&gt;&lt;a href=&quot;link1.html&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li class=&quot;&quot;item-1&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li class=&quot;&quot;item-inactive&gt;&lt;a href=&quot;link3.html&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li class=&quot;&quot;item-1&gt;&lt;a href=&quot;link4.html&quot;&gt;four item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;li class=&quot;&quot;item-0&gt;&lt;a href=&quot;link4.html&quot;&gt;five item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">    &lt;/ul&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;    </span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">html = etree.HTML(text)</span><br><span class="line">result = etree.tostring(html)</span><br><span class="line"><span class="built_in">print</span>(result.decode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&lt;html&gt;&lt;body&gt;&lt;div&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li <span class="keyword">class</span>=<span class="string">&quot;&quot;</span> item-<span class="number">0</span>=<span class="string">&quot;&quot;</span>&gt;&lt;a href=<span class="string">&quot;link1.html&quot;</span>&gt;first item&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li <span class="keyword">class</span>=<span class="string">&quot;&quot;</span> item-<span class="number">1</span>=<span class="string">&quot;&quot;</span>&gt;&lt;a href=<span class="string">&quot;link2.html&quot;</span>&gt;second item&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li <span class="keyword">class</span>=<span class="string">&quot;&quot;</span> item-inactive=<span class="string">&quot;&quot;</span>&gt;&lt;a href=<span class="string">&quot;link3.html&quot;</span>&gt;third item&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li <span class="keyword">class</span>=<span class="string">&quot;&quot;</span> item-<span class="number">1</span>=<span class="string">&quot;&quot;</span>&gt;&lt;a href=<span class="string">&quot;link4.html&quot;</span>&gt;four item&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li <span class="keyword">class</span>=<span class="string">&quot;&quot;</span> item-<span class="number">0</span>=<span class="string">&quot;&quot;</span>&gt;&lt;a href=<span class="string">&quot;link4.html&quot;</span>&gt;five item&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;    </span><br><span class="line">&lt;/body&gt;&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>先导入lxml库的etree模块，然后声明HTML文本，用HTML类进行初始化，构造一个XPath解析对象。etree模块可以自动修正HTML文本。</p>
+<p>也可以直接读取文本文件进行解析</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line">html = etree.parse(<span class="string">&#x27;./test.html&#x27;</span>,etree.HTMLParser())</span><br><span class="line"><span class="built_in">print</span>(etree.tostring(html).decode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC <span class="string">&quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;</span> <span class="string">&quot;http://www.w3.org/TR/REC-html40/loose.dtd&quot;</span>&gt;</span><br><span class="line">&lt;html&gt;&lt;body&gt;&lt;div&gt;&amp;<span class="comment">#13;</span></span><br><span class="line">    &lt;ul&gt;&amp;<span class="comment">#13;</span></span><br><span class="line">        &lt;li <span class="keyword">class</span>=<span class="string">&quot;&quot;</span> item-<span class="number">0</span>=<span class="string">&quot;&quot;</span>&gt;&lt;a href=<span class="string">&quot;link1.html&quot;</span>&gt;first item&lt;/a&gt;&lt;/li&gt;&amp;<span class="comment">#13;</span></span><br><span class="line">        &lt;li <span class="keyword">class</span>=<span class="string">&quot;&quot;</span> item-<span class="number">1</span>=<span class="string">&quot;&quot;</span>&gt;&lt;a href=<span class="string">&quot;link2.html&quot;</span>&gt;second item&lt;/a&gt;&lt;/li&gt;&amp;<span class="comment">#13;</span></span><br><span class="line">        &lt;li <span class="keyword">class</span>=<span class="string">&quot;&quot;</span> item-inactive=<span class="string">&quot;&quot;</span>&gt;&lt;a href=<span class="string">&quot;link3.html&quot;</span>&gt;third item&lt;/a&gt;&lt;/li&gt;&amp;<span class="comment">#13;</span></span><br><span class="line">        &lt;li <span class="keyword">class</span>=<span class="string">&quot;&quot;</span> item-<span class="number">1</span>=<span class="string">&quot;&quot;</span>&gt;&lt;a href=<span class="string">&quot;link4.html&quot;</span>&gt;four item&lt;/a&gt;&lt;/li&gt;&amp;<span class="comment">#13;</span></span><br><span class="line">        &lt;li <span class="keyword">class</span>=<span class="string">&quot;&quot;</span> item-<span class="number">0</span>=<span class="string">&quot;&quot;</span>&gt;&lt;a href=<span class="string">&quot;link4.html&quot;</span>&gt;five item&lt;/a&gt;&amp;<span class="comment">#13;</span></span><br><span class="line">    &lt;/li&gt;&lt;/ul&gt;&amp;<span class="comment">#13;</span></span><br><span class="line">&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</span><br></pre></td></tr></table></figure>
     </div>
 
     
