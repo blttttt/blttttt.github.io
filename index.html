@@ -205,7 +205,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-19 11:22:34" itemprop="dateModified" datetime="2024-06-19T11:22:34+08:00">2024-06-19</time>
+      <time title="修改时间：2024-06-21 23:32:36" itemprop="dateModified" datetime="2024-06-21T23:32:36+08:00">2024-06-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -288,6 +288,99 @@
 <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><p>由双引号引起来的一串字符称为字符串字面值或字符串。<br>字符串结束标志是<code>\0</code>的转义字符。在计算字符串长度时，不算做字符串内容。  </p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">// c语言没有字符串类型，只有字符数组</span></span><br><span class="line">    <span class="type">char</span> arr1[]=<span class="string">&quot;abcdef&quot;</span>;</span><br><span class="line">    <span class="type">char</span> arr2[]=&#123;<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;f&#x27;</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>,arr1);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">strlen</span>(arr1));  <span class="comment">//strlen 求一个字符串的长度</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>,arr2);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">strlen</span>(arr2));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">abcdef  <span class="comment">//arr1在遇到\0之后字符串结束</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line">abcdefabcdef   <span class="comment">//arr2没有\0，后面会无规则输出</span></span><br><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
 <p><img src="/2024/06/04/c-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1.png"></p>
+<h1 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h1><table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>?</td>
+<td>在书写连续多个问号时使用，防止他们被解析成三字母词</td>
+</tr>
+<tr>
+<td>&#39;</td>
+<td>表示字符常量 ‘</td>
+</tr>
+<tr>
+<td>&quot;</td>
+<td>用于表示一个字符串内部的 “</td>
+</tr>
+<tr>
+<td>\</td>
+<td>用于表示一个斜杠，防止它被解释为一个转义序列符</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>警告字符，蜂鸣</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格符</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>进纸符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td>\ddd</td>
+<td>ddd表示1~3个八进制的数字。如：\130X</td>
+</tr>
+<tr>
+<td>\xdd</td>
+<td>dd表示2个十六进制数字。如：\x30 0</td>
+</tr>
+</tbody></table>
+<h1 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h1><table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%d</td>
+<td>整型</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>字符</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>float类型数据</td>
+</tr>
+<tr>
+<td>%lf</td>
+<td>double类型数据</td>
+</tr>
+<tr>
+<td>%zu</td>
+<td>sizeof的返回值</td>
+</tr>
+</tbody></table>
+<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p><code>//</code> 和 <code>/*...*/</code></p>
 
       
     </div>
