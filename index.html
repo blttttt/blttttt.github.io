@@ -84,7 +84,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">47</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">22</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">63</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">48</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">23</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">65</span></a></li>
   </ul>
 </nav>
 
@@ -123,18 +123,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -160,6 +160,199 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/" class="post-title-link" itemprop="url">[应急响应]Win Server Web1入侵排查</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-07-03 11:10:54 / 修改时间：14:22:54" itemprop="dateCreated datePublished" datetime="2024-07-03T11:10:54+08:00">2024-07-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" itemprop="url" rel="index"><span itemprop="name">应急响应</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/89IS3jPePjBHFKPXnGmKfA">原创链接</a><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/1gebC1OkDgtz4k4YtN10dg">题解</a></p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>前景需要：</p>
+<p>小李在值守的过程中，发现有CPU占用飙升，出于胆子小，就立刻将服务器关机，并找来正在吃苕皮的hxd帮他分析，这是他的服务器系统，请你找出以下内容，并作为通关条件：</p>
+<p>1.攻击者的shell密码</p>
+<p>2.攻击者的IP地址</p>
+<p>3.攻击者的隐藏账户名称</p>
+<p>4.攻击者挖矿程序的矿池域名(仅域名)</p>
+<p>5.有实力的可以尝试着修复漏洞</p>
+<h1 id="排查后门账户"><a href="#排查后门账户" class="headerlink" title="排查后门账户"></a>排查后门账户</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net user</span><br></pre></td></tr></table></figure>
+<p><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/1.png"><br>可以可疑用户。<br>查看账户管理<br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/2.png"><br>发现可疑用户<code>hack168$</code><br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/3.png"><br>查看本地用户和组管理<code>lusrmgr</code>  </p>
+<ul>
+<li>查看用户<br>  <img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/4.png"></li>
+<li>查看组<br>  <img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/5.png"><br>确定hack168$是一个隐藏的后门用户。</li>
+</ul>
+<h1 id="检查端口、进程"><a href="#检查端口、进程" class="headerlink" title="检查端口、进程"></a>检查端口、进程</h1><h2 id="端口检查"><a href="#端口检查" class="headerlink" title="端口检查"></a>端口检查</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
+<p>看了一下，没看出来什么</p>
+<h2 id="进程排查"><a href="#进程排查" class="headerlink" title="进程排查"></a>进程排查</h2><p>查看系统信息<code>msinfo32</code><br>“系统信息”-&gt;“软件环境”-&gt;“正在运行任务”中查看进程信息<br>看了下，好像也没看出来什么</p>
+<h1 id="自启动后门排查"><a href="#自启动后门排查" class="headerlink" title="自启动后门排查"></a>自启动后门排查</h1><h2 id="计划任务排查"><a href="#计划任务排查" class="headerlink" title="计划任务排查"></a>计划任务排查</h2><p>“控制面板”-&gt;“系统安全”-&gt;“计划任务”<br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/6.png"><br>安全的计划任务，无后门</p>
+<h2 id="服务排查"><a href="#服务排查" class="headerlink" title="服务排查"></a>服务排查</h2><p><code>services.msc</code><br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/7.png"><br>无异常</p>
+<h2 id="自启动文件夹排查"><a href="#自启动文件夹排查" class="headerlink" title="自启动文件夹排查"></a>自启动文件夹排查</h2><p><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/8.png"><br>系统配置<code>msconfig</code><br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/9.png"></p>
+<h2 id="自启动注册表项"><a href="#自启动注册表项" class="headerlink" title="自启动注册表项"></a>自启动注册表项</h2><p>有很多启动注册表项，不一一展示，均无后门存在<br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/10.png"></p>
+<h1 id="日志检测"><a href="#日志检测" class="headerlink" title="日志检测"></a>日志检测</h1><h2 id="Windows安全日志"><a href="#Windows安全日志" class="headerlink" title="Windows安全日志"></a>Windows安全日志</h2><p>针对用户登录，主要查看安全日志。可以从“事件查看器”中查看Windows的安全日志，此日志存储位置：<code>%SystemRoot%\System32\Winevt\Logs\Security.evtx</code><br>打开日志查看器:<code>eventvwr.msc</code><br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/11.png"></p>
+<h2 id="Web日志检测"><a href="#Web日志检测" class="headerlink" title="Web日志检测"></a>Web日志检测</h2><p>靶场是通过phpstudy搭建网站，我们直接到apache的日志目录下查看成功日志<br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/12.png"><br>前59条是本地服务器在访问，往后就变成了是<code>192.168.126.1</code>这个IP在对本地web进行访问<br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/13.png"><br>从第98条记录开始，每秒有大量访问，疑似爆破行为<br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/14.png"><br>五分钟进行了五千七百多次访问，结合爆破路径，确认改IP存在账号密码爆破行为。<br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/15.png"><br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/16.png"><br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/17.png"><br>在往后的行为中，恶意IP疑似进行了上传操作，结合爆破行为，确认恶意IP已经爆破成功并且进入了后台管理。继续往后看，恶意IP通过插件上传功能上传了木马文件shell.php，上传点位于&#x2F;content&#x2F;plugins&#x2F;tips&#x2F;shell.php<br>查看该木马文件<br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/18.png"><br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/19.png"><br>默认连接密码是rebeyond<br>后面的就全是对木马文件的访问<br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/20.png"></p>
+<h1 id="病毒文件排查"><a href="#病毒文件排查" class="headerlink" title="病毒文件排查"></a>病毒文件排查</h1><p>对隐藏用户hack$168用户的目录进行排查，在桌面发现一个可疑文件，运行之后CPU飙升，判别为挖矿病毒。<br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/21.png"><br>该病毒图标是pyinstaller打包后的exe默认图标，我们用pyinstxtractor进行反编译</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python pyinstxtractor.py Kuang.exe</span><br></pre></td></tr></table></figure>
+<p>得到pyc文件<br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/22.png"><br>通过pyc在线反编译工具进行反编译<br><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/23.png"><br>得到挖矿程序的矿池域名：<a target="_blank" rel="noopener" href="http://wakuang.zhigongshanfang.top/">http://wakuang.zhigongshanfang.top</a></p>
+<h1 id="使用工具"><a href="#使用工具" class="headerlink" title="使用工具"></a>使用工具</h1><h3 id="木马文件"><a href="#木马文件" class="headerlink" title="木马文件"></a>木马文件</h3><p><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/24.png"></p>
+<h3 id="克隆账号"><a href="#克隆账号" class="headerlink" title="克隆账号"></a>克隆账号</h3><p><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/25.png"></p>
+<h1 id="over"><a href="#over" class="headerlink" title="over!!!"></a>over!!!</h1><p><img src="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/26.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/03/java-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/03/java-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">[java]基础知识</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-07-03 00:52:18 / 修改时间：00:54:11" itemprop="dateCreated datePublished" datetime="2024-07-03T00:52:18+08:00">2024-07-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><p><strong>整数</strong><br>byte<br>short<br>int<br>long<br><strong>浮点数</strong><br>float(4字节)<br>double(8字节)<br><strong>字符</strong><br>char(2字节)<br><strong>字符串</strong><br>String    </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/03/java-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -205,7 +398,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-03 00:28:00" itemprop="dateModified" datetime="2024-07-03T00:28:00+08:00">2024-07-03</time>
+      <time title="修改时间：2024-07-03 00:47:56" itemprop="dateModified" datetime="2024-07-03T00:47:56+08:00">2024-07-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" itemprop="url" rel="index"><span itemprop="name">应急响应</span></a>
+        </span>
     </span>
 
   
@@ -367,9 +569,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-07-02 10:12:07 / 修改时间：16:18:34" itemprop="dateCreated datePublished" datetime="2024-07-02T10:12:07+08:00">2024-07-02</time>
+      <time title="创建时间：2024-07-02 10:12:07" itemprop="dateCreated datePublished" datetime="2024-07-02T10:12:07+08:00">2024-07-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-07-03 00:48:03" itemprop="dateModified" datetime="2024-07-03T00:48:03+08:00">2024-07-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" itemprop="url" rel="index"><span itemprop="name">应急响应</span></a>
+        </span>
     </span>
 
   
@@ -912,176 +1129,6 @@
 </ul>
 <h3 id="PPP协议的帧格式"><a href="#PPP协议的帧格式" class="headerlink" title="PPP协议的帧格式"></a>PPP协议的帧格式</h3><p><strong>1.各字段意义</strong><br>&emsp;&emsp;PPP帧的首部和尾部分别为四个字段和两个字段。<br>&emsp;&emsp;首部的第一个字段和尾部的第二个字段都是标志字段F（Flag），规定为0x7E（即01111110）。标志字段表示一个帧的开始或结束。它是PPP帧的定界符。连续两帧之间只需要一个标志字段。当连续出现两标志字段时，表示这是一个空帧，要丢弃。<br>&emsp;&emsp;首部中的地址字段A规定为0xFF（11111111），控制字段C规定为0x03（00000011）。<br>&emsp;&emsp;首部第四个字段是2字节的协议字段。当协议字段为0x0021时，PPP帧的信息就是IP数据报。若为0xC021，则信息字段是PPP链路控制协议LCP的数据，而0x8021表示这是网络层的控制数据。<br>&emsp;&emsp;信息字段的长度可变，不超过1500字节。<br>&emsp;&emsp;尾部第一个字段（2字节）是使用CRC的帧检验序列FCS。<br><img src="/2024/05/08/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/5.png"><br><strong>2.字节填充</strong><br>&emsp;&emsp;信息字段中出现和标志字段一样的比特(0x7E)组合时，就须采取措施使这种形式上和标志字段一样的比特组合不出现在信息字段中。<br>&emsp;&emsp;当PPP使用异步传输时，它把转义符定义为0x7D(0x01111101)，并用字节填充。<br>&emsp;&emsp;1.把信息字段中出现的每一个0x7E字节转变成2字节序列(0x7D,0x5E)。<br>&emsp;&emsp;2.若信息字段出现一个0x7D的字节（出现了和转义字符一样的比特组合），则把0x7D转变成2字节序列(0x7D,0x5D)。<br>&emsp;&emsp;3.若信息字段出现了ASCII码的控制字符（数值小于0x20的字符），则在该字符前加入一个0x7D字节，同时将该字符的编码加以改变。<br><strong>3.零比特填充</strong><br>&emsp;&emsp;PPP协议用在SONET&#x2F;SDH链路时，使用同步传输（一连串的比特连续传送）而不是异步传输（逐个字符地传送）。这种情况下PPP协议采用零比特填充方法实现透明传输。<br>&emsp;&emsp;在发送端先扫描整个信息字段。只要发现5个连续的1，则立即填入一个0.因此这种经过零比特填充后的数据，就可以保证在信息字段不回出现6个连续的1。接收端在收到帧时，先找到标志字段F以确定一个帧的边界。每发现5个连续的1时，就把5个连续的1后的一个0删除，还原原来的信息比特流，保证了透明传输。  </p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/08/%E6%8A%93%E5%8C%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/08/%E6%8A%93%E5%8C%85/" class="post-title-link" itemprop="url">抓包</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-05-08 13:05:51 / 修改时间：13:20:23" itemprop="dateCreated datePublished" datetime="2024-05-08T13:05:51+08:00">2024-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%93%E5%8C%85/" itemprop="url" rel="index"><span itemprop="name">抓包</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="抓包介绍"><a href="#抓包介绍" class="headerlink" title="抓包介绍"></a>抓包介绍</h1><p>&emsp;&emsp;在安卓App逆向分析中，抓包通常是指通过一些手段获取App与服务器之间传输的明文网络数据信息，这些网络数据信息往往是逆向分析的切入点，通过抓包得到的信息可以快速定位关键接口函数的位置。<br>&emsp;&emsp;抓包两种情况</p>
-<ul>
-<li><strong>Hook抓包</strong><br>指通过对发包函数的Hook来达到抓包的作用。</li>
-<li><strong>中间人抓包</strong><br>指将原来一段完整的客户端-服务器的通信方式割裂成两段客户端-服务器的通信。<br>中间人抓包在OSI七层网络模型结构中通常又被分为两种情形  <ul>
-<li>应用层：Http(s)协议抓包。</li>
-<li>会话层：Socket通信抓包。</li>
-</ul>
-</li>
-</ul>
-<p>&emsp;&emsp;中间人抓包方式通常会通过抓包工具完成数据的截取，常用工具有Wireshark、BurpSuite、Charles、Fiddler等。<br>&emsp;&emsp;抓应用层的Http(s)协议数据，推荐的专业工具是BurpSuite，如果只是简单抓包，也可以用Charles。如果是会话层，可选择Charles、tcpdump和WireShark组合的方式。  </p>
-<h1 id="HTTP-s-协议抓包配置"><a href="#HTTP-s-协议抓包配置" class="headerlink" title="HTTP(s)协议抓包配置"></a>HTTP(s)协议抓包配置</h1><p>&emsp;&emsp;以Charles和BurpSuite作为抓包工具对App进行抓包环境配置，并通过浏览器访问HTTP网站进行验证。  </p>
-<h2 id="HTTP抓包配置"><a href="#HTTP抓包配置" class="headerlink" title="HTTP抓包配置"></a>HTTP抓包配置</h2><p>&emsp;&emsp;为了达到抓包目的，首先要将手机和测试手机连接在同一个局域网中且确保手机和计算机能互相访问。  </p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/08/Xposed/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/08/Xposed/" class="post-title-link" itemprop="url">Xposed</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-05-08 12:52:08 / 修改时间：12:59:11" itemprop="dateCreated datePublished" datetime="2024-05-08T12:52:08+08:00">2024-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Xposed/" itemprop="url" rel="index"><span itemprop="name">Xposed</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Xposed是比Frida框架更早的Hook框架。  </p>
-<h1 id="Xposed框架简介"><a href="#Xposed框架简介" class="headerlink" title="Xposed框架简介"></a>Xposed框架简介</h1><p>&emsp;&emsp;Xposed框架是一套开源的、在Android root模式下运行的框架，它可以在不修改原码的情况下通过Hook方式去影响程序的运行。<br>&emsp;&emsp;可惜的是，Xposed很久没更新了，且每次编写Xpsed模块代码都要重启手机以使新加入的功能生效，这样很低效。<br>&emsp;&emsp;但是出现了很多基于Xposed框架的衍生品，如EdXposed。  </p>
-<h1 id><a href="#" class="headerlink" title></a></h1>
       
     </div>
 
