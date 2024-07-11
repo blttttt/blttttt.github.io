@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="基础命令命令基础格式command [-options] [parameter]    command : 命令本身 [] : 可选，非必填 options : 命令的一些选项 parameter : 命令的参数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux">
+<meta property="og:url" content="http://example.com/2024/07/11/Linux/index.html">
+<meta property="og:site_name" content="白乐天">
+<meta property="og:description" content="基础命令命令基础格式command [-options] [parameter]    command : 命令本身 [] : 可选，非必填 options : 命令的一些选项 parameter : 命令的参数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/07/11/Linux/1.png">
+<meta property="og:image" content="http://example.com/2024/07/11/Linux/2.png">
+<meta property="og:image" content="http://example.com/2024/07/11/Linux/3.png">
+<meta property="og:image" content="http://example.com/2024/07/11/Linux/4.png">
+<meta property="og:image" content="http://example.com/2024/07/11/Linux/5.png">
+<meta property="og:image" content="http://example.com/2024/07/11/Linux/6.png">
+<meta property="article:published_time" content="2024-07-10T16:40:57.000Z">
+<meta property="article:modified_time" content="2024-07-11T15:01:05.046Z">
+<meta property="article:author" content="白乐天">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/07/11/Linux/1.png">
+
+
+<link rel="canonical" href="http://example.com/2024/07/11/Linux/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/07/11/Linux/","path":"2024/07/11/Linux/","title":"Linux"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linux | 白乐天</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">白乐天</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">28</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">71</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">基础命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ls"><span class="nav-number">1.1.</span> <span class="nav-text">ls</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cd%E5%92%8Cpwd"><span class="nav-number">1.2.</span> <span class="nav-text">cd和pwd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E8%B7%AF%E5%BE%84%E7%AC%A6"><span class="nav-number">1.3.</span> <span class="nav-text">特殊路径符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mkdir"><span class="nav-number">1.4.</span> <span class="nav-text">mkdir</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="nav-number">1.5.</span> <span class="nav-text">文件操作命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#touch"><span class="nav-number">1.5.1.</span> <span class="nav-text">touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cat"><span class="nav-number">1.5.2.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#more"><span class="nav-number">1.5.3.</span> <span class="nav-text">more</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp"><span class="nav-number">1.5.4.</span> <span class="nav-text">cp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mv"><span class="nav-number">1.5.5.</span> <span class="nav-text">mv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm"><span class="nav-number">1.5.6.</span> <span class="nav-text">rm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4which%E5%92%8Cfind"><span class="nav-number">1.6.</span> <span class="nav-text">查找命令which和find</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grep"><span class="nav-number">1.7.</span> <span class="nav-text">grep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wc"><span class="nav-number">1.8.</span> <span class="nav-text">wc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%A1%E9%81%93%E7%AC%A6"><span class="nav-number">1.9.</span> <span class="nav-text">管道符 |</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#echo"><span class="nav-number">1.10.</span> <span class="nav-text">echo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%BC%95%E5%8F%B7"><span class="nav-number">1.11.</span> <span class="nav-text">反引号 &#96;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E7%AC%A6-%E5%92%8C"><span class="nav-number">1.12.</span> <span class="nav-text">重定向符&gt;和&gt;&gt;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tail"><span class="nav-number">1.13.</span> <span class="nav-text">tail</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vi-vim%E7%BC%96%E8%BE%91%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">vi&#x2F;vim编辑器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vi-vim%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E4%B8%89%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">vi&#x2F;vim编辑器的三种工作模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.1.1.</span> <span class="nav-text">命令模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%95%E7%BA%BF%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.1.2.</span> <span class="nav-text">底线命令模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90"><span class="nav-number">3.</span> <span class="nav-text">用户和权限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#root"><span class="nav-number">3.1.</span> <span class="nav-text">root</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#su%E5%92%8Cexit"><span class="nav-number">3.2.</span> <span class="nav-text">su和exit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sudo"><span class="nav-number">3.3.</span> <span class="nav-text">sudo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AEsudo%E8%AE%A4%E8%AF%81"><span class="nav-number">3.4.</span> <span class="nav-text">为普通用户配置sudo认证</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="白乐天"
+      src="/images/android.svg">
+  <p class="site-author-name" itemprop="name">白乐天</p>
+  <div class="site-description" itemprop="description">在安卓逆向和爬虫的道路上渐行渐远!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/blttttt" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;blttttt" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/11/Linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linux | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-07-11 00:40:57 / 修改时间：23:01:05" itemprop="dateCreated datePublished" datetime="2024-07-11T00:40:57+08:00">2024-07-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h1><p>命令基础格式<br><code>command [-options] [parameter]</code>  </p>
+<ul>
+<li>command : 命令本身</li>
+<li>[] : 可选，非必填</li>
+<li>options : 命令的一些选项</li>
+<li>parameter : 命令的参数<span id="more"></span></li>
+</ul>
+<h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><p><code>ls [-a -l -h] [Linux 路径]</code>  </p>
+<ul>
+<li>-a -l -h 是可选的选项</li>
+<li>Linux路径是此命令可选的参数  </li>
+<li><code>-a</code>表示<code>all</code>的意思，即列出全部文件（包含隐藏的文件&#x2F;文件夹），以<code>.</code>开头的文件夹就是Linux系统中隐藏的文件&#x2F;文件夹。  </li>
+<li><code>-l</code>表示以列表（竖向排列）的形式展示内容，并展示更多信息。</li>
+<li><code>-h</code>表示以易于阅读的形式，列出文件大小，需要和<code>-l</code>搭配使用。</li>
+</ul>
+<h2 id="cd和pwd"><a href="#cd和pwd" class="headerlink" title="cd和pwd"></a>cd和pwd</h2><p>终端打开时，会默认以用户的HOME目录作为当前的工作目录<br>cd来自英文：Change Directory<br><code>cd [Linux路径]</code> </p>
+<ul>
+<li><code>cd</code>命令无需选项，只有参数，切换目录</li>
+<li><code>cd</code>命令直接执行，不写参数，表示回到用户的HOME目录</li>
+</ul>
+<p><code>pwd</code><br>查看当前所在的工作目录（Print Work Directory）</p>
+<ul>
+<li><code>pwd</code>命令，无选项，无参数，直接输入pwd即可</li>
+</ul>
+<h2 id="特殊路径符"><a href="#特殊路径符" class="headerlink" title="特殊路径符"></a>特殊路径符</h2><ul>
+<li><code>.</code>：表示当前目录</li>
+<li><code>..</code>：表示上一级目录</li>
+<li><code>~</code>：表示HOME目录</li>
+</ul>
+<h2 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h2><p>可以创建新的目录文件夹<br>mkdir来自英文：Make Directory<br><code>mkdir [-p] Linux路径</code></p>
+<ul>
+<li>参数必填，表示Linux路径，就是要创建的文件夹的路径</li>
+<li>-p选项可选，表示自动创建不存在的父目录，适用于创建连续多层级的目录</li>
+</ul>
+<h2 id="文件操作命令"><a href="#文件操作命令" class="headerlink" title="文件操作命令"></a>文件操作命令</h2><h3 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h3><p>创建文件<br><code>touch Linux路径</code></p>
+<ul>
+<li>touch命令无选项，参数必填</li>
+</ul>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p>查看文件的内容<br><code>cat Linux路径</code>   </p>
+<ul>
+<li>cat同样没有选项，只有必填参数</li>
+</ul>
+<h3 id="more"><a href="#more" class="headerlink" title="more"></a>more</h3><p>也可以查看文件内容，不同的是：  </p>
+<ul>
+<li>cat直接将内容全部显示出来  </li>
+<li>more支持翻页，如果文件内容过多，可以一页一页显示</li>
+</ul>
+<p><code>more Linux路径</code>  </p>
+<ul>
+<li>没有选项，只有必填参数</li>
+<li>在查看的过程中，通过空格翻页</li>
+<li>通过q退出查看</li>
+</ul>
+<h3 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h3><p>复制文件&#x2F;文件夹<br><code>cp [-r] 参数1 参数2</code>  </p>
+<ul>
+<li><code>-r</code>,选项，可选，用于复制文件夹使用</li>
+<li>参数1,Linux路径，表示被复制的文件或文件夹</li>
+<li>参数2,Linux路径，表示要复制去的地方</li>
+</ul>
+<h3 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h3><p>mv命令可以用于移动文件&#x2F;文件夹<br><code>mv 参数1 参数2</code>  </p>
+<ul>
+<li>参数1，Linux路径，表示被移动的文件或文件夹</li>
+<li>参数2，Linux路径，表示要移动去的地方，如果目标不存在，则进行改名，确保目标存在</li>
+</ul>
+<h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3><p>删除文件、文件夹<br><code>rm [-r -f] 参数1 参数2 ... 参数n</code>  </p>
+<ul>
+<li><code>-r</code>选项用于删除文件夹</li>
+<li><code>-f</code>表示force，强制删除（不会弹出提示确认信息）<ul>
+<li>普通用户删除内容不会弹出提示，只有root管理员用户删除内容会有提示</li>
+<li>所以一般普通用户用不到-f选项</li>
+</ul>
+</li>
+<li>参数1、参数2…参数n表示要删除的文件或文件夹路径，按照空格隔开</li>
+</ul>
+<p>rm命令支持通配符<code>*</code>，用来做模糊匹配  </p>
+<ul>
+<li>符号<code>*</code>表示通配符，即匹配任意内容（包含空）</li>
+<li><code>test*</code>，表示匹配任何以test开头的内容</li>
+<li><code>*test</code>，表示匹配任何以test结尾的内容</li>
+<li><code>*test*</code>，表示匹配任何包含test的内容  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">以下命令慎用</span><br><span class="line">rm -f *</span><br><span class="line">rm -rf *</span><br><span class="line">rm -rf /*</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="查找命令which和find"><a href="#查找命令which和find" class="headerlink" title="查找命令which和find"></a>查找命令which和find</h2><p>linux命令的本体是一个个二进制可执行程序，和Windows系统中的.exe文件是一个意思。<br>which命令可以查看所使用的一系列命令的程序放在哪里。<br><code>which 要查找的命令</code><br>find命令搜索指定的文件  </p>
+<ul>
+<li><code>find 起始路径 -name &quot;被查找的文件名&quot;</code>  </li>
+<li><code>find 起始路径 -size +|-n[KMG]</code>  <ul>
+<li>+、-表示大于和小于</li>
+<li>n表示大小数字</li>
+<li>KMG表示大小单位</li>
+</ul>
+</li>
+</ul>
+<h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><p>从文件中通过关键字过滤文件的行<br><code>grep [-n] &quot;关键字&quot; 文件路径</code>  </p>
+<ul>
+<li><code>-n</code>表示在结果中显示匹配的行的行号</li>
+<li>参数<code>&quot;关键字&quot;</code>，必填，表示过滤的关键字。  </li>
+<li>参数<code>文件路径</code>，必填，表示要过滤的文件的文件路径，<code>可作为内容输入端口</code>。</li>
+</ul>
+<h2 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h2><p>统计文件的行数、单词数量。<br><code>wc [-c -m -l -w] 文件路径</code>  </p>
+<ul>
+<li><code>-c</code>：统计bytes数量</li>
+<li><code>-m</code>：统计字符数量</li>
+<li><code>-l</code>：统计行数</li>
+<li><code>-w</code>：统计单词数量</li>
+<li>参数<code>文件路径</code>，被统计的文件，<code>可作为输入内容端口</code></li>
+</ul>
+<h2 id="管道符"><a href="#管道符" class="headerlink" title="管道符 |"></a>管道符 |</h2><p>将管道符左边命令的结果作为右边命令的输入  </p>
+<h2 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h2><p>在命令行内输出指定内容<br><code>echo &quot;输出的内容&quot;</code>  </p>
+<ul>
+<li>无需选项，只有一个参数，表示要输出的内容</li>
+</ul>
+<h2 id="反引号"><a href="#反引号" class="headerlink" title="反引号 &#96;"></a>反引号 &#96;</h2><p>被&#96;包围的内容，会被当做命令执行，而非普通字符<br><img src="/2024/07/11/Linux/1.png"></p>
+<h2 id="重定向符-和"><a href="#重定向符-和" class="headerlink" title="重定向符&gt;和&gt;&gt;"></a>重定向符<code>&gt;</code>和<code>&gt;&gt;</code></h2><ul>
+<li><code>&gt;</code>将左侧命令的结果，覆盖 写入到符号右侧指定的的文件中</li>
+<li><code>&gt;&gt;</code>将左侧命令的结果，追加 写入到符号右侧指定的文件中<br><img src="/2024/07/11/Linux/2.png"></li>
+</ul>
+<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><p>查看文件尾部内容，跟踪文件的最新更改<br><code>tail [-f -num] Linux路径</code>  </p>
+<ul>
+<li>参数<code>Linux路径</code>，表示被跟踪的文件路径</li>
+<li>选项，<code>-f</code> ,表示持续跟踪</li>
+<li>选项，<code>-num</code>，表示查看尾部多少行，不填默认10行</li>
+</ul>
+<h1 id="vi-vim编辑器"><a href="#vi-vim编辑器" class="headerlink" title="vi&#x2F;vim编辑器"></a>vi&#x2F;vim编辑器</h1><p>vi&#x2F;vim是Linux中经典的文本编辑器。<br>vim是vi的加强版本，兼容vi的所有指令，不仅能编辑文本，而且还具有shell程序编辑的功能，可以以不同颜色的字体来辨别语法的正确性。  </p>
+<h2 id="vi-vim编辑器的三种工作模式"><a href="#vi-vim编辑器的三种工作模式" class="headerlink" title="vi&#x2F;vim编辑器的三种工作模式"></a>vi&#x2F;vim编辑器的三种工作模式</h2><ul>
+<li>命令模式<br>  以命令驱动执行不同的功能，不能进行文本编辑</li>
+<li>输入模式<br>  可以对文件内容进行自由编辑</li>
+<li>底线命令模式<br>  以：开始，通常用于文件的保存退出</li>
+</ul>
+<p>不管在哪一个模式下，按下<code>ESC</code>，就可以回到命令模式。  </p>
+<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><p>通过vi&#x2F;vim编辑器编辑文件，可执行如下命令：<br><code>vi 文件路径</code><br><code>vim 文件路径</code>  </p>
+<ul>
+<li>如果文件不存在，此命令会用于编辑新文件</li>
+<li>如果文件存在，此命令会用于编辑已有文件</li>
+</ul>
+<p>进入vi编辑器会进入命令模式，通过命令模式输入指令，可以进入输入模式，从输入模式退回到命令模式，然后通过命令进入底线模式，保存文件并退出vi编辑器。<br><img src="/2024/07/11/Linux/3.png"><br><img src="/2024/07/11/Linux/4.png"><br><img src="/2024/07/11/Linux/5.png">  </p>
+<h3 id="底线命令模式"><a href="#底线命令模式" class="headerlink" title="底线命令模式"></a>底线命令模式</h3><p><img src="/2024/07/11/Linux/6.png">  </p>
+<h1 id="用户和权限"><a href="#用户和权限" class="headerlink" title="用户和权限"></a>用户和权限</h1><h2 id="root"><a href="#root" class="headerlink" title="root"></a>root</h2><p>在Linux系统中，拥有最大权限的用户名为：root（超级管理员）  </p>
+<h2 id="su和exit"><a href="#su和exit" class="headerlink" title="su和exit"></a>su和exit</h2><p><code>su</code>命令用于账户切换，其英文来源是：Switch User<br><code>su [-] [用户名]</code></p>
+<ul>
+<li><code>-</code>符号是可选的，表示是否在切换用户后加载环境变量，<code>建议带上</code>  </li>
+<li>参数：<code>用户名</code>，表示要切换的用户，用户名可以省略，省略表示切换到<code>root</code>  </li>
+<li>切换用户后，可以通过<code>exit</code>命令退回上一个用户，也可以使用快捷键：<code>ctrl+d</code>  </li>
+<li>使用普通用户，切换到其他用户需要输入密码</li>
+<li>使用<code>root</code>用户切换到其他用户，无需密码，可以直接切换</li>
+</ul>
+<h2 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h2><p>使用<code>sudo</code>命令为普通的命令授权，临时以<code>root</code>身份执行。<br><code>sudo 其他命令</code>  </p>
+<ul>
+<li>在其他命令之前加上<code>sudo</code>，即可为这一条命令临时赋予<code>root</code>权限</li>
+<li>但不是所有用户都有权利使用<code>sudo</code>，需要为普通用户配置<code>sudo</code>认证</li>
+</ul>
+<h2 id="为普通用户配置sudo认证"><a href="#为普通用户配置sudo认证" class="headerlink" title="为普通用户配置sudo认证"></a>为普通用户配置sudo认证</h2><ul>
+<li><p>切换到<code>root</code>用户，执行<code>visudo</code>命令，会自动通过vi编辑器打开：<code>/etc/sudoers</code></p>
+</li>
+<li><p>在文件的最后添加：<br>  &emsp;&emsp;<code>&quot;用户名&quot; ALL=(ALL) NOPASSWD: ALL</code>  </p>
+<ul>
+<li>其中最后的<code>NOPASSWD:ALL</code> 表示使用sudo命令，无需输入密码</li>
+</ul>
+</li>
+<li><p>最后通过<code>wq</code>保存  </p>
+</li>
+<li><p>切换回普通用户</p>
+</li>
+<li><p>通过sudo执行命令，不需要密码</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag">Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/07/10/kali-linux%E5%AD%A6%E4%B9%A0/" rel="prev" title="kali-linux学习">
+                  <i class="fa fa-angle-left"></i> kali-linux学习
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">白乐天</span>
+  </div>
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("01/01/2024 00:00:00"); //修改为你的网站开始运行的时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
