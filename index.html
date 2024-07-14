@@ -84,7 +84,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">28</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">71</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">60</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">28</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">74</span></a></li>
   </ul>
 </nav>
 
@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -134,7 +134,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">60</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -160,6 +160,283 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/14/stdio-h/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/14/stdio-h/" class="post-title-link" itemprop="url">stdio.h</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-07-14 16:17:49 / 修改时间：16:50:44" itemprop="dateCreated datePublished" datetime="2024-07-14T16:17:49+08:00">2024-07-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>标准库函数</p>
+<h1 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf"></a>sprintf</h1><p>sprintf 是一个标准库函数，用于将格式化的数据写入字符串中。它的功能类似于 printf，但不是将输出打印到控制台，而是将格式化后的结果存储到一个字符串中。<br><code>sprintf(char *str,&quot;format&quot;,...)</code>  </p>
+<ul>
+<li><code>str</code>是目标字符串的指针，存储格式化后的结果</li>
+<li><code>&quot;format&quot;</code>是格式控制字符串，指定存储格式</li>
+<li><code>...</code>是可选参数列表，根据format来传递相应参数</li>
+</ul>
+<h2 id="将十进制数据转换为为十六进制数据"><a href="#将十进制数据转换为为十六进制数据" class="headerlink" title="将十进制数据转换为为十六进制数据"></a>将十进制数据转换为为十六进制数据</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> *msg = <span class="string">&quot;12345678&quot;</span>;</span><br><span class="line"><span class="type">int</span> len = <span class="built_in">strlen</span>(msg);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,len);</span><br><span class="line"><span class="type">int</span> i,j;</span><br><span class="line"><span class="type">char</span> *result = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="number">32</span>);</span><br><span class="line"><span class="built_in">memset</span>(result,<span class="number">0x00</span>,<span class="keyword">sizeof</span>(<span class="type">char</span>)*<span class="number">32</span>);</span><br><span class="line"><span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">16</span>;j++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,result[j]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">    <span class="built_in">sprintf</span>(result+i*<span class="number">2</span>,<span class="string">&quot;%2x&quot;</span>,msg[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">32</span>;j++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,result[j]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">0000000000000000</span></span><br><span class="line"><span class="number">3132333435363738</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/13/%E5%B7%A5%E5%85%B7%E6%B1%87%E6%80%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/13/%E5%B7%A5%E5%85%B7%E6%B1%87%E6%80%BB/" class="post-title-link" itemprop="url">工具汇总</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-13 15:47:18" itemprop="dateCreated datePublished" datetime="2024-07-13T15:47:18+08:00">2024-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-07-14 14:03:17" itemprop="dateModified" datetime="2024-07-14T14:03:17+08:00">2024-07-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="WiFi-ADB"><a href="#WiFi-ADB" class="headerlink" title="WiFi ADB"></a>WiFi ADB</h1><p><a target="_blank" rel="noopener" href="https://www.apkmirror.com/apk/metactrl/wifi-adb-debug-over-air/">官网链接</a><code>https://www.apkmirror.com/apk/metactrl/wifi-adb-debug-over-air/</code>（需要科学上网）<br>下载安装到手机端，就可以通过WiFi进行adb调试（需要连接同一个WiFi）</p>
+<h1 id="Qtscrapy"><a href="#Qtscrapy" class="headerlink" title="Qtscrapy"></a>Qtscrapy</h1><p>安卓实时投屏控制软件，可以通过 USB &#x2F; 网络连接Android设备。</p>
+<h1 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h1><p>python多环境管理器，切换各种python版本  </p>
+<h2 id="查看可安装的python版本"><a href="#查看可安装的python版本" class="headerlink" title="查看可安装的python版本"></a>查看可安装的python版本</h2><p><code>pyenv install --list</code><br>只有版本号，没有名字的就是可安装的python版本</p>
+<h2 id="安装python"><a href="#安装python" class="headerlink" title="安装python"></a>安装python</h2><p><code>pyenv install 版本号</code></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
+<li><p><code>pyenv global x.x.x</code><br>设置全局默认python版本</p>
+</li>
+<li><p><code>pyenv versions</code><br>显示已安装的python，带<code>*</code>的是当前使用的python版本</p>
+</li>
+<li><p><code>pyenv uninstall x.x.x</code><br>卸载pytnon</p>
+</li>
+<li><p><code>pyenv local 3.8.0</code><br>设置当前目录的本地python版本为3.8.0</p>
+</li>
+</ul>
+<h1 id="Snipaste"><a href="#Snipaste" class="headerlink" title="Snipaste"></a>Snipaste</h1><p>截图软件<br><code>F1</code>:截图，鼠标右键可取消<br><code>F3</code>:定在屏幕上  </p>
+<h1 id="CyberChef"><a href="#CyberChef" class="headerlink" title="CyberChef"></a>CyberChef</h1><p>编码解码加密解密<br><a target="_blank" rel="noopener" href="https://cyberchef.io/">点击打开</a><code>https://cyberchef.io/</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/13/frida/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/13/frida/" class="post-title-link" itemprop="url">frida</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-13 10:42:11" itemprop="dateCreated datePublished" datetime="2024-07-13T10:42:11+08:00">2024-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-07-14 10:35:58" itemprop="dateModified" datetime="2024-07-14T10:35:58+08:00">2024-07-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/frida/" itemprop="url" rel="index"><span itemprop="name">frida</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a target="_blank" rel="noopener" href="https://github.com/frida/frida/releases">官网链接</a><code>https://github.com/frida/frida/releases</code></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="frida-tools"><a href="#frida-tools" class="headerlink" title="frida-tools"></a>frida-tools</h2><ul>
+<li>安装<code>frida-tools</code><br>使用<code>pip install frida-tools</code>会自动安装最新版frida全系列产品<br>  <code>frida</code>迭代更新的速度很快，可以选择安装指定版本的<code>frida</code>    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install frida-tools==<span class="number">9.2</span><span class="number">.4</span></span><br></pre></td></tr></table></figure></li>
+<li>查看frida版本 <code>frida --version</code></li>
+</ul>
+<h2 id="frida-sever"><a href="#frida-sever" class="headerlink" title="frida-sever"></a>frida-sever</h2><ul>
+<li>在测试机上安装对应版本的<code>frida-sever</code><br>  <code>frida-sever</code>的版本要和<code>frida</code>的版本一致，同时<code>frida-sever</code>的架构要和测试机的系统以及架构保持一致<br>  可以使用<code>adb shell getprop ro.product.cpu.abi</code>查看系统架构信息  </li>
+<li>下载完<code>frida-sever</code>后，将解压后的<code>frida-sever</code>通过<code>adb push</code>推送到测试机的<code>/data/local/tmp</code>目录下，通过<code>chmod</code>命令为其赋予权限<br><code>chmod 777 frida-sever</code></li>
+<li>运行后通过<code>frida-ps -U</code>查看其进程</li>
+</ul>
+<h2 id="objection"><a href="#objection" class="headerlink" title="objection"></a>objection</h2><p>通过命令<code>pip install objection</code>进行安装</p>
+<h1 id="frida使用"><a href="#frida使用" class="headerlink" title="frida使用"></a>frida使用</h1><p><code>frida - -help</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-U    通过USB连接设备</span><br><span class="line">-R    连接远程设备</span><br><span class="line">-H    连接指定的IP地址和端口的frida-sever，可以连接多台设备，通过netstat -nltp查看</span><br><span class="line">-f    启动时hook</span><br><span class="line">-F    直接注入前端进程</span><br><span class="line">-n    通过包名注入</span><br><span class="line">-p    以PID进程码来注入  同名进程时用</span><br><span class="line">-l    脚本路径</span><br><span class="line">-o    指定内容输出到哪个文件</span><br></pre></td></tr></table></figure>
+
+<h1 id="Frida-API"><a href="#Frida-API" class="headerlink" title="Frida API"></a>Frida API</h1><h2 id="Java-perform-fn"><a href="#Java-perform-fn" class="headerlink" title="Java.perform(fn)"></a>Java.perform(fn)</h2><p>主要用于当前线程附加到Java VM并且调用fn方法。  </p>
+<h2 id="Java-use-className"><a href="#Java-use-className" class="headerlink" title="Java.use(className)"></a>Java.use(className)</h2><p>动态获取className的类定义，通过对其调用$new()来调用构造函数，可以从中实例化对象。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -197,9 +474,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-07-11 00:40:57 / 修改时间：23:01:05" itemprop="dateCreated datePublished" datetime="2024-07-11T00:40:57+08:00">2024-07-11</time>
+      <time title="创建时间：2024-07-11 00:40:57" itemprop="dateCreated datePublished" datetime="2024-07-11T00:40:57+08:00">2024-07-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-07-13 17:09:12" itemprop="dateModified" datetime="2024-07-13T17:09:12+08:00">2024-07-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -782,283 +1065,6 @@
 </ul>
 <h2 id="校验和"><a href="#校验和" class="headerlink" title="校验和"></a>校验和</h2><p>使用Windows下shell中集成的专门的工具来校验文件的MD5值、SHA1值、SHA256值<br>命令如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">certutil -hashfile filename MD5</span><br><span class="line">certutil -hashfile filename SHA1</span><br><span class="line">certutil -hashfile filename SHA256</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/03/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E7%89%B9%E5%BE%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/03/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E7%89%B9%E5%BE%81/" class="post-title-link" itemprop="url">哈希算法特征</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-03 18:05:41" itemprop="dateCreated datePublished" datetime="2024-07-03T18:05:41+08:00">2024-07-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-06 00:30:28" itemprop="dateModified" datetime="2024-07-06T00:30:28+08:00">2024-07-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>哈希算法的特征</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/03/%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E7%89%B9%E5%BE%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/" class="post-title-link" itemprop="url">[应急响应]Win Server Web1入侵排查</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-07-03 11:10:54 / 修改时间：16:19:58" itemprop="dateCreated datePublished" datetime="2024-07-03T11:10:54+08:00">2024-07-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" itemprop="url" rel="index"><span itemprop="name">应急响应</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/89IS3jPePjBHFKPXnGmKfA">原创链接</a><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/1gebC1OkDgtz4k4YtN10dg">题解</a></p>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>前景需要：</p>
-<p>小李在值守的过程中，发现有CPU占用飙升，出于胆子小，就立刻将服务器关机，并找来正在吃苕皮的hxd帮他分析，这是他的服务器系统，请你找出以下内容，并作为通关条件：</p>
-<p>1.攻击者的shell密码</p>
-<p>2.攻击者的IP地址</p>
-<p>3.攻击者的隐藏账户名称</p>
-<p>4.攻击者挖矿程序的矿池域名(仅域名)</p>
-<p>5.有实力的可以尝试着修复漏洞</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/03/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Win-Server-Web1%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/03/java-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/03/java-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">[java]基础知识</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-03 00:52:18" itemprop="dateCreated datePublished" datetime="2024-07-03T00:52:18+08:00">2024-07-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-07 16:27:27" itemprop="dateModified" datetime="2024-07-07T16:27:27+08:00">2024-07-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><p><strong>整数</strong><br>byte<br>short<br>int<br>long<br><strong>浮点数</strong><br>float(4字节)<br>double(8字节)<br><strong>字符</strong><br>char(2字节)<br><strong>字符串</strong><br>String    </p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/03/java-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
