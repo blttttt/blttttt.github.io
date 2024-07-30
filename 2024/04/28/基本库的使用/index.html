@@ -460,7 +460,7 @@
 <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>实现字符串的检索、替换、匹配验证。</p>
 <h2 id="实例引入"><a href="#实例引入" class="headerlink" title="实例引入"></a>实例引入</h2><p><a target="_blank" rel="noopener" href="https://tool.oschina.net/regex">正则表达式测试工具</a><br>&emsp;&emsp;在这里输入待匹配的文字，然后选择常用的正则表达式，就可以得出相应的匹配结果。</p>
 <blockquote>
-<p>Hello, my phone number is 010-86432100 and email is <a href="mailto:&#x63;&#113;&#99;&#x40;&#99;&#x75;&#105;&#x71;&#105;&#110;&#x67;&#99;&#97;&#105;&#46;&#x63;&#111;&#109;">&#x63;&#113;&#99;&#x40;&#99;&#x75;&#105;&#x71;&#105;&#110;&#x67;&#99;&#97;&#105;&#46;&#x63;&#111;&#109;</a>,    and my website is <a target="_blank" rel="noopener" href="https://cuiqigncai.com/">https://cuiqigncai.com</a></p>
+<p>Hello, my phone number is 010-86432100 and email is <a href="mailto:&#x63;&#113;&#x63;&#64;&#x63;&#117;&#x69;&#113;&#105;&#x6e;&#x67;&#99;&#97;&#105;&#x2e;&#99;&#111;&#x6d;">&#x63;&#113;&#x63;&#64;&#x63;&#117;&#x69;&#113;&#105;&#x6e;&#x67;&#99;&#97;&#105;&#x2e;&#99;&#111;&#x6d;</a>,    and my website is <a target="_blank" rel="noopener" href="https://cuiqigncai.com/">https://cuiqigncai.com</a></p>
 </blockquote>
 <p>&emsp;&emsp;这段字符串包含一个电话号码，一个Email地址和一个URL，然后用正则表达式将这些内容提取出来。<br>&emsp;&emsp;在网页右侧选择“匹配Email地址”，就可以看到出现文本中的E-mail。选择“匹配网址URL”可以看到文本中的URL。<br>&emsp;&emsp;这里面用的就是正则表达式匹配，用一定的规则将特定的文本提取出来。<br>&emsp;&emsp;E-mail地址开头是一段字符串，然后一个@符号，后面跟上的是域名。对于URL，开头是协议类型，然后是冒号加两个斜杠，最后是域名加路径。<br>&emsp;&emsp;对于URL可以是<code>[a-zA-z]+://[^\s]*</code>，<code>a-z</code>代表匹配任意的小写字母，<code>\s</code>代表匹配任意的空白字符，<code>*</code>代表匹配前面任意多个字符。<br><strong>常用匹配规则</strong>  </p>
 <table>
