@@ -27,7 +27,7 @@
 <meta property="og:description" content="标准库printfprintf(&quot;格式化字符串&quot;，参变量)格式化输出 sprintfsprintf 是一个标准库函数，用于将格式化的数据写入字符串中。它的功能类似于 printf，但不是将输出打印到控制台，而是将格式化后的结果存储到一个字符串中。sprintf(char *str,&quot;format&quot;,...)    str是目标字符串的指针，存储格式化后的结果">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-14T08:17:49.000Z">
-<meta property="article:modified_time" content="2024-07-20T04:42:37.884Z">
+<meta property="article:modified_time" content="2024-07-30T07:38:26.006Z">
 <meta property="article:author" content="白乐天">
 <meta property="article:tag" content="stdio.h">
 <meta name="twitter:card" content="summary">
@@ -87,7 +87,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">63</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">27</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">75</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">54</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">25</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">58</span></a></li>
   </ul>
 </nav>
 
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">标准库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#printf"><span class="nav-number">1.1.</span> <span class="nav-text">printf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sprintf"><span class="nav-number">1.2.</span> <span class="nav-text">sprintf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%B8%BA%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B0%E6%8D%AE"><span class="nav-number">1.3.</span> <span class="nav-text">将十进制数据转换为为十六进制数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fprintf"><span class="nav-number">1.4.</span> <span class="nav-text">fprintf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#putc"><span class="nav-number">1.5.</span> <span class="nav-text">putc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getc"><span class="nav-number">1.6.</span> <span class="nav-text">getc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fputc"><span class="nav-number">1.7.</span> <span class="nav-text">fputc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fgetc"><span class="nav-number">1.8.</span> <span class="nav-text">fgetc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fputs"><span class="nav-number">1.9.</span> <span class="nav-text">fputs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fgets"><span class="nav-number">1.10.</span> <span class="nav-text">fgets</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">标准库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#printf"><span class="nav-number">1.1.</span> <span class="nav-text">printf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sprintf"><span class="nav-number">1.2.</span> <span class="nav-text">sprintf</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%B8%BA%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.1.</span> <span class="nav-text">将十进制数据转换为为十六进制数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#snprintf"><span class="nav-number">1.3.</span> <span class="nav-text">snprintf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fprintf"><span class="nav-number">1.4.</span> <span class="nav-text">fprintf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#putc"><span class="nav-number">1.5.</span> <span class="nav-text">putc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getc"><span class="nav-number">1.6.</span> <span class="nav-text">getc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fputc"><span class="nav-number">1.7.</span> <span class="nav-text">fputc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fgetc"><span class="nav-number">1.8.</span> <span class="nav-text">fgetc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fputs"><span class="nav-number">1.9.</span> <span class="nav-text">fputs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fgets"><span class="nav-number">1.10.</span> <span class="nav-text">fgets</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -127,18 +127,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-count">54</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -210,7 +210,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-20 12:42:37" itemprop="dateModified" datetime="2024-07-20T12:42:37+08:00">2024-07-20</time>
+      <time title="修改时间：2024-07-30 15:38:26" itemprop="dateModified" datetime="2024-07-30T15:38:26+08:00">2024-07-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -238,7 +238,14 @@
 <li><code>&quot;format&quot;</code>是格式控制字符串，指定存储格式</li>
 <li><code>...</code>是可选参数列表，根据format来传递相应参数</li>
 </ul>
-<h2 id="将十进制数据转换为为十六进制数据"><a href="#将十进制数据转换为为十六进制数据" class="headerlink" title="将十进制数据转换为为十六进制数据"></a>将十进制数据转换为为十六进制数据</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> *msg = <span class="string">&quot;12345678&quot;</span>;</span><br><span class="line"><span class="type">int</span> len = <span class="built_in">strlen</span>(msg);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,len);</span><br><span class="line"><span class="type">int</span> i,j;</span><br><span class="line"><span class="type">char</span> *result = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="number">32</span>);</span><br><span class="line"><span class="built_in">memset</span>(result,<span class="number">0x00</span>,<span class="keyword">sizeof</span>(<span class="type">char</span>)*<span class="number">32</span>);</span><br><span class="line"><span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">16</span>;j++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,result[j]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">    <span class="built_in">sprintf</span>(result+i*<span class="number">2</span>,<span class="string">&quot;%2x&quot;</span>,msg[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">32</span>;j++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,result[j]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">0000000000000000</span></span><br><span class="line"><span class="number">3132333435363738</span></span><br></pre></td></tr></table></figure>
+<h3 id="将十进制数据转换为为十六进制数据"><a href="#将十进制数据转换为为十六进制数据" class="headerlink" title="将十进制数据转换为为十六进制数据"></a>将十进制数据转换为为十六进制数据</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> *msg = <span class="string">&quot;12345678&quot;</span>;</span><br><span class="line"><span class="type">int</span> len = <span class="built_in">strlen</span>(msg);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,len);</span><br><span class="line"><span class="type">int</span> i,j;</span><br><span class="line"><span class="type">char</span> *result = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="number">32</span>);</span><br><span class="line"><span class="built_in">memset</span>(result,<span class="number">0x00</span>,<span class="keyword">sizeof</span>(<span class="type">char</span>)*<span class="number">32</span>);</span><br><span class="line"><span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">16</span>;j++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,result[j]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">    <span class="built_in">sprintf</span>(result+i*<span class="number">2</span>,<span class="string">&quot;%2x&quot;</span>,msg[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">32</span>;j++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,result[j]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">0000000000000000</span></span><br><span class="line"><span class="number">3132333435363738</span></span><br></pre></td></tr></table></figure>
+<h2 id="snprintf"><a href="#snprintf" class="headerlink" title="snprintf"></a>snprintf</h2><p>格式化输出字符串，并将结果写入到指定的缓冲区，与 sprintf() 不同的是，snprintf() 会限制输出的字符数，避免缓冲区溢出。<br><code>int snprintf(char * str,size_t size,const char * format,...);</code>  </p>
+<ul>
+<li><code>str</code>：目标字符串，用于存储格式化后的字符串的字符数组的指针。</li>
+<li><code>size</code>：字符数组的大小。</li>
+<li><code>format</code>：格式化字符串。</li>
+<li><code>...</code>：可变参数</li>
+</ul>
 <h2 id="fprintf"><a href="#fprintf" class="headerlink" title="fprintf"></a>fprintf</h2><p><code>int fprintf(FILE *stream, const char *format, ...)</code><br>发送格式化输出到流stream中  </p>
 <ul>
 <li><strong>stream</strong>，这是指向 FILE 对象的指针，该 FILE 对象标识了流。  </li>

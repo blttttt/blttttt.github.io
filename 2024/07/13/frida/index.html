@@ -26,18 +26,18 @@
 <meta property="og:site_name" content="白乐天">
 <meta property="og:description" content="官网官网链接https:&#x2F;&#x2F;github.com&#x2F;frida&#x2F;frida&#x2F;releases 安装frida-tools 安装frida-tools使用pip install frida-tools会自动安装最新版frida全系列产品  frida迭代更新的速度很快，可以选择安装指定版本的frida    1pip install frida-tools&#x3D;&#x3D;9.2.4 查看frida版本 frida">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/07/13/frida/1.png">
+<meta property="og:image" content="http://example.com/2024/07/13/frida/2.png">
 <meta property="og:image" content="http://example.com/2024/07/13/frida/3.png">
 <meta property="og:image" content="http://example.com/2024/07/13/frida/4.png">
 <meta property="og:image" content="http://example.com/2024/07/13/frida/5.png">
 <meta property="og:image" content="http://example.com/2024/07/13/frida/6.png">
 <meta property="og:image" content="http://example.com/2024/07/13/frida/1.png">
 <meta property="article:published_time" content="2024-07-13T02:42:11.000Z">
-<meta property="article:modified_time" content="2024-07-18T08:58:17.729Z">
+<meta property="article:modified_time" content="2024-07-30T10:01:12.050Z">
 <meta property="article:author" content="白乐天">
 <meta property="article:tag" content="frida">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2024/07/13/frida/1.png">
+<meta name="twitter:image" content="http://example.com/2024/07/13/frida/2.png">
 
 
 <link rel="canonical" href="http://example.com/2024/07/13/frida/">
@@ -94,7 +94,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">63</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">27</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">75</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">54</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">25</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">58</span></a></li>
   </ul>
 </nav>
 
@@ -134,18 +134,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-count">54</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -217,7 +217,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-18 16:58:17" itemprop="dateModified" datetime="2024-07-18T16:58:17+08:00">2024-07-18</time>
+      <time title="修改时间：2024-07-30 18:01:12" itemprop="dateModified" datetime="2024-07-30T18:01:12+08:00">2024-07-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -258,9 +258,9 @@
 <h1 id="Frida-API"><a href="#Frida-API" class="headerlink" title="Frida API"></a>Frida API</h1><h2 id="Java-perform-fn"><a href="#Java-perform-fn" class="headerlink" title="Java.perform(fn)"></a>Java.perform(fn)</h2><p>主要用于当前线程附加到Java VM并且调用fn方法。  </p>
 <h2 id="Java-use-className"><a href="#Java-use-className" class="headerlink" title="Java.use(className)"></a>Java.use(className)</h2><p>动态获取className的类定义，通过对其调用$new()来调用构造函数，可以从中实例化对象。</p>
 <h3 id="Hook-onCreate方法和stringFromJNI方法"><a href="#Hook-onCreate方法和stringFromJNI方法" class="headerlink" title="Hook onCreate方法和stringFromJNI方法"></a>Hook onCreate方法和stringFromJNI方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">setImmediate</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="title class_">Java</span>.<span class="title function_">perform</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> mainactivity = <span class="title class_">Java</span>.<span class="title function_">use</span>(<span class="string">&quot;com.example.easyso.MainActivity&quot;</span>);</span><br><span class="line">        mainactivity.<span class="property">onCreate</span>.<span class="property">implementation</span>=<span class="keyword">function</span>(<span class="params">x</span>)&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;this is MainActivity.onCreate&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">onCreate</span>(x);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        mainactivity.<span class="property">stringFromJNI</span>.<span class="property">implementation</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="keyword">var</span> result = <span class="variable language_">this</span>.<span class="title function_">stringFromJNI</span>();</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;stringFromJNI: &quot;</span>,result);</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p><code>frida -U -f com.example.easyso -l demo.js --no-pause</code><br>这里的参数<code>--no-pause</code>是在脚本加载完成后，不暂停应用程序的执行，不加这个参数的话，Frida 会在脚本加载后暂停应用程序的执行<br><img src="/2024/07/13/frida/1.png"></p>
+<p><code>frida -U -f com.example.easyso -l demo.js --no-pause</code><br>这里的参数<code>--no-pause</code>是在脚本加载完成后，不暂停应用程序的执行，不加这个参数的话，Frida 会在脚本加载后暂停应用程序的执行<br><img src="/2024/07/13/frida/2.png"></p>
 <h1 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h1><p><strong>Process.enumerateModules()</strong><br>列出进程中所有加载的模块。<br><strong>Process.findModuleByName(“moduleName”)</strong><br>通过模块名来查找模块，返回Module对象,如果未找到，返回null或undefined。<br><strong>Process.getModuleByName(“moduleName”)</strong><br>通过模块名来获取模块地址，返回Module对象，如果未找到，会抛出异常。<br><strong>Process.findModuleByAddress(NativePointer)</strong><br>通过地址查找包含该地址的模块，返回Module对象，如果未找到,返回null。<br><strong>Process.getModuleByAddress(NativePointer)</strong><br>通过地址获取包含该地址的模块，返回Module对象，如果未找到,会抛出异常。<br><strong>Process.findRangeByAddress(NativePointer)</strong><br>查找包含指定地址的内存范围。<br>如果找到包含指定地址的内存范围，则返回一个对象，包含内存范围的基址、大小、保护属性和文件信息等</p>
-<h1 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h1><p><strong>Module.enumerateImports(“moduleName”)</strong><br>列出指定模块的所有导入函数，返回一个包含导入函数信息的数组。<br><strong>Module.enumerateExports(“moduleName”)</strong><br>列出指定模块的所有导出函数，返回一个包含导出函数信息的数组。<br><strong>Module.enumerateSymbols(“moduleName”)</strong><br>列出指定模块的所有符号，返回一个包含符号信息的数组。<br><strong>Module.findBaseAddress(“moduleName”)</strong><br>查找指定模块的基址，返回NativePointer对象，如果找不到模块则返回 null。  </p>
+<h1 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h1><p><strong>Module.enumerateImports(“moduleName”)</strong><br>列出指定模块的所有导入函数，返回一个包含导入函数信息的数组。<br><strong>Module.enumerateExports(“moduleName”)</strong><br>列出指定模块的所有导出函数，返回一个包含导出函数信息的数组。<br><strong>Module.enumerateSymbols(“moduleName”)</strong><br>列出指定模块的所有符号，返回一个包含符号信息的数组。<br><strong>Module.findBaseAddress(“moduleName”)</strong><br>查找指定模块的基址，返回NativePointer对象，如果找不到模块则返回 null。<br><strong>Module.findExportByName(“moduleName”,”exportName”)</strong><br>查找指定模块中指定导出函数的地址，返回NativePointer对象。</p>
 <h2 id="枚举模块"><a href="#枚举模块" class="headerlink" title="枚举模块"></a>枚举模块</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">setImmediate</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> moudles = <span class="title class_">Process</span>.<span class="title function_">enumerateModules</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;moudles.<span class="property">length</span>;i++)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(moudles[i]))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(moudles);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="枚举导入表"><a href="#枚举导入表" class="headerlink" title="枚举导入表"></a>枚举导入表</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">setImmediate</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">// 获取包含导入表信息的数组</span></span><br><span class="line">    <span class="keyword">var</span> imports = <span class="title class_">Module</span>.<span class="title function_">enumerateImports</span>(<span class="string">&quot;libeasyso.so&quot;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(imports));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;imports.<span class="property">length</span>;i++)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;name:&quot;</span>,imports[i].<span class="property">name</span>+<span class="string">&quot; address:&quot;</span>+imports[i].<span class="property">address</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="枚举符号表"><a href="#枚举符号表" class="headerlink" title="枚举符号表"></a>枚举符号表</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">setImmediate</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">// 获取包含符号表信息的数组</span></span><br><span class="line">    <span class="keyword">var</span> symbols = <span class="title class_">Module</span>.<span class="title function_">enumerateSymbols</span>(<span class="string">&quot;libencryptlib.so&quot;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(symbols))</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;imports.<span class="property">length</span>;i++)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(symbols[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
