@@ -19,28 +19,25 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="objectionObjection是一个基于Frida的命令行hook工具。通过命令pip install objection进行安装 jnitraceJNItrace是一个基于Frida框架的Hook jni方法的库。通过命令pip install jnitrace进行安装 使用 基本使用jnitrace -l libnative-lib.so com.example.myapplicatio">
-<meta property="og:type" content="article">
-<meta property="og:title" content="frida工具">
-<meta property="og:url" content="http://example.com/2024/07/31/frida%E5%B7%A5%E5%85%B7/index.html">
+    <meta name="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="白乐天">
+<meta property="og:url" content="http://example.com/categories/JavaScript%E8%AF%AD%E8%A8%80/index.html">
 <meta property="og:site_name" content="白乐天">
-<meta property="og:description" content="objectionObjection是一个基于Frida的命令行hook工具。通过命令pip install objection进行安装 jnitraceJNItrace是一个基于Frida框架的Hook jni方法的库。通过命令pip install jnitrace进行安装 使用 基本使用jnitrace -l libnative-lib.so com.example.myapplicatio">
+<meta property="og:description" content="在安卓逆向和爬虫的道路上渐行渐远!">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-31T04:22:40.000Z">
-<meta property="article:modified_time" content="2024-08-01T07:52:56.375Z">
 <meta property="article:author" content="白乐天">
-<meta property="article:tag" content="frida工具">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2024/07/31/frida%E5%B7%A5%E5%85%B7/">
+<link rel="canonical" href="http://example.com/categories/JavaScript%E8%AF%AD%E8%A8%80/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/07/31/frida%E5%B7%A5%E5%85%B7/","path":"2024/07/31/frida工具/","title":"frida工具"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/JavaScript语言/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>frida工具 | 白乐天</title>
+<title>分类: JavaScript语言 | 白乐天</title>
   
 
 
@@ -99,7 +96,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -112,7 +109,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#objection"><span class="nav-number">1.</span> <span class="nav-text">objection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jnitrace"><span class="nav-number">2.</span> <span class="nav-text">jnitrace</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">2.1.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E9%A1%B9"><span class="nav-number">2.2.</span> <span class="nav-text">选项</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -163,116 +159,50 @@
 
     </div>
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner category posts-collapse">
 
 
   
-
-
-<div class="post-block">
   
   
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/31/frida%E5%B7%A5%E5%85%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="frida工具 | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          frida工具
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        <h1 class="collection-header">JavaScript语言
+          <small>分类</small>
         </h1>
+      </div>
 
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-31 12:22:40" itemprop="dateCreated datePublished" datetime="2024-07-31T12:22:40+08:00">2024-07-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-01 15:52:56" itemprop="dateModified" datetime="2024-08-01T15:52:56+08:00">2024-08-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/frida/" itemprop="url" rel="index"><span itemprop="name">frida</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody"><h1 id="objection"><a href="#objection" class="headerlink" title="objection"></a>objection</h1><p>Objection是一个基于Frida的命令行hook工具。<br>通过命令<code>pip install objection</code>进行安装</p>
-<h1 id="jnitrace"><a href="#jnitrace" class="headerlink" title="jnitrace"></a>jnitrace</h1><p>JNItrace是一个基于Frida框架的Hook jni方法的库。<br>通过命令<code>pip install jnitrace</code>进行安装</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
-<li>基本使用<br><strong>jnitrace -l libnative-lib.so com.example.myapplication</strong></li>
-</ul>
-<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><ul>
-<li><strong>-m &lt;spawn|attach&gt;</strong><br>指定附加机制。</li>
-</ul>
-
+      
+    <div class="collection-year">
+      <span class="collection-header">2024</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2024-08-02T02:12:19+08:00"
+              content="2024-08-02">
+          08-02
+        </time>
+      </div>
 
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/frida%E5%B7%A5%E5%85%B7/" rel="tag">frida工具</a>
-          </div>
+      <div class="post-title">
+          <a class="post-title-link" href="/2024/08/02/JavaScript%E8%AF%AD%E8%A8%80/" itemprop="url">
+            <span itemprop="name">JavaScript语言</span>
+          </a>
+      </div>
 
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2024/07/30/Java%E8%AF%AD%E8%A8%80/" rel="prev" title="Java语言">
-                  <i class="fa fa-angle-left"></i> Java语言
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2024/08/02/JavaScript%E8%AF%AD%E8%A8%80/" rel="next" title="JavaScript语言">
-                  JavaScript语言 <i class="fa fa-angle-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
+      
+    </header>
   </article>
-</div>
 
-
-
-
-
+    </div>
+  </div>
+  
+  
+  
 
 </div>
   </main>
