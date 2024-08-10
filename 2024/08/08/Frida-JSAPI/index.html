@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Runtime informationFrida Frida.version包含当前 Frida 版本的属性，类型为字符串。 Frida.heapSize动态属性，包含 Frida 私有堆的当前大小，由所有脚本和 Frida 自身的运行时共享。">
+    <meta name="description" content="Runtime informationFrida Frida.version包含当前 Frida 版本的属性，类型为字符串。 Frida.heapSize动态属性，包含 Frida 私有堆的当前大小，由所有脚本和 Frida 自身的运行时共享。  Thread Thread.backtrace([context, backtracer])为当前线程生成一个调用栈回溯，返回一个 NativePoin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Frida-JSAPI">
 <meta property="og:url" content="http://example.com/2024/08/08/Frida-JSAPI/index.html">
 <meta property="og:site_name" content="白乐天">
-<meta property="og:description" content="Runtime informationFrida Frida.version包含当前 Frida 版本的属性，类型为字符串。 Frida.heapSize动态属性，包含 Frida 私有堆的当前大小，由所有脚本和 Frida 自身的运行时共享。">
+<meta property="og:description" content="Runtime informationFrida Frida.version包含当前 Frida 版本的属性，类型为字符串。 Frida.heapSize动态属性，包含 Frida 私有堆的当前大小，由所有脚本和 Frida 自身的运行时共享。  Thread Thread.backtrace([context, backtracer])为当前线程生成一个调用栈回溯，返回一个 NativePoin">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-07T16:21:55.000Z">
-<meta property="article:modified_time" content="2024-08-07T16:28:25.529Z">
+<meta property="article:modified_time" content="2024-08-10T11:04:35.476Z">
 <meta property="article:author" content="白乐天">
 <meta property="article:tag" content="frida">
 <meta name="twitter:card" content="summary">
@@ -87,7 +87,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">56</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">26</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">61</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">26</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">62</span></a></li>
   </ul>
 </nav>
 
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Runtime-information"><span class="nav-number">1.</span> <span class="nav-text">Runtime information</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Frida"><span class="nav-number">1.1.</span> <span class="nav-text">Frida</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Runtime-information"><span class="nav-number">1.</span> <span class="nav-text">Runtime information</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Frida"><span class="nav-number">1.1.</span> <span class="nav-text">Frida</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thread"><span class="nav-number">2.</span> <span class="nav-text">Thread</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Module"><span class="nav-number">3.</span> <span class="nav-text">Module</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-number">3.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Memory"><span class="nav-number">4.</span> <span class="nav-text">Memory</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Types-Function-and-Callback"><span class="nav-number">5.</span> <span class="nav-text">Data Types, Function and Callback</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NativePointer"><span class="nav-number">6.</span> <span class="nav-text">NativePointer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NativeFunction"><span class="nav-number">7.</span> <span class="nav-text">NativeFunction</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -138,7 +138,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-count">57</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -202,9 +202,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-08-08 00:21:55 / 修改时间：00:28:25" itemprop="dateCreated datePublished" datetime="2024-08-08T00:21:55+08:00">2024-08-08</time>
+      <time title="创建时间：2024-08-08 00:21:55" itemprop="dateCreated datePublished" datetime="2024-08-08T00:21:55+08:00">2024-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-10 19:04:35" itemprop="dateModified" datetime="2024-08-10T19:04:35+08:00">2024-08-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -229,6 +235,183 @@
 <li><strong>Frida.version</strong><br>包含当前 Frida 版本的属性，类型为字符串。</li>
 <li><strong>Frida.heapSize</strong><br>动态属性，包含 Frida 私有堆的当前大小，由所有脚本和 Frida 自身的运行时共享。</li>
 </ul>
+<h1 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h1><ul>
+<li><strong>Thread.backtrace([context, backtracer])</strong><br>为当前线程生成一个调用栈回溯，返回一个 NativePointer 对象的数组。<br>如果在 <code>Interceptor</code> 的 <code>onEnter</code> 或 <code>onLeave</code> 回调中调用此函数，应为可选的 <code>context</code> 参数提供 <code>this.context</code>，这样可以生成更准确的调用栈回溯。<br>可选的 backtracer 参数指定要使用的回溯器类型，必须是 Backtracer.FUZZY 或 Backtracer.ACCURATE，如果未指定，默认使用后者。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Thread</span>.<span class="title function_">backtrace</span>(<span class="variable language_">this</span>.<span class="property">context</span>, <span class="title class_">Backtracer</span>.<span class="property">ACCURATE</span>).<span class="title function_">map</span>(<span class="title class_">DebugSymbol</span>.<span class="property">fromAddress</span>).<span class="title function_">join</span>(<span class="string">&#x27;\n&#x27;</span>) + <span class="string">&#x27;\n&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+<li><strong>Thread.sleep(delay)</strong><br>暂停当前线程的执行，暂停时间由 delay 指定，以秒为单位。</li>
+</ul>
+<h1 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h1><h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><ul>
+<li><code>name</code>：模块的规范名称，类型为字符串  </li>
+<li><code>base</code>: 基址，类型为 <code>NativePointer</code></li>
+<li><code>size</code>: 模块大小，以字节为单位</li>
+<li><code>path</code>: 文件系统中的完整路径，类型为字符串</li>
+</ul>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li><strong>enumerateImports()</strong><br>枚举模块导入表，返回一个包含以下属性的对象数组：<ul>
+<li><code>type</code>: 字符串，指定为 <code>function</code> 或 <code>variable</code></li>
+<li><code>name</code>: 导入名称，类型为字符串</li>
+<li><code>module</code>: 模块名称，类型为字符串</li>
+<li><code>address</code>: 绝对地址，类型为 <code>NativePointer</code></li>
+<li><code>slot</code>: 存储导入的内存位置，类型为 <code>NativePointer</code></li>
+</ul>
+</li>
+<li><strong>enumerateExports()</strong><br>枚举模块导出表，返回一个包含以下属性的对象数组：<ul>
+<li><code>type</code>: 字符串，指定为 <code>function</code> 或 <code>variable</code></li>
+<li><code>name</code>: 导出名称，类型为字符串</li>
+<li><code>address</code>: 绝对地址，类型为 <code>NativePointer</code></li>
+</ul>
+</li>
+<li><strong>enumerateSymbols()</strong><br>枚举模块符号表，返回一个包含以下属性的对象数组：<ul>
+<li><code>isGlobal</code>: 布尔值，指定符号是否是全局可见的</li>
+<li><code>type</code>: 字符串，指定以下类型之一：<ul>
+<li><code>unknown</code>（未知）</li>
+<li><code>section</code>（节）</li>
+<li><code>undefined</code>（未定义，Mach-O 格式）</li>
+<li><code>absolute</code>（绝对地址，Mach-O 格式）</li>
+<li><code>prebound-undefined</code>（预绑定未定义，Mach-O 格式）</li>
+<li><code>indirect</code>（间接，Mach-O 格式）</li>
+<li><code>object</code>（对象，ELF 格式）</li>
+<li><code>function</code>（函数，ELF 格式）</li>
+<li><code>file</code>（文件，ELF 格式）</li>
+<li><code>common</code>（公共，ELF 格式）</li>
+<li><code>tls</code>（线程本地存储，ELF 格式）</li>
+</ul>
+</li>
+<li><code>section</code>: 如果存在，则是一个对象，包含以下属性：<ul>
+<li><code>id</code>: 字符串，包含节索引、段名称（如果适用）和节名称，格式与 r2 的节 ID 相同</li>
+<li><code>protection</code>: 与 Process.enumerateRanges() 中的保护属性相同</li>
+</ul>
+</li>
+<li><code>name</code>: 符号名称，类型为字符串</li>
+<li><code>address</code>: 绝对地址，类型为 NativePointer</li>
+<li><code>size</code>: 如果存在，为一个数字，指定符号的大小，以字节为单位</li>
+</ul>
+</li>
+</ul>
+<h1 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h1><ul>
+<li><p><strong>Memory.alloc(size[, options])</strong><br>在堆上分配 <code>size</code> 字节的内存，或者，如果 <code>size</code> 是 <code>Process.pageSize</code> 的倍数，则分配由操作系统管理的一个或多个原始内存页。<br>当使用页面粒度分配时，如果需要将内存分配在接近某个地址的位置，可以通过指定 <code>&#123; near: address, maxDistance: distanceInBytes &#125;</code> 作为可选的 <code>options</code> 对象。<br>返回值是一个 <strong>NativePointer</strong> 对象，并且当所有指向该内存的 JavaScript 句柄消失后，底层内存将被释放。<br>这意味着在代码中使用该指针时，需要保留对它的引用，以防止它在 JavaScript 运行时之外的代码使用时被垃圾回收。</p>
+</li>
+<li><p><strong>Memory.protect(address, size, protection)</strong><br>更新一块内存区域的保护属性，其中 <code>protection</code> 是一个字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  <span class="title class_">Memory</span>.<span class="title function_">protect</span>(address,size,<span class="string">&#x27;rwx&#x27;</span>);</span><br><span class="line">  <span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string">  返回一个布尔值，指示操作是否成功完成。  </span></span><br><span class="line"><span class="string">- **Memory.allocUtf8String(str), Memory.allocUtf16String(str), Memory.allocAnsiString(str)**  </span></span><br><span class="line"><span class="string">在堆上分配、编码并写入 str 作为 UTF-8/UTF-16/ANSI 字符串。  </span></span><br><span class="line"><span class="string">返回的对象是一个 NativePointer。</span></span><br><span class="line"><span class="string">- **Memory.patchCode(address, size, apply)**  </span></span><br><span class="line"><span class="string">    安全地修改由 address 指定的内存位置（类型为 NativePointer）处的size大小的字节。提供的 JavaScript 函数 apply 会被调用，并传入一个可写指针，在返回之前，你必须在该指针处写入所需的修改。</span></span><br><span class="line"><span class="string">    - `</span>address<span class="string">`：指定要修改的内存区域的起始地址。</span></span><br><span class="line"><span class="string">    - `</span>size<span class="string">`：指定要修改的内存区域的大小（通常以字节为单位）。</span></span><br><span class="line"><span class="string">    - `</span>apply<span class="string">`：指定要应用的修改内容。</span></span><br><span class="line"><span class="string">        `</span><span class="string">``</span>js</span><br><span class="line">        <span class="title class_">Memory</span>.<span class="title function_">patchCode</span>(address,size,<span class="keyword">function</span>(<span class="params">code</span>)&#123;</span><br><span class="line">            <span class="keyword">var</span> writer =<span class="keyword">new</span> <span class="title class_">Arm64Writer</span>(code);</span><br><span class="line">            writer.<span class="title function_">putNop</span>();</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Instruction</span>.<span class="title function_">parse</span>(add));</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(writer.<span class="property">base</span>);</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(writer.<span class="property">code</span>);</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(writer.<span class="property">pc</span>);</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="Data-Types-Function-and-Callback"><a href="#Data-Types-Function-and-Callback" class="headerlink" title="Data Types, Function and Callback"></a>Data Types, Function and Callback</h1><h1 id="NativePointer"><a href="#NativePointer" class="headerlink" title="NativePointer"></a>NativePointer</h1><ul>
+<li><p><strong>new NativePointer(s)</strong><br>从包含内存地址的字符串 s 创建一个新的 NativePointer 对象。<br>字符串可以是十进制的，也可以是以 0x 开头的十六进制表示。<br>可以使用 <strong>ptr(s)</strong> 的简写形式来创建。</p>
+</li>
+<li><p><strong>isNull()</strong><br>返回一个布尔值，方便检查指针是否为 NULL。</p>
+</li>
+<li><p><strong>add(rhs), sub(rhs), and(rhs), or(rhs), xor(rhs)</strong><br>创建一个新的 NativePointer，其值为当前 <code>NativePointer</code> 加上&#x2F;减去&#x2F;与&#x2F;或&#x2F;异或 <code>rhs</code>，其中 <code>rhs</code> 可以是一个数字或另一个 <code>NativePointer</code>。</p>
+</li>
+<li><p><strong>shr(n), shl(n)</strong><br>创建一个新的 NativePointer，其值为当前 NativePointer 向右&#x2F;向左移位 n 位。  </p>
+</li>
+<li><p><strong>not()</strong><br>创建一个新的 NativePointer，其值为当前 NativePointer 的按位取反。</p>
+</li>
+<li><p><strong>sign([key, data])</strong><br>通过对当前 NativePointer 的位添加指针认证位，创建一个签名指针。<br>如果当前进程不支持指针认证，这个操作无效，返回当前 NativePointer 而不是新的值。<br>可选的 key 参数可以指定为字符串。支持的值包括：</p>
+<ul>
+<li><code>ia</code>：<strong>IA</strong> 密钥，用于签署代码指针。这是默认值。</li>
+<li><code>ib</code>：<strong>IB</strong> 密钥，用于签署代码指针。</li>
+<li><code>da</code>：<strong>DA</strong> 密钥，用于签署数据指针。</li>
+<li><code>db</code>：<strong>DB</strong> 密钥，用于签署数据指针。</li>
+</ul>
+<p><code>data</code> 参数也可以指定为 <code>NativePointer</code>&#x2F;<code>数字类值</code>，用于为签名提供额外的数据，默认值为 0。</p>
+</li>
+<li><p><strong>strip([key])</strong><br>通过移除指针认证位，从当前 NativePointer 创建一个原始指针。如果当前进程不支持指针认证，这个操作无效，返回当前 NativePointer 而不是新的值。可选的 key 参数可以指定用于签名指针的密钥，默认值为 ia。</p>
+</li>
+<li><p><strong>blend(smallInteger)</strong><br>通过将当前 NativePointer 的位与常量混合，创建一个新的 NativePointer，该常量可作为数据传递给 sign()。  </p>
+</li>
+<li><p><strong>equals(rhs)</strong><br>返回一个布尔值，指示 rhs 是否与当前指针相等，即它们的指针值是否相同。</p>
+</li>
+<li><p><strong>compare(rhs)</strong><br>返回一个整数比较结果，类似于 String#localeCompare()。  </p>
+</li>
+<li><p><strong>toInt32()</strong><br>将当前 NativePointer 转换为有符号的 32 位整数。  </p>
+</li>
+<li><p><strong>toString([radix &#x3D; 16])</strong><br>将当前 NativePointer 转换为字符串，使用可选的 radix 进制（默认值为 16）。</p>
+</li>
+<li><p><strong>toMatchPattern()</strong><br>返回一个字符串，包含当前指针的原始值的 Memory.scan() 兼容匹配模式。</p>
+</li>
+<li><p><strong>readPointer()</strong><br>从当前内存位置读取一个 NativePointer。<br>如果地址不可读，将抛出一个 JavaScript 异常。</p>
+</li>
+<li><p><strong>writePointer(ptr)</strong><br>将 ptr 写入当前内存位置。<br>如果地址不可写，将抛出一个 JavaScript 异常。</p>
+</li>
+<li><p><strong>readS8(), readU8(), readS16(), readU16(), readS32(), readU32(), readShort(), readUShort(), readInt(), readUInt(), readFloat(), readDouble()</strong><br>从当前内存位置读取一个有符号或无符号的 8&#x2F;16&#x2F;32 位整数，或 float&#x2F;double 值，并将其作为数字返回。<br>如果地址不可读，将抛出一个 JavaScript 异常。</p>
+</li>
+<li><p><strong>writeS8(value), writeU8(value), writeS16(value), writeU16(value), writeS32(value), writeU32(value), writeShort(value), writeUShort(value), writeInt(value), writeUInt(value), writeFloat(value), writeDouble(value)</strong><br>将有符号或无符号的 8&#x2F;16&#x2F;32 位整数，或 float&#x2F;double 值写入当前内存位置。<br>如果地址不可写，将抛出一个 JavaScript 异常。  </p>
+</li>
+<li><p><strong>readS64(), readU64(), readLong(), readULong()</strong>  从当前内存位置读取一个有符号或无符号的 64 位或长整型值，并将其作为 Int64&#x2F;UInt64 值返回。<br>如果地址不可读，将抛出一个 JavaScript 异常。</p>
+</li>
+<li><p><strong>writeS64(value), writeU64(value), writeLong(value), writeULong(value)</strong><br>将 Int64&#x2F;UInt64 值写入当前内存位置。<br>如果地址不可写，将抛出一个 JavaScript 异常。  </p>
+</li>
+<li><p><strong>readByteArray(length)</strong><br>从当前内存位置读取 length 个字节，并将其返回为 ArrayBuffer。此缓冲区可以通过 send() 的第二个参数有效地传输到基于 Frida 的应用程序中。<br>如果地址中读取的任何字节不可读，将抛出一个 JavaScript 异常。</p>
+</li>
+<li><p><strong>writeByteArray(bytes)</strong><br>将 bytes 写入当前内存位置，其中 bytes 可以是 ArrayBuffer（通常由 readByteArray() 返回）或由 0 到 255 之间的整数组成的数组。例如：[ 0x13, 0x37, 0x42 ]。<br>如果地址中写入的任何字节不可写，将抛出一个 JavaScript 异常。</p>
+</li>
+<li><p><strong>readCString([size &#x3D; -1]), readUtf8String([size &#x3D; -1]), readUtf16String([length &#x3D; -1]), readAnsiString([size &#x3D; -1])</strong><br>从当前内存位置读取 ASCII、UTF-8、UTF-16 或 ANSI 字符串的字节。如果知道字符串的字节数，可以提供可选的 size 参数；如果字符串以 NULL 结尾，可以省略该参数或指定为 -1。同样，如果知道字符串的字符数，可以提供可选的 length 参数。<br>如果地址中读取的任何 size &#x2F; length 字节不可读，将抛出一个 JavaScript 异常。<br>注意：readAnsiString() 仅在 Windows 上可用（且相关）。</p>
+</li>
+<li><p><strong>writeUtf8String(str), writeUtf16String(str), writeAnsiString(str)</strong><br>将 JavaScript 字符串编码并写入当前内存位置（带有 NULL 终止符）。<br>如果地址中写入的任何字节不可写，将抛出一个 JavaScript 异常。<br>注意：writeAnsiString() 仅在 Windows 上可用（且相关）。</p>
+</li>
+</ul>
+<h1 id="NativeFunction"><a href="#NativeFunction" class="headerlink" title="NativeFunction"></a>NativeFunction</h1><ul>
+<li><strong>new NativeFunction(address, returnType, argTypes[, abi])</strong><br>创建一个新的 NativeFunction，以调用位于指定地址（由 NativePointer 指定）的函数。<ul>
+<li><code>address</code>：指定地址</li>
+<li><code>returnType</code>：指定返回类型</li>
+<li><code>argTypes[, abi]</code>：<code>argTypes</code> 数组指定参数类型。<br>  还可以选择性地指定abi，如果没有指定，则使用系统默认的abi。<br>  对于可变参数函数，在固定参数和可变参数之间添加一个 <code>...</code> 条目到 argTypes 中。</li>
+</ul>
+</li>
+<li><strong>Structs &amp; Classes by Value(按值传递的结构体和类)</strong><br>对于按值传递的结构体或类，不是提供一个字符串，而是提供一个包含结构体字段类型的数组，这些字段类型是按顺序排列的。你可以按需要深度嵌套这些数组，以表示嵌套结构体。注意，返回的对象也是一个 NativePointer，因此可以传递给 Interceptor#attach。<br>这必须与结构体&#x2F;类完全匹配，所以如果你有一个包含三个 int 的结构体，你必须传递 [‘int’, ‘int’, ‘int’]。<br>对于具有虚方法的类，第一个字段将是指向虚函数表（vtable）的指针。<br>对于 C++ 中涉及返回值大于 Process.pointerSize 的情况，典型的 ABI 可能会要求传入一个指向预分配空间的 NativePointer 作为第一个参数。（这种情况在 WebKit 中很常见。）</li>
+<li><strong>Supported Types</strong>  <ul>
+<li>void  </li>
+<li>pointer  </li>
+<li>int  </li>
+<li>uint  </li>
+<li>long  </li>
+<li>ulong  </li>
+<li>char  </li>
+<li>uchar  </li>
+<li>size_t  </li>
+<li>ssize_t  </li>
+<li>float  </li>
+<li>double  </li>
+<li>int8  </li>
+<li>uint8  </li>
+<li>int16  </li>
+<li>uint16  </li>
+<li>int32  </li>
+<li>uint32  </li>
+<li>int64  </li>
+<li>uint64  </li>
+<li>bool</li>
+</ul>
+</li>
+<li><strong>Supported ABIs</strong>  <ul>
+<li>default  </li>
+<li>Windows 32-bit:<br>sysv<br>stdcall<br>thiscall<br>fastcall<br>mscdecl  </li>
+<li>Windows 64-bit:<br>win64  </li>
+<li>UNIX x86:<br>sysv<br>unix64  </li>
+<li>UNIX ARM:<br>sysv<br>vfp</li>
+</ul>
+</li>
+<li><strong>new NativeFunction(address, returnType, argTypes[, options])</strong><br>类似于之前的构造函数，但是第四个参数 <code>options</code> 是一个对象，可以包含以下一个或多个键：<ul>
+<li><p>abi：与上面相同的枚举类型。</p>
+</li>
+<li><p>scheduling：调度行为，作为字符串指定。支持的值有：</p>
+<ul>
+<li>cooperative：在调用本地函数时允许其他线程执行   JavaScript 代码，即在调用前释放锁，并在调用后重新获取锁。这是默认行为。  </li>
+<li>exclusive：在调用本地函数时不允许其他线程执行  JavaScript 代码，即保持持有 JavaScript 锁。这种方式更快，但可能导致死锁。</li>
+</ul>
+</li>
+<li><p>exceptions：异常行为，作为字符串指定。支持的值有：</p>
+<ul>
+<li>steal：如果被调用的函数产生了本地异常（例如，通过解引用无效指针），Frida 将展开堆栈并捕获异常，将其转化为可以处理的 JavaScript 异常。这可能会导致应用程序处于未定义的状态，但在实验时避免进程崩溃非常有用。这是默认行为。</li>
+<li>propagate：让应用程序处理在函数调用期间发生的任何本地异常。（或者由 Process.setExceptionHandler() 安装的处理程序来处理。）</li>
+</ul>
+</li>
+<li><p>traps：需要启用的代码陷阱，作为字符串指定。支持的值有：</p>
+<ul>
+<li>default：如果函数调用触发了任何钩子，Interceptor.attach() 回调将会被调用。</li>
+<li>all：除了 Interceptor 回调外，在每个函数调用期间还可以临时重新激活 Stalker。这对例如测量代码覆盖率、指导模糊测试、在调试器中实现“步入”等功能非常有用。请注意，当使用 Java 和 ObjC API 时也可以实现此功能，因为方法包装器也提供 clone(options) API，用于创建具有自定义 NativeFunction 选项的新方法包装器。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -250,6 +433,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2024/08/10/dlfcn-h/" rel="next" title="dlfcn.h">
+                  dlfcn.h <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
