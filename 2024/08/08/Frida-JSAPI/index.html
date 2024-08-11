@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Runtime informationFrida Frida.version包含当前 Frida 版本的属性，类型为字符串。 Frida.heapSize动态属性，包含 Frida 私有堆的当前大小，由所有脚本和 Frida 自身的运行时共享。  Thread Thread.backtrace([context, backtracer])为当前线程生成一个调用栈回溯，返回一个 NativePoin">
+    <meta name="description" content="Runtime informationFrida Frida.version包含当前 Frida 版本的属性，类型为字符串。 Frida.heapSize动态属性，包含 Frida 私有堆的当前大小，由所有脚本和 Frida 自身的运行时共享。  Process Process.id包含进程 PID 的属性，类型为数字。 Process.arch包含架构信息的属性，类型为字符串，可能的值为 ia3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Frida-JSAPI">
 <meta property="og:url" content="http://example.com/2024/08/08/Frida-JSAPI/index.html">
 <meta property="og:site_name" content="白乐天">
-<meta property="og:description" content="Runtime informationFrida Frida.version包含当前 Frida 版本的属性，类型为字符串。 Frida.heapSize动态属性，包含 Frida 私有堆的当前大小，由所有脚本和 Frida 自身的运行时共享。  Thread Thread.backtrace([context, backtracer])为当前线程生成一个调用栈回溯，返回一个 NativePoin">
+<meta property="og:description" content="Runtime informationFrida Frida.version包含当前 Frida 版本的属性，类型为字符串。 Frida.heapSize动态属性，包含 Frida 私有堆的当前大小，由所有脚本和 Frida 自身的运行时共享。  Process Process.id包含进程 PID 的属性，类型为数字。 Process.arch包含架构信息的属性，类型为字符串，可能的值为 ia3">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-07T16:21:55.000Z">
-<meta property="article:modified_time" content="2024-08-10T11:04:35.476Z">
+<meta property="article:modified_time" content="2024-08-11T10:19:26.286Z">
 <meta property="article:author" content="白乐天">
 <meta property="article:tag" content="frida">
 <meta name="twitter:card" content="summary">
@@ -87,7 +87,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">26</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">62</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">58</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">26</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">63</span></a></li>
   </ul>
 </nav>
 
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Runtime-information"><span class="nav-number">1.</span> <span class="nav-text">Runtime information</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Frida"><span class="nav-number">1.1.</span> <span class="nav-text">Frida</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thread"><span class="nav-number">2.</span> <span class="nav-text">Thread</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Module"><span class="nav-number">3.</span> <span class="nav-text">Module</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-number">3.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Memory"><span class="nav-number">4.</span> <span class="nav-text">Memory</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Types-Function-and-Callback"><span class="nav-number">5.</span> <span class="nav-text">Data Types, Function and Callback</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NativePointer"><span class="nav-number">6.</span> <span class="nav-text">NativePointer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NativeFunction"><span class="nav-number">7.</span> <span class="nav-text">NativeFunction</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Runtime-information"><span class="nav-number">1.</span> <span class="nav-text">Runtime information</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Frida"><span class="nav-number">1.1.</span> <span class="nav-text">Frida</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Process"><span class="nav-number">2.</span> <span class="nav-text">Process</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thread"><span class="nav-number">3.</span> <span class="nav-text">Thread</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Module"><span class="nav-number">4.</span> <span class="nav-text">Module</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-number">4.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Memory"><span class="nav-number">5.</span> <span class="nav-text">Memory</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Types-Function-and-Callback"><span class="nav-number">6.</span> <span class="nav-text">Data Types, Function and Callback</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NativePointer"><span class="nav-number">7.</span> <span class="nav-text">NativePointer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NativeFunction"><span class="nav-number">8.</span> <span class="nav-text">NativeFunction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Instrumentation"><span class="nav-number">9.</span> <span class="nav-text">Instrumentation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Interceptor"><span class="nav-number">9.1.</span> <span class="nav-text">Interceptor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CPU-Instruction"><span class="nav-number">10.</span> <span class="nav-text">CPU Instruction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Instruction"><span class="nav-number">10.1.</span> <span class="nav-text">Instruction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arm64Writer"><span class="nav-number">10.2.</span> <span class="nav-text">Arm64Writer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">10.2.1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-1"><span class="nav-number">10.2.2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7-1"><span class="nav-number">10.2.3.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E6%96%B9%E6%B3%95"><span class="nav-number">10.2.4.</span> <span class="nav-text">代码生成方法</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -138,7 +138,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">58</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -210,7 +210,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-10 19:04:35" itemprop="dateModified" datetime="2024-08-10T19:04:35+08:00">2024-08-10</time>
+      <time title="修改时间：2024-08-11 18:19:26" itemprop="dateModified" datetime="2024-08-11T18:19:26+08:00">2024-08-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -234,6 +234,29 @@
     <div class="post-body" itemprop="articleBody"><h1 id="Runtime-information"><a href="#Runtime-information" class="headerlink" title="Runtime information"></a>Runtime information</h1><h2 id="Frida"><a href="#Frida" class="headerlink" title="Frida"></a>Frida</h2><ul>
 <li><strong>Frida.version</strong><br>包含当前 Frida 版本的属性，类型为字符串。</li>
 <li><strong>Frida.heapSize</strong><br>动态属性，包含 Frida 私有堆的当前大小，由所有脚本和 Frida 自身的运行时共享。</li>
+</ul>
+<h1 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h1><ul>
+<li><strong>Process.id</strong><br>包含进程 PID 的属性，类型为数字。</li>
+<li><strong>Process.arch</strong><br>包含架构信息的属性，类型为字符串，可能的值为 <code>ia32</code>、<code>x64</code>、<code>arm</code> 或 <code>arm64</code>。  </li>
+<li><strong>Process.platform</strong><br>包含平台信息的属性，类型为字符串，可能的值为 <code>windows</code>、<code>darwin</code>、<code>linux</code> 或 <code>qnx</code>。</li>
+<li><strong>Process.pageSize</strong><br>包含虚拟内存页大小的属性（以字节为单位），类型为数字。这个属性用于使你的脚本更具可移植性。</li>
+<li><strong>Process.pointerSize</strong><br>包含指针大小的属性（以字节为单位），类型为数字。这个属性用于使你的脚本更具可移植性。</li>
+<li><strong>Process.codeSigningPolicy</strong><br>包含代码签名策略的属性，类型为字符串，可能的值为 <code>optional</code> 或 <code>required</code>。<code>required</code> 意味着 <code>Frida</code> 将避免修改内存中的现有代码，并且不会尝试运行未签名的代码。<br>目前，除非使用 <code>Gadget</code> 并配置为假设需要代码签名，否则此属性将始终设置为 <code>optional</code>。此属性允许你确定是否可以使用 <code>Interceptor API</code>，以及是否可以安全地修改代码或运行未签名的代码。</li>
+<li><strong>Process.mainModule</strong><br>包含表示进程主可执行文件的模块的属性。</li>
+<li><strong>Process.getCurrentDir()</strong><br>返回一个字符串，指定当前工作目录的文件系统路径。</li>
+<li><strong>Process.getHomeDir()</strong><br>返回一个字符串，指定当前用户主目录的文件系统路径。</li>
+<li><strong>Process.getTmpDir()</strong><br>返回一个字符串，指定用于临时文件的目录的文件系统路径。</li>
+<li><strong>Process.isDebuggerAttached()</strong><br>返回一个布尔值，指示当前是否有调试器附加。</li>
+<li><strong>Process.getCurrentThreadId()</strong><br>获取该线程的操作系统特定 ID，类型为数字。</li>
+<li><strong>Process.enumerateThreads()</strong><br>枚举所有线程，返回一个包含以下属性的对象数组：<ul>
+<li><code>id</code>: 操作系统特定的 ID。</li>
+<li><code>state</code>: 字符串，指定线程状态，可能的值为 <code>running（运行中）</code>、<code>stopped（已停止）</code>、<code>waiting（等待中</code>）、<code>uninterruptible（不可中断）</code>或 <code>halted（已终止）</code>。</li>
+<li><code>context</code>: 包含 pc 和 sp 键的对象，这些键是 <code>NativePointer</code> 对象，分别指定 EIP&#x2F;RIP&#x2F;PC 和 ESP&#x2F;RSP&#x2F;SP（用于 ia32&#x2F;x64&#x2F;arm）。也可以使用其他处理器特定的键，例如 eax、rax、r0、x0 等。</li>
+</ul>
+</li>
+<li><strong>Process.findModuleByAddress(address), Process.getModuleByAddress(address), Process.findModuleByName(name), Process.getModuleByName(name)</strong><br>返回一个与指定地址或名称匹配的模块（Module）。如果找不到这样的模块，以 find 开头的函数返回 null，而以 get 开头的函数则抛出异常。</li>
+<li><strong>Process.enumerateModules()</strong><br>枚举当前加载的模块，返回一个模块（Module）对象的数组。</li>
+<li><strong>Process.findRangeByAddress(address), getRangeByAddress(address)</strong><br>返回一个对象，包含指定地址所在内存范围的详细信息。如果找不到这样的范围，findRangeByAddress() 返回 null，而 getRangeByAddress() 则抛出异常。</li>
 </ul>
 <h1 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h1><ul>
 <li><strong>Thread.backtrace([context, backtracer])</strong><br>为当前线程生成一个调用栈回溯，返回一个 NativePointer 对象的数组。<br>如果在 <code>Interceptor</code> 的 <code>onEnter</code> 或 <code>onLeave</code> 回调中调用此函数，应为可选的 <code>context</code> 参数提供 <code>this.context</code>，这样可以生成更准确的调用栈回溯。<br>可选的 backtracer 参数指定要使用的回溯器类型，必须是 Backtracer.FUZZY 或 Backtracer.ACCURATE，如果未指定，默认使用后者。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Thread</span>.<span class="title function_">backtrace</span>(<span class="variable language_">this</span>.<span class="property">context</span>, <span class="title class_">Backtracer</span>.<span class="property">ACCURATE</span>).<span class="title function_">map</span>(<span class="title class_">DebugSymbol</span>.<span class="property">fromAddress</span>).<span class="title function_">join</span>(<span class="string">&#x27;\n&#x27;</span>) + <span class="string">&#x27;\n&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
@@ -411,6 +434,64 @@
 </li>
 </ul>
 </li>
+</ul>
+<h1 id="Instrumentation"><a href="#Instrumentation" class="headerlink" title="Instrumentation"></a>Instrumentation</h1><p>通过动态插入代码来监控和收集程序的运行信息。</p>
+<h2 id="Interceptor"><a href="#Interceptor" class="headerlink" title="Interceptor"></a>Interceptor</h2><ul>
+<li><strong>Interceptor.attach(target, callbacks[, data])</strong><br>拦截对target函数的调用。  <ul>
+<li><code>target</code><br>target是一个NativePointer，用于指定你想要拦截的函数的地址。<br>在32位ARM架构中，该地址的最低有效位必须为0（对于ARM函数）或1（对于Thumb函数）。如果通过Frida API（例如Module.getExportByName()）获取地址，Frida会自动处理这个细节。</li>
+<li><code>callbacks</code><br>callbacks<br>参数是一个包含一个或多个回调函数的对象。<ul>
+<li>onEnter(args)<br>回调函数，接收一个参数args，它是一个NativePointer对象数组，可以用它来读取或写入函数的参数。</li>
+<li>onLeave(retval)<br>回调函数，接收一个参数retval，它是一个基于NativePointer的对象，包含了函数的原始返回值。<br>你可以调用retval.replace(1337)将返回值替换为整数1337，或者调用retval.replace(ptr(“0x1234”))将返回值替换为一个指针。</li>
+</ul>
+</li>
+<li>该对象包含一些属性<ul>
+<li><code>returnAddress</code>：<br>返回地址，类型为<code>NativePointer</code>。</li>
+<li><code>context</code>：<br>一个对象，包含键pc和sp，它们是NativePointer对象，分别指定ia32&#x2F;x64&#x2F;arm架构下的EIP&#x2F;RIP&#x2F;PC和ESP&#x2F;RSP&#x2F;SP。</li>
+<li><code>errno</code>：<br>（UNIX系统中）当前的errno值（你可以替换它）。</li>
+<li><code>lastError</code>：<br>（Windows系统中）当前的操作系统错误值（你可以替换它）。</li>
+<li><code>threadId</code>：<br>操作系统的线程ID。</li>
+<li><code>depth</code>：<br>相对于其他调用的调用深度。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="CPU-Instruction"><a href="#CPU-Instruction" class="headerlink" title="CPU Instruction"></a>CPU Instruction</h1><h2 id="Instruction"><a href="#Instruction" class="headerlink" title="Instruction"></a>Instruction</h2><ul>
+<li><strong>Instruction.parse(target)</strong><br>解析内存中 target 地址处的指令。<br>返回的对象具有的字段：<ul>
+<li><code>address</code>: 此指令的地址（EIP），类型为 <code>NativePointer</code></li>
+<li><code>next</code>: 指向下一条指令的指针，您可以使用 <code>parse()</code> 解析它</li>
+<li><code>size</code>: 此指令的大小 </li>
+<li><code>mnemonic</code>: 指令助记符的字符串表示</li>
+<li><code>opStr</code>: 指令操作数的字符串表示</li>
+<li><code>operands</code>: 描述每个操作数的对象数组，每个对象至少指定类型和值，但可能还包含取决于架构的其他属性</li>
+<li><code>regsRead</code>: 此指令隐式读取的寄存器名称数组</li>
+<li><code>regsWritten</code>: 此指令隐式写入的寄存器名称数组</li>
+<li><code>groups</code>: 此指令所属的组名称数组</li>
+<li><code>toString()</code>: 转换为人类可读的字符串</li>
+</ul>
+</li>
+</ul>
+<h2 id="Arm64Writer"><a href="#Arm64Writer" class="headerlink" title="Arm64Writer"></a>Arm64Writer</h2><p>创建一个新的代码写入器，用于生成直接写入内存的 AArch64 机器代码</p>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p><strong>new Arm64Writer(codeAddress[, { pc: ptr(‘0x1234’) }]&#96;</strong></p>
+<ul>
+<li><strong>codeAddress</strong>: 代码将被写入的内存地址，指定为 NativePointer 类型。</li>
+<li><strong>pc (可选)</strong>: 初始程序计数器，当在临时缓冲区中生成代码时非常有用。</li>
+</ul>
+<h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><ul>
+<li><strong>reset(codeAddress[, { pc: ptr(‘0x1234’) }])</strong><br>  回收实例，重新初始化 <code>Arm64Writer</code> 实例。</li>
+<li><strong>dispose()</strong><br>  立即清理内存。</li>
+<li><strong>flush()</strong><br>解析标签引用并将待处理的数据写入内存。在生成代码完成后，应始终调用此方法。在一次生成多个函数时，通常也需要在不相关的代码片段之间调用此方法。</li>
+</ul>
+<h3 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h3><ul>
+<li><strong>base</strong><br>输出的第一个字节的内存位置，作为 NativePointer 类型。</li>
+<li><strong>code</strong><br>下一个字节的输出内存位置，作为 NativePointer 类型。</li>
+<li><strong>pc</strong><br>下一个字节的输出程序计数器，作为 NativePointer 类型。</li>
+<li><strong>offset</strong><br>当前偏移量，作为 JavaScript 数字类型。</li>
+</ul>
+<h3 id="代码生成方法"><a href="#代码生成方法" class="headerlink" title="代码生成方法"></a>代码生成方法</h3><ul>
+<li><strong>skip(nBytes)</strong><br>跳过指定字节数。</li>
+<li><strong>putRet()</strong><br>生成一个 RET 指令。</li>
+<li><strong>putNop()</strong><br>生成一个NOP指令</li>
 </ul>
 
     </div>
