@@ -84,7 +84,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">58</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">26</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">63</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">26</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">62</span></a></li>
   </ul>
 </nav>
 
@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -134,7 +134,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-count">57</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -160,6 +160,101 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/15/string-h/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/15/string-h/" class="post-title-link" itemprop="url">string.h</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-15 11:06:19" itemprop="dateCreated datePublished" datetime="2024-07-15T11:06:19+08:00">2024-07-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-09 22:02:46" itemprop="dateModified" datetime="2024-08-09T22:02:46+08:00">2024-08-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="库变量和库宏"><a href="#库变量和库宏" class="headerlink" title="库变量和库宏"></a>库变量和库宏</h1><h2 id="size-t"><a href="#size-t" class="headerlink" title="size_t"></a>size_t</h2><p>这是无符号整数类型，它是sizeof关键字的结果。<br><code>size_t</code> 类型表示C中任何对象所能达到的最大长度，它是无符号整数。<br>它的定义可以理解为<code>typedef unsigned int size_t;</code> 或 <code>typedef unsigned long size_t;</code></p>
+<h2 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h2><p>这个宏是一个空指针常量的值。</p>
+<h1 id="strcat"><a href="#strcat" class="headerlink" title="strcat"></a>strcat</h1><p><code>char *strcat(char *dest, const char *src)</code><br>把 src 所指向的字符串追加到 dest 所指向的字符串的结尾。<br>返回一个指向最终的目标字符串 dest 的指针。  </p>
+<h1 id="strncat"><a href="#strncat" class="headerlink" title="strncat"></a>strncat</h1><p><code>char *strncat(char *dest, const char *src, size_t n)</code><br>把 src 所指向的字符串追加到 dest 所指向的字符串的结尾，直到 n 字符长度为止。  </p>
+<h1 id="strcmp"><a href="#strcmp" class="headerlink" title="strcmp"></a>strcmp</h1><p><code>int strcmp(const char *str1, const char *str2)</code><br>把 str1 所指向的字符串和 str2 所指向的字符串进行比较，如果相同，返回0，否则不为0。</p>
+<h1 id="strncmp"><a href="#strncmp" class="headerlink" title="strncmp"></a>strncmp</h1><p><code>int strncmp(const char *str1, const char *str2, size_t n)</code><br>把 str1 和 str2 进行比较，最多比较前 n 个字符，如果相同，返回0，否则不为0。 </p>
+<h1 id="strcpy"><a href="#strcpy" class="headerlink" title="strcpy"></a>strcpy</h1><p><code>char *strcpy(char *dest, const char *src)</code><br>把 src 所指向的字符串复制到 dest。<br>需要注意的是如果目标数组 dest 不够大，而源字符串的长度又太长，可能会造成缓冲溢出的情况。 </p>
+<h1 id="strncpy"><a href="#strncpy" class="headerlink" title="strncpy"></a>strncpy</h1><p><code>char *strncpy(char *dest, const char *src, size_t n)</code><br>把 src 所指向的字符串复制到 dest，最多复制 n 个字符。<br>当 src 的长度小于 n 时，dest 的剩余部分将用空字节填充。</p>
+<h1 id="memset"><a href="#memset" class="headerlink" title="memset"></a>memset</h1><p><code>void *memset(void *str, int c, size_t n)</code><br>将指定的值 c 复制到 str 所指向的内存区域的前 n 个字节中。</p>
+<h1 id="memcpy"><a href="#memcpy" class="headerlink" title="memcpy"></a>memcpy</h1><p><code>void *memcpy(void *dest, const void *src, size_t n)</code><br>从 src 复制 n 个字节的值到 dest。</p>
+<h1 id="memcmp"><a href="#memcmp" class="headerlink" title="memcmp"></a>memcmp</h1><p><code>int memcmp(const void *str1, const void *str2, size_t n)</code><br>把存储区 str1 和存储区 str2 的前 n 个字节进行比较，如果相同，返回0，否则不为0。  </p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1099,90 +1194,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/04/Windows%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/04/Windows%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Windows命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-04 00:29:43" itemprop="dateCreated datePublished" datetime="2024-07-04T00:29:43+08:00">2024-07-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-10 16:26:33" itemprop="dateModified" datetime="2024-07-10T16:26:33+08:00">2024-07-10</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="终端命令"><a href="#终端命令" class="headerlink" title="终端命令"></a>终端命令</h1><h2 id="net-user"><a href="#net-user" class="headerlink" title="net user"></a>net user</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">net user</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Administrator            blt                      DefaultAccount</span><br><span class="line">Guest                    WDAGUtilityAccount</span><br><span class="line">命令成功完成。</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>Administrator</strong> 这是Windows系统中的内置管理员账户，具有对计算机的完全控制权限  </li>
-<li><strong>blt</strong> 这可能是一个普通用户账户或服务账户，具体取决于您的系统设置和用途。</li>
-<li><strong>DefaultAccount</strong> 这个账户可能是一个默认的用户账户，通常用于演示或测试目的。</li>
-<li><strong>Guest</strong> 这是Windows系统中的内置访客账户，通常用于临时访问计算机，权限有限。</li>
-<li><strong>WDAGUtilityAccount</strong> 这是Windows Defender Application Guard（Windows Defender应用程序防护）使用的账户，用于隔离浏览器中的活动，保护系统安全。</li>
-</ul>
-<h2 id="校验和"><a href="#校验和" class="headerlink" title="校验和"></a>校验和</h2><p>使用Windows下shell中集成的专门的工具来校验文件的MD5值、SHA1值、SHA256值<br>命令如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">certutil -hashfile filename MD5</span><br><span class="line">certutil -hashfile filename SHA1</span><br><span class="line">certutil -hashfile filename SHA256</span><br></pre></td></tr></table></figure>
       
     </div>
 
