@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="frida对象spawn(“PackageName”)以挂起的方式启动进程  需要传入参数，App包名   返回一个进程pid  attach(target)附加到已存在的进程  传入的参数target可以是App包名，也可以是进程pid 返回一个Session对象  resume(target)恢复进程 kill(target)杀死进程 get_usb_device()获取device信息  返">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python的frida库">
+<meta property="og:url" content="http://example.com/2024/08/16/python%E7%9A%84frida%E5%BA%93/index.html">
+<meta property="og:site_name" content="白乐天">
+<meta property="og:description" content="frida对象spawn(“PackageName”)以挂起的方式启动进程  需要传入参数，App包名   返回一个进程pid  attach(target)附加到已存在的进程  传入的参数target可以是App包名，也可以是进程pid 返回一个Session对象  resume(target)恢复进程 kill(target)杀死进程 get_usb_device()获取device信息  返">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-08-15T16:01:21.000Z">
+<meta property="article:modified_time" content="2024-08-16T07:36:15.819Z">
+<meta property="article:author" content="白乐天">
+<meta property="article:tag" content="python的frida库">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2024/08/16/python%E7%9A%84frida%E5%BA%93/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/08/16/python%E7%9A%84frida%E5%BA%93/","path":"2024/08/16/python的frida库/","title":"python的frida库"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>python的frida库 | 白乐天</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">白乐天</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">60</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">27</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">65</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#frida%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">frida对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#spawn-%E2%80%9CPackageName%E2%80%9D"><span class="nav-number">1.1.</span> <span class="nav-text">spawn(“PackageName”)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#attach-target"><span class="nav-number">1.2.</span> <span class="nav-text">attach(target)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#resume-target"><span class="nav-number">1.3.</span> <span class="nav-text">resume(target)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kill-target"><span class="nav-number">1.4.</span> <span class="nav-text">kill(target)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get-usb-device"><span class="nav-number">1.5.</span> <span class="nav-text">get_usb_device()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get-device-manager"><span class="nav-number">1.6.</span> <span class="nav-text">get_device_manager()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DeviceManager%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">DeviceManager对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#get-usb-device-1"><span class="nav-number">2.1.</span> <span class="nav-text">get_usb_device()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#add-remote-device-location"><span class="nav-number">2.2.</span> <span class="nav-text">add_remote_device(location)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Device%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.</span> <span class="nav-text">Device对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7"><span class="nav-number">3.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spawn-%E2%80%9CPackageName%E2%80%9D-1"><span class="nav-number">3.2.</span> <span class="nav-text">spawn(“PackageName”)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#attach-target-1"><span class="nav-number">3.3.</span> <span class="nav-text">attach(target)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#resume-target-1"><span class="nav-number">3.4.</span> <span class="nav-text">resume(target)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kill-target-1"><span class="nav-number">3.5.</span> <span class="nav-text">kill(target)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Session%E5%AF%B9%E8%B1%A1"><span class="nav-number">4.</span> <span class="nav-text">Session对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#create-script-script-name"><span class="nav-number">4.1.</span> <span class="nav-text">create_script(script_name)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Script%E5%AF%B9%E8%B1%A1"><span class="nav-number">5.</span> <span class="nav-text">Script对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#load"><span class="nav-number">5.1.</span> <span class="nav-text">load()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#on-%E2%80%98message%E2%80%99-callback"><span class="nav-number">5.2.</span> <span class="nav-text">on(‘message’,callback)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#callback-message-data"><span class="nav-number">5.2.1.</span> <span class="nav-text">callback(message,data)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#post"><span class="nav-number">5.3.</span> <span class="nav-text">post()</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="白乐天"
+      src="/images/android.svg">
+  <p class="site-author-name" itemprop="name">白乐天</p>
+  <div class="site-description" itemprop="description">在安卓逆向和爬虫的道路上渐行渐远!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/blttttt" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;blttttt" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/16/python%E7%9A%84frida%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="python的frida库 | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python的frida库
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-08-16 00:01:21 / 修改时间：15:36:15" itemprop="dateCreated datePublished" datetime="2024-08-16T00:01:21+08:00">2024-08-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/frida/" itemprop="url" rel="index"><span itemprop="name">frida</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="frida对象"><a href="#frida对象" class="headerlink" title="frida对象"></a>frida对象</h1><h2 id="spawn-“PackageName”"><a href="#spawn-“PackageName”" class="headerlink" title="spawn(“PackageName”)"></a>spawn(“PackageName”)</h2><p>以挂起的方式启动进程</p>
+<ul>
+<li>需要传入参数，App包名  </li>
+<li>返回一个进程<strong>pid</strong></li>
+</ul>
+<h2 id="attach-target"><a href="#attach-target" class="headerlink" title="attach(target)"></a>attach(target)</h2><p>附加到已存在的进程</p>
+<ul>
+<li>传入的参数target可以是App包名，也可以是进程pid</li>
+<li>返回一个<strong>Session</strong>对象</li>
+</ul>
+<h2 id="resume-target"><a href="#resume-target" class="headerlink" title="resume(target)"></a>resume(target)</h2><p>恢复进程</p>
+<h2 id="kill-target"><a href="#kill-target" class="headerlink" title="kill(target)"></a>kill(target)</h2><p>杀死进程</p>
+<h2 id="get-usb-device"><a href="#get-usb-device" class="headerlink" title="get_usb_device()"></a>get_usb_device()</h2><p>获取device信息</p>
+<ul>
+<li>返回一个<strong>Device</strong>对象</li>
+</ul>
+<h2 id="get-device-manager"><a href="#get-device-manager" class="headerlink" title="get_device_manager()"></a>get_device_manager()</h2><p>获取设备管理器  </p>
+<ul>
+<li>返回一个<strong>DeviceManager</strong>对象</li>
+</ul>
+<h1 id="DeviceManager对象"><a href="#DeviceManager对象" class="headerlink" title="DeviceManager对象"></a>DeviceManager对象</h1><h2 id="get-usb-device-1"><a href="#get-usb-device-1" class="headerlink" title="get_usb_device()"></a>get_usb_device()</h2><p>获取device信息</p>
+<ul>
+<li>返回一个<strong>Device</strong>对象</li>
+</ul>
+<h2 id="add-remote-device-location"><a href="#add-remote-device-location" class="headerlink" title="add_remote_device(location)"></a>add_remote_device(location)</h2><p>添加一个新的设备</p>
+<ul>
+<li>返回一个<strong>Device</strong>对象</li>
+</ul>
+<h1 id="Device对象"><a href="#Device对象" class="headerlink" title="Device对象"></a>Device对象</h1><h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><ul>
+<li><code>id</code> &#x3D; device.id</li>
+<li><code>name</code> &#x3D; device.name</li>
+<li><code>icon</code> &#x3D; device.icon</li>
+<li><code>type</code> &#x3D; device.type</li>
+</ul>
+<h2 id="spawn-“PackageName”-1"><a href="#spawn-“PackageName”-1" class="headerlink" title="spawn(“PackageName”)"></a>spawn(“PackageName”)</h2><p>以挂起的方式启动进程</p>
+<ul>
+<li>需要传入参数，App包名  </li>
+<li>返回一个进程<strong>pid</strong></li>
+</ul>
+<h2 id="attach-target-1"><a href="#attach-target-1" class="headerlink" title="attach(target)"></a>attach(target)</h2><p>附加到已存在的进程</p>
+<ul>
+<li>传入的参数target可以是App包名，也可以是进程pid</li>
+<li>返回一个<strong>Session</strong>对象</li>
+</ul>
+<h2 id="resume-target-1"><a href="#resume-target-1" class="headerlink" title="resume(target)"></a>resume(target)</h2><p>恢复进程</p>
+<h2 id="kill-target-1"><a href="#kill-target-1" class="headerlink" title="kill(target)"></a>kill(target)</h2><p>杀死进程</p>
+<h1 id="Session对象"><a href="#Session对象" class="headerlink" title="Session对象"></a>Session对象</h1><h2 id="create-script-script-name"><a href="#create-script-script-name" class="headerlink" title="create_script(script_name)"></a>create_script(script_name)</h2><p>创建脚本文件</p>
+<ul>
+<li>返回一个Script对象</li>
+</ul>
+<h1 id="Script对象"><a href="#Script对象" class="headerlink" title="Script对象"></a>Script对象</h1><h2 id="load"><a href="#load" class="headerlink" title="load()"></a>load()</h2><p>加载脚本</p>
+<h2 id="on-‘message’-callback"><a href="#on-‘message’-callback" class="headerlink" title="on(‘message’,callback)"></a>on(‘message’,callback)</h2><p>如果第一个参数是<code>&#39;message&#39;</code>，会调用callback函数。<br>把js中的数据发送到python来处理<br>与脚本中的send()配合使用</p>
+<h3 id="callback-message-data"><a href="#callback-message-data" class="headerlink" title="callback(message,data)"></a>callback(message,data)</h3><p>第一个参数接收send发送的数据<br>第二个参数未知</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">callback</span>(<span class="params">message,data</span>):</span><br><span class="line">    <span class="keyword">if</span> message[<span class="string">&quot;type&quot;</span>] == <span class="string">&#x27;send&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">u&quot;[*] &#123;0&#125;&quot;</span>.<span class="built_in">format</span>(message[<span class="string">&#x27;payload&#x27;</span>]))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(message)    </span><br></pre></td></tr></table></figure>
+
+<h2 id="post"><a href="#post" class="headerlink" title="post()"></a>post()</h2><p>把python中的数据返回给js<br>与脚本中的recv配合使用<br>recv(func)</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python%E7%9A%84frida%E5%BA%93/" rel="tag">python的frida库</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/08/15/JNI-Functions/" rel="prev" title="JNI Functions">
+                  <i class="fa fa-angle-left"></i> JNI Functions
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">白乐天</span>
+  </div>
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("01/01/2024 00:00:00"); //修改为你的网站开始运行的时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

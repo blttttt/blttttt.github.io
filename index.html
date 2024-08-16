@@ -84,7 +84,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">26</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">62</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">60</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">27</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">65</span></a></li>
   </ul>
 </nav>
 
@@ -123,18 +123,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">60</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -160,6 +160,315 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/16/python%E7%9A%84frida%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/16/python%E7%9A%84frida%E5%BA%93/" class="post-title-link" itemprop="url">python的frida库</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-08-16 00:01:21 / 修改时间：15:36:15" itemprop="dateCreated datePublished" datetime="2024-08-16T00:01:21+08:00">2024-08-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/frida/" itemprop="url" rel="index"><span itemprop="name">frida</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="frida对象"><a href="#frida对象" class="headerlink" title="frida对象"></a>frida对象</h1><h2 id="spawn-“PackageName”"><a href="#spawn-“PackageName”" class="headerlink" title="spawn(“PackageName”)"></a>spawn(“PackageName”)</h2><p>以挂起的方式启动进程</p>
+<ul>
+<li>需要传入参数，App包名  </li>
+<li>返回一个进程<strong>pid</strong></li>
+</ul>
+<h2 id="attach-target"><a href="#attach-target" class="headerlink" title="attach(target)"></a>attach(target)</h2><p>附加到已存在的进程</p>
+<ul>
+<li>传入的参数target可以是App包名，也可以是进程pid</li>
+<li>返回一个<strong>Session</strong>对象</li>
+</ul>
+<h2 id="resume-target"><a href="#resume-target" class="headerlink" title="resume(target)"></a>resume(target)</h2><p>恢复进程</p>
+<h2 id="kill-target"><a href="#kill-target" class="headerlink" title="kill(target)"></a>kill(target)</h2><p>杀死进程</p>
+<h2 id="get-usb-device"><a href="#get-usb-device" class="headerlink" title="get_usb_device()"></a>get_usb_device()</h2><p>获取device信息</p>
+<ul>
+<li>返回一个<strong>Device</strong>对象</li>
+</ul>
+<h2 id="get-device-manager"><a href="#get-device-manager" class="headerlink" title="get_device_manager()"></a>get_device_manager()</h2><p>获取设备管理器  </p>
+<ul>
+<li>返回一个<strong>DeviceManager</strong>对象</li>
+</ul>
+<h1 id="DeviceManager对象"><a href="#DeviceManager对象" class="headerlink" title="DeviceManager对象"></a>DeviceManager对象</h1><h2 id="get-usb-device-1"><a href="#get-usb-device-1" class="headerlink" title="get_usb_device()"></a>get_usb_device()</h2><p>获取device信息</p>
+<ul>
+<li>返回一个<strong>Device</strong>对象</li>
+</ul>
+<h2 id="add-remote-device-location"><a href="#add-remote-device-location" class="headerlink" title="add_remote_device(location)"></a>add_remote_device(location)</h2><p>添加一个新的设备</p>
+<ul>
+<li>返回一个<strong>Device</strong>对象</li>
+</ul>
+<h1 id="Device对象"><a href="#Device对象" class="headerlink" title="Device对象"></a>Device对象</h1><h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><ul>
+<li><code>id</code> &#x3D; device.id</li>
+<li><code>name</code> &#x3D; device.name</li>
+<li><code>icon</code> &#x3D; device.icon</li>
+<li><code>type</code> &#x3D; device.type</li>
+</ul>
+<h2 id="spawn-“PackageName”-1"><a href="#spawn-“PackageName”-1" class="headerlink" title="spawn(“PackageName”)"></a>spawn(“PackageName”)</h2><p>以挂起的方式启动进程</p>
+<ul>
+<li>需要传入参数，App包名  </li>
+<li>返回一个进程<strong>pid</strong></li>
+</ul>
+<h2 id="attach-target-1"><a href="#attach-target-1" class="headerlink" title="attach(target)"></a>attach(target)</h2><p>附加到已存在的进程</p>
+<ul>
+<li>传入的参数target可以是App包名，也可以是进程pid</li>
+<li>返回一个<strong>Session</strong>对象</li>
+</ul>
+<h2 id="resume-target-1"><a href="#resume-target-1" class="headerlink" title="resume(target)"></a>resume(target)</h2><p>恢复进程</p>
+<h2 id="kill-target-1"><a href="#kill-target-1" class="headerlink" title="kill(target)"></a>kill(target)</h2><p>杀死进程</p>
+<h1 id="Session对象"><a href="#Session对象" class="headerlink" title="Session对象"></a>Session对象</h1><h2 id="create-script-script-name"><a href="#create-script-script-name" class="headerlink" title="create_script(script_name)"></a>create_script(script_name)</h2><p>创建脚本文件</p>
+<ul>
+<li>返回一个Script对象</li>
+</ul>
+<h1 id="Script对象"><a href="#Script对象" class="headerlink" title="Script对象"></a>Script对象</h1><h2 id="load"><a href="#load" class="headerlink" title="load()"></a>load()</h2><p>加载脚本</p>
+<h2 id="on-‘message’-callback"><a href="#on-‘message’-callback" class="headerlink" title="on(‘message’,callback)"></a>on(‘message’,callback)</h2><p>如果第一个参数是<code>&#39;message&#39;</code>，会调用callback函数。<br>把js中的数据发送到python来处理<br>与脚本中的send()配合使用</p>
+<h3 id="callback-message-data"><a href="#callback-message-data" class="headerlink" title="callback(message,data)"></a>callback(message,data)</h3><p>第一个参数接收send发送的数据<br>第二个参数未知</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">callback</span>(<span class="params">message,data</span>):</span><br><span class="line">    <span class="keyword">if</span> message[<span class="string">&quot;type&quot;</span>] == <span class="string">&#x27;send&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">u&quot;[*] &#123;0&#125;&quot;</span>.<span class="built_in">format</span>(message[<span class="string">&#x27;payload&#x27;</span>]))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(message)    </span><br></pre></td></tr></table></figure>
+
+<h2 id="post"><a href="#post" class="headerlink" title="post()"></a>post()</h2><p>把python中的数据返回给js<br>与脚本中的recv配合使用<br>recv(func)</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/15/JNI-Functions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/15/JNI-Functions/" class="post-title-link" itemprop="url">JNI Functions</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-08-15 11:13:03 / 修改时间：16:18:13" itemprop="dateCreated datePublished" datetime="2024-08-15T11:13:03+08:00">2024-08-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JNI/" itemprop="url" rel="index"><span itemprop="name">JNI</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="NewString"><a href="#NewString" class="headerlink" title="NewString"></a>NewString</h1><ul>
+<li><strong>jstring NewString(JNIEnv *env, const jchar *unicodeChars,jsize len);</strong><br>从Unicode字符数组构造一个新的java.lang.String对象。</li>
+</ul>
+<h1 id="NewStringUTF"><a href="#NewStringUTF" class="headerlink" title="NewStringUTF"></a>NewStringUTF</h1><ul>
+<li><strong>jstring NewStringUTF(JNIEnv *env, const char *bytes);</strong><br>用于从UTF-8编码的字符串常量中创建一个java.lang.String对象。（把C字符串转换为Java字符串）。</li>
+</ul>
+<h1 id="GetStringChars"><a href="#GetStringChars" class="headerlink" title="GetStringChars"></a>GetStringChars</h1><ul>
+<li><strong>const jchar* GetStringChars(JNIEnv *env, jstring string, jboolean *isCopy);</strong><br>返回指向字符串Unicode字符数组的指针。这个指针在调用ReleaseStringChars()之前一直有效。<br>如果isCopy不是NULL，则将*isCopy设置为JNI_TRUE，如果进行了复制；或者设置为JNI_FALSE，如果没有进行复制。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/13/pthread-h/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/13/pthread-h/" class="post-title-link" itemprop="url">pthread.h</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-08-13 12:32:00 / 修改时间：12:37:07" itemprop="dateCreated datePublished" datetime="2024-08-13T12:32:00+08:00">2024-08-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="pthread-create"><a href="#pthread-create" class="headerlink" title="pthread_create"></a>pthread_create</h1><ul>
+<li><strong>int pthread_create(pthread_t *thread, const pthread_attr_t *attr,<br>             void *(*start_routine)(void *), void *arg);</strong><ul>
+<li><code>pthread_t *thread</code>:<br>  指向 pthread_t 类型的指针，用于存储新创建线程的线程 ID。</li>
+<li><code>const pthread_attr_t *attr</code>:<br>  指向线程属性对象的指针，可以是 NULL，表示使用默认属性。</li>
+<li><code>void *(*start_routine)(void *)</code>:<br>  线程的起始函数，这是一个函数指针，它指向一个函数，该函数接收一个 void * 类型的参数，并返回一个 void * 类型的值。  </li>
+<li><code>void *arg</code>:<br>  传递给起始函数的参数。</li>
+<li><code>返回值</code><br>  成功返回0，否则返回错误码。</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -197,9 +506,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-08-12 09:15:37 / 修改时间：09:16:21" itemprop="dateCreated datePublished" datetime="2024-08-12T09:15:37+08:00">2024-08-12</time>
+      <time title="创建时间：2024-08-12 09:15:37" itemprop="dateCreated datePublished" datetime="2024-08-12T09:15:37+08:00">2024-08-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-15 10:54:51" itemprop="dateModified" datetime="2024-08-15T10:54:51+08:00">2024-08-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -230,6 +545,7 @@
 <li><strong>Alt + 方向键</strong><br>窗口切换</li>
 </ul>
 <h1 id="终端命令"><a href="#终端命令" class="headerlink" title="终端命令"></a>终端命令</h1><h2 id="winver"><a href="#winver" class="headerlink" title="winver"></a>winver</h2><p>查看系统版本</p>
+<h2 id="net-share"><a href="#net-share" class="headerlink" title="net share"></a>net share</h2><p>管理共享资源，使网络用户可以使用某一服务器上的资源。</p>
 <h2 id="net-user"><a href="#net-user" class="headerlink" title="net user"></a>net user</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">net user</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Administrator            blt                      DefaultAccount</span><br><span class="line">Guest                    WDAGUtilityAccount</span><br><span class="line">命令成功完成。</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>Administrator</strong> 这是Windows系统中的内置管理员账户，具有对计算机的完全控制权限  </li>
@@ -238,6 +554,7 @@
 <li><strong>Guest</strong> 这是Windows系统中的内置访客账户，通常用于临时访问计算机，权限有限。</li>
 <li><strong>WDAGUtilityAccount</strong> 这是Windows Defender Application Guard（Windows Defender应用程序防护）使用的账户，用于隔离浏览器中的活动，保护系统安全。</li>
 </ul>
+<h2 id="ipconfig"><a href="#ipconfig" class="headerlink" title="ipconfig"></a>ipconfig</h2><p>用于显示当前的TCP&#x2F;IP配置的设置值。</p>
 <h2 id="certutil"><a href="#certutil" class="headerlink" title="certutil"></a>certutil</h2><p><strong>校验和</strong><br>使用Windows下shell中集成的专门的工具来校验文件的MD5值、SHA1值、SHA256值<br>命令如下</p>
 <pre><code>certutil -hashfile filename MD5
 certutil -hashfile filename SHA1
@@ -503,7 +820,7 @@ certutil -hashfile filename SHA256
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-11 18:19:26" itemprop="dateModified" datetime="2024-08-11T18:19:26+08:00">2024-08-11</time>
+      <time title="修改时间：2024-08-14 15:06:30" itemprop="dateModified" datetime="2024-08-14T15:06:30+08:00">2024-08-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -609,6 +926,16 @@ certutil -hashfile filename SHA256
 </li>
 <li><p><strong>Memory.protect(address, size, protection)</strong><br>更新一块内存区域的保护属性，其中 <code>protection</code> 是一个字符串。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  <span class="title class_">Memory</span>.<span class="title function_">protect</span>(address,size,<span class="string">&#x27;rwx&#x27;</span>);</span><br><span class="line">  <span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string">  返回一个布尔值，指示操作是否成功完成。  </span></span><br><span class="line"><span class="string">- **Memory.allocUtf8String(str), Memory.allocUtf16String(str), Memory.allocAnsiString(str)**  </span></span><br><span class="line"><span class="string">在堆上分配、编码并写入 str 作为 UTF-8/UTF-16/ANSI 字符串。  </span></span><br><span class="line"><span class="string">返回的对象是一个 NativePointer。</span></span><br><span class="line"><span class="string">- **Memory.patchCode(address, size, apply)**  </span></span><br><span class="line"><span class="string">    安全地修改由 address 指定的内存位置（类型为 NativePointer）处的size大小的字节。提供的 JavaScript 函数 apply 会被调用，并传入一个可写指针，在返回之前，你必须在该指针处写入所需的修改。</span></span><br><span class="line"><span class="string">    - `</span>address<span class="string">`：指定要修改的内存区域的起始地址。</span></span><br><span class="line"><span class="string">    - `</span>size<span class="string">`：指定要修改的内存区域的大小（通常以字节为单位）。</span></span><br><span class="line"><span class="string">    - `</span>apply<span class="string">`：指定要应用的修改内容。</span></span><br><span class="line"><span class="string">        `</span><span class="string">``</span>js</span><br><span class="line">        <span class="title class_">Memory</span>.<span class="title function_">patchCode</span>(address,size,<span class="keyword">function</span>(<span class="params">code</span>)&#123;</span><br><span class="line">            <span class="keyword">var</span> writer =<span class="keyword">new</span> <span class="title class_">Arm64Writer</span>(code);</span><br><span class="line">            writer.<span class="title function_">putNop</span>();</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Instruction</span>.<span class="title function_">parse</span>(add));</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(writer.<span class="property">base</span>);</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(writer.<span class="property">code</span>);</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(writer.<span class="property">pc</span>);</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="DebugSymbol"><a href="#DebugSymbol" class="headerlink" title="DebugSymbol"></a>DebugSymbol</h1><ul>
+<li><strong>DebugSymbol.fromAddress(address), DebugSymbol.fromName(name)</strong><br>查找地址&#x2F;名称的调试信息，并将其作为包含以下属性的对象返回：<ul>
+<li><code>address</code>: 符号对应的地址，作为 NativePointer。</li>
+<li><code>name</code>: 符号的名称，作为字符串，如果未知则为 null。</li>
+<li><code>moduleName</code>: 拥有这个符号的模块名称，作为字符串，如果未知则为 null。</li>
+<li><code>fileName</code>: 拥有这个符号的文件名称，作为字符串，如果未知则为 null。</li>
+<li><code>lineNumber</code>: 在 fileName 中的行号，作为数字，如果未知则为 null。</li>
+</ul>
+</li>
 </ul>
 <h1 id="Data-Types-Function-and-Callback"><a href="#Data-Types-Function-and-Callback" class="headerlink" title="Data Types, Function and Callback"></a>Data Types, Function and Callback</h1><h1 id="NativePointer"><a href="#NativePointer" class="headerlink" title="NativePointer"></a>NativePointer</h1><ul>
 <li><p><strong>new NativePointer(s)</strong><br>从包含内存地址的字符串 s 创建一个新的 NativePointer 对象。<br>字符串可以是十进制的，也可以是以 0x 开头的十六进制表示。<br>可以使用 <strong>ptr(s)</strong> 的简写形式来创建。</p>
@@ -729,6 +1056,17 @@ certutil -hashfile filename SHA256
 </ul>
 </li>
 </ul>
+<h1 id="NativeCallback"><a href="#NativeCallback" class="headerlink" title="NativeCallback"></a>NativeCallback</h1><ul>
+<li><p><strong>new NativeCallback(func, returnType, argTypes[, abi])</strong>  </p>
+<ul>
+<li><code>func</code>: 创建一个新的由JavaScript function实现的NativeCallback  </li>
+<li><code>returnType</code>: 指定返回类型。</li>
+<li><code>argTypes</code>: 数组，指定参数类型。</li>
+<li><code>abi</code>: 指定abi</li>
+</ul>
+<p>返回的对象是<code>NativeFunction</code>，因此可以传递给<code>Interceptor.replace</code>。</p>
+</li>
+</ul>
 <h1 id="Instrumentation"><a href="#Instrumentation" class="headerlink" title="Instrumentation"></a>Instrumentation</h1><p>通过动态插入代码来监控和收集程序的运行信息。</p>
 <h2 id="Interceptor"><a href="#Interceptor" class="headerlink" title="Interceptor"></a>Interceptor</h2><ul>
 <li><strong>Interceptor.attach(target, callbacks[, data])</strong><br>拦截对target函数的调用。  <ul>
@@ -747,6 +1085,17 @@ certutil -hashfile filename SHA256
 <li><code>depth</code>：<br>相对于其他调用的调用深度。</li>
 </ul>
 </li>
+</ul>
+</li>
+<li><strong>Interceptor.replace(target, replacement[, data])</strong><br>使用 replacement 替换 target 处的函数。<br>可以使用 NativeCallback 在 JavaScript 中实现替换。</li>
+</ul>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><ul>
+<li><strong>Java.perform(fn)</strong><br>确保当前线程已连接到虚拟机并调用函数fn。</li>
+<li><strong>Java.use(className)</strong><br>动态获取一个 JavaScript 包装器（wrapper），用于指定的类名（className）。<br>通过调用 $new() 可以从这个包装器中实例化对象，以调用构造函数。<br>通过调用 $dispose() 可以显式地清理一个实例（或者可以等待 JavaScript 对象被垃圾回收，或者等待脚本被卸载）。<br>可以使用静态和非静态方法，甚至可以替换方法的实现，并从中抛出异常。</li>
+<li><strong>Java.choose(className, callbacks)</strong><br>通过扫描 Java 堆枚举指定类名（className）的活动实例。</li>
+<li><code>callbacks</code>是一个指定回调函数的对象: <ul>
+<li>onMatch(instance):<br>当找到一个活动实例时调用，该实例已经准备好使用，就像你通过 Java.cast() 将原始句柄转换为该特定实例一样。</li>
+<li>onComplete():<br>当所有实例都被枚举完成后调用。</li>
 </ul>
 </li>
 </ul>
@@ -786,6 +1135,15 @@ certutil -hashfile filename SHA256
 <li><strong>skip(nBytes)</strong><br>跳过指定字节数。</li>
 <li><strong>putRet()</strong><br>生成一个 RET 指令。</li>
 <li><strong>putNop()</strong><br>生成一个NOP指令</li>
+</ul>
+<h1 id="Hexdump"><a href="#Hexdump" class="headerlink" title="Hexdump"></a>Hexdump</h1><ul>
+<li><strong>hexdump(target[, options])</strong><br>从提供的 ArrayBuffer 或 NativePointer 目标生成十六进制转储，可选择自定义输出选项。  <ul>
+<li><p><code>target</code>:<br>提供的NativePointer对象</p>
+</li>
+<li><p><code>options</code>:  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> libc = <span class="title class_">Module</span>.<span class="title function_">findBaseAddress</span>(<span class="string">&#x27;libc.so&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">hexdump</span>(libc, &#123;</span><br><span class="line"><span class="attr">offset</span>: <span class="number">0</span>,  <span class="comment">//偏移</span></span><br><span class="line"><span class="attr">length</span>: <span class="number">64</span>,  <span class="comment">//输出长度，必须是十进制</span></span><br><span class="line"><span class="attr">header</span>: <span class="literal">true</span>,  <span class="comment">//头</span></span><br><span class="line"><span class="attr">ansi</span>: <span class="literal">true</span>  <span class="comment">//颜色</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
 </ul>
 
       
@@ -1033,7 +1391,7 @@ certutil -hashfile filename SHA256
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-01 00:30:26" itemprop="dateModified" datetime="2024-08-01T00:30:26+08:00">2024-08-01</time>
+      <time title="修改时间：2024-08-13 19:03:45" itemprop="dateModified" datetime="2024-08-13T19:03:45+08:00">2024-08-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1064,283 +1422,6 @@ certutil -hashfile filename SHA256
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/29/Cpp-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/29/Cpp-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">C++</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-29 10:55:16" itemprop="dateCreated datePublished" datetime="2024-07-29T10:55:16+08:00">2024-07-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-11 22:32:48" itemprop="dateModified" datetime="2024-08-11T22:32:48+08:00">2024-08-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/C-%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">C++语言</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Hello-C"><a href="#Hello-C" class="headerlink" title="Hello,C++"></a>Hello,C++</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  <span class="comment">// 预处理指令，包含iostream库。</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  <span class="comment">// 使用 std 命名空间中的所有实体。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      </span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Hello, C++&quot;</span> &lt;&lt; endl;  <span class="comment">//输出字符串。</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/29/Cpp-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/24/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5%EF%BC%8C%E4%BB%8E%E6%BA%90%E6%96%87%E4%BB%B6%E5%88%B0%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E7%9A%84%E8%BF%87%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/24/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5%EF%BC%8C%E4%BB%8E%E6%BA%90%E6%96%87%E4%BB%B6%E5%88%B0%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E7%9A%84%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">编译链接，从源文件到可执行文件的过程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-24 15:15:54" itemprop="dateCreated datePublished" datetime="2024-07-24T15:15:54+08:00">2024-07-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-30 12:09:59" itemprop="dateModified" datetime="2024-07-30T12:09:59+08:00">2024-07-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><h2 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a>编译器</h2><p>这里使用的编译工具是Linux下的gcc&#x2F;g++。<br>可以使用命令<code>gcc -v</code>查看gcc的版本。  </p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/24/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5%EF%BC%8C%E4%BB%8E%E6%BA%90%E6%96%87%E4%BB%B6%E5%88%B0%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E7%9A%84%E8%BF%87%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/15/objection/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/15/objection/" class="post-title-link" itemprop="url">objection</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-15 23:10:18" itemprop="dateCreated datePublished" datetime="2024-07-15T23:10:18+08:00">2024-07-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-01 15:14:09" itemprop="dateModified" datetime="2024-08-01T15:14:09+08:00">2024-08-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/frida/" itemprop="url" rel="index"><span itemprop="name">frida</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h1><h2 id="注入进程"><a href="#注入进程" class="headerlink" title="注入进程"></a>注入进程</h2><p><code>objecrion -g 包名 explore</code><br><img src="/2024/07/15/objection/1.png"></p>
-<h2 id="hook命令"><a href="#hook命令" class="headerlink" title="hook命令"></a>hook命令</h2><p><strong>android hooking watch class_method 类名 方法名</strong><br>观察和监视 Android 应用中某个类的方法调用。<br>加上选项**–dump-args –dump-return –dump-backrace**打印参数返回值堆栈</p>
-<h1 id="wallbreaker"><a href="#wallbreaker" class="headerlink" title="wallbreaker"></a>wallbreaker</h1><p>wallbreaker是一个基于objection的插件工具<br>在Desktop<br><code>git clone https://github.com/hluwa/Wallbreaker.git</code><br>连接frida-server</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">objection -g com.android.settings explore  # 注入进程</span><br><span class="line"></span><br><span class="line">plugin load /root/Desktop/Wallbreaker  # 加载插件</span><br></pre></td></tr></table></figure>
-<p><code>plugin wallbreaker classdump android.os.Build</code></p>
-<h2 id="列出所有模块（库）的信息"><a href="#列出所有模块（库）的信息" class="headerlink" title="列出所有模块（库）的信息"></a>列出所有模块（库）的信息</h2><p><strong>memory list moudles</strong>  </p>
-<p><img src="/2024/07/15/objection/2.png"></p>
-<h2 id="列出指定模块（库）的导出函数"><a href="#列出指定模块（库）的导出函数" class="headerlink" title="列出指定模块（库）的导出函数"></a>列出指定模块（库）的导出函数</h2><p><strong>memory list exports moduleName</strong></p>
-<p><img src="/2024/07/15/objection/3.png"></p>
-
       
     </div>
 
