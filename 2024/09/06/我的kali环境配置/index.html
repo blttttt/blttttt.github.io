@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="设置root密码初始账号密码为：kali:kali打开终端，输入sudo -i，会提示输入普通用户密码，输入后回车。输入passwd root命令来修改root密码。输入新的root密码，接着回车，注意的是输入的密码不会显示。然后再重新输入新的root密码，然后回车root密码就修改成功。  改网络网络连接方式修改为桥接模式。 输入ifconfig查看IP地址确保与物理机IP地址在同一网段下。 更">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的kali环境配置">
+<meta property="og:url" content="http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="白乐天">
+<meta property="og:description" content="设置root密码初始账号密码为：kali:kali打开终端，输入sudo -i，会提示输入普通用户密码，输入后回车。输入passwd root命令来修改root密码。输入新的root密码，接着回车，注意的是输入的密码不会显示。然后再重新输入新的root密码，然后回车root密码就修改成功。  改网络网络连接方式修改为桥接模式。 输入ifconfig查看IP地址确保与物理机IP地址在同一网段下。 更">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/1.png">
+<meta property="og:image" content="http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2.png">
+<meta property="og:image" content="http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/3.png">
+<meta property="og:image" content="http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/4.png">
+<meta property="og:image" content="http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/5.png">
+<meta property="og:image" content="http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/6.png">
+<meta property="og:image" content="http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/10.png">
+<meta property="og:image" content="http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/7.png">
+<meta property="og:image" content="http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/8.png">
+<meta property="og:image" content="http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/9.png">
+<meta property="article:published_time" content="2024-09-06T02:06:17.000Z">
+<meta property="article:modified_time" content="2024-09-15T14:18:27.347Z">
+<meta property="article:author" content="白乐天">
+<meta property="article:tag" content="kali">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/1.png">
+
+
+<link rel="canonical" href="http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/","path":"2024/09/06/我的kali环境配置/","title":"我的kali环境配置"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>我的kali环境配置 | 白乐天</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">白乐天</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">65</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">30</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">70</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEroot%E5%AF%86%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">设置root密码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%B9%E7%BD%91%E7%BB%9C"><span class="nav-number">2.</span> <span class="nav-text">改网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9shell"><span class="nav-number">3.</span> <span class="nav-text">更改shell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#apt%E6%9B%B4%E6%96%B0%E5%92%8C%E5%8D%87%E7%BA%A7%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="nav-number">4.</span> <span class="nav-text">apt更新和升级软件包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%B6%E5%8C%BA"><span class="nav-number">5.</span> <span class="nav-text">时区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#neofetch-%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">6.</span> <span class="nav-text">neofetch 查看系统信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#htop"><span class="nav-number">7.</span> <span class="nav-text">htop</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85adb"><span class="nav-number">8.</span> <span class="nav-text">安装adb</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85vscode"><span class="nav-number">9.</span> <span class="nav-text">安装vscode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Android-Studio"><span class="nav-number">10.</span> <span class="nav-text">安装Android Studio</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="白乐天"
+      src="/images/android.svg">
+  <p class="site-author-name" itemprop="name">白乐天</p>
+  <div class="site-description" itemprop="description">在安卓逆向和爬虫的道路上渐行渐远!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/blttttt" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;blttttt" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="我的kali环境配置 | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          我的kali环境配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-06 10:06:17" itemprop="dateCreated datePublished" datetime="2024-09-06T10:06:17+08:00">2024-09-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-09-15 22:18:27" itemprop="dateModified" datetime="2024-09-15T22:18:27+08:00">2024-09-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/kali/" itemprop="url" rel="index"><span itemprop="name">kali</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="设置root密码"><a href="#设置root密码" class="headerlink" title="设置root密码"></a>设置root密码</h1><p>初始账号密码为：<code>kali:kali</code><br>打开终端，输入<code>sudo -i</code>，会提示输入普通用户密码，输入后回车。<br>输入<code>passwd root</code>命令来修改root密码。<br>输入新的root密码，接着回车，注意的是输入的密码不会显示。<br>然后再重新输入新的root密码，然后回车root密码就修改成功。</p>
+<p><img src="/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/1.png"></p>
+<h1 id="改网络"><a href="#改网络" class="headerlink" title="改网络"></a>改网络</h1><p>网络连接方式修改为桥接模式。<br><img src="/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2.png"></p>
+<p>输入<code>ifconfig</code>查看IP地址确保与物理机IP地址在同一网段下。</p>
+<h1 id="更改shell"><a href="#更改shell" class="headerlink" title="更改shell"></a>更改shell</h1><p>kali Linux在2020.3版本后默认的Shell不再是Bash而是Zsh，虽然Zsh的的自动提示等扩展功能很强大，但是后续Android系统的编译只支持Bash终端，因此需要更改Shell。<br>输入命令：<code>chsh -s /bin/bash</code>  </p>
+<p>修改后发现SHELL还是zsh，这是因为SHEL的更改需要重启才能生效。<br><img src="/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/3.png"></p>
+<p><strong>重启系统</strong><br>使用root用户登录，修改成功。<br><img src="/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/4.png">  </p>
+<h1 id="apt更新和升级软件包"><a href="#apt更新和升级软件包" class="headerlink" title="apt更新和升级软件包"></a>apt更新和升级软件包</h1><p>更新软件包 <code>apt update</code><br>升级软件包 <code>apt -y upgrade</code>，此步骤时间较长。</p>
+<h1 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h1><p>查看时区：<code>timedatectl</code>  </p>
+<p><img src="/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/5.png">  </p>
+<p>修改时区：<code>timedatectl set-timezone Asia/Shanghai</code><br><img src="/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/6.png">  </p>
+<h1 id="neofetch-查看系统信息"><a href="#neofetch-查看系统信息" class="headerlink" title="neofetch 查看系统信息"></a>neofetch 查看系统信息</h1><p><img src="/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/10.png"> </p>
+<h1 id="htop"><a href="#htop" class="headerlink" title="htop"></a>htop</h1><h1 id="安装adb"><a href="#安装adb" class="headerlink" title="安装adb"></a>安装adb</h1><p><code>apt -y install adb</code><br>连接手机<br><img src="/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/7.png">  </p>
+<h1 id="安装vscode"><a href="#安装vscode" class="headerlink" title="安装vscode"></a>安装vscode</h1><p>下载的vscode是<code>.deb</code>后缀的包<br>进入下载目录，执行<code>dpkg -i code_xxx.deb</code>，解包完成<br>我们执行<code>code</code>，提示如下，不推荐使用超级管理员用户来启动<code>vscode</code><br><img src="/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/8.png"><br>如果还是想通过通过root用户来启动code，那么可以执行<code>code --no-sandbox --user-data-dir</code>来启动。<br>输入这么长一串命令太麻烦了，我们可以把这个内容放在一个.txt文件里，然后把后缀改掉，修改文件权限，然后执行。<br><img src="/2024/09/06/%E6%88%91%E7%9A%84kali%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/9.png"> </p>
+<h1 id="安装Android-Studio"><a href="#安装Android-Studio" class="headerlink" title="安装Android Studio"></a>安装Android Studio</h1>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/kali/" rel="tag">kali</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/08/27/HTTP%E5%8D%8F%E8%AE%AE/" rel="prev" title="HTTP协议">
+                  <i class="fa fa-angle-left"></i> HTTP协议
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">白乐天</span>
+  </div>
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("01/01/2024 00:00:00"); //修改为你的网站开始运行的时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

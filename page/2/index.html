@@ -84,7 +84,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">64</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">31</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">69</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">65</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">30</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">70</span></a></li>
   </ul>
 </nav>
 
@@ -123,18 +123,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -160,6 +160,118 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/10/dlfcn-h/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/android.svg">
+      <meta itemprop="name" content="白乐天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白乐天">
+      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 白乐天">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/10/dlfcn-h/" class="post-title-link" itemprop="url">dlfcn.h</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-10 23:57:25" itemprop="dateCreated datePublished" datetime="2024-08-10T23:57:25+08:00">2024-08-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-11 00:34:26" itemprop="dateModified" datetime="2024-08-11T00:34:26+08:00">2024-08-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>主要用于在运行时进行动态链接和加载共享库。</p>
+<h1 id="dlopen"><a href="#dlopen" class="headerlink" title="dlopen"></a>dlopen</h1><p>用于打开一个共享库文件，并返回一个句柄以供后续操作。  </p>
+<ul>
+<li><strong>void *dlopen(const char *filename, int flag)</strong><ul>
+<li><code>filename</code>：共享库的路径（可以是绝对路径或相对路径）。</li>
+<li><code>flag</code>：控制加载行为的标志，例如 RTLD_LAZY 或 RTLD_NOW。</li>
+</ul>
+</li>
+</ul>
+<h1 id="dlsym"><a href="#dlsym" class="headerlink" title="dlsym"></a>dlsym</h1><p>用于查找并返回共享库中的符号地址，通常用于查找函数或全局变量。</p>
+<ul>
+<li><strong>void *dlsym(void *handle, const char *symbol)</strong><ul>
+<li><code>handle</code>：由 dlopen 返回的句柄。</li>
+<li><code>symbol</code>：要查找的符号名称。</li>
+</ul>
+</li>
+</ul>
+<h1 id="dlclose"><a href="#dlclose" class="headerlink" title="dlclose"></a>dlclose</h1><p>用于关闭由 dlopen 打开的共享库并释放资源。  </p>
+<ul>
+<li><strong>int dlclose(void *handle)</strong><ul>
+<li><code>handle</code>：由 dlopen 返回的句柄。</li>
+</ul>
+</li>
+</ul>
+<h1 id="dlerror"><a href="#dlerror" class="headerlink" title="dlerror"></a>dlerror</h1><p>用于获取最后一个动态链接操作的错误信息。  </p>
+<ul>
+<li><strong>char *dlerror(void)</strong><br>返回值：返回一个指向错误信息字符串的指针，如果没有错误则返回 NULL。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -980,146 +1092,6 @@
 <li>size<br>元素的大小。</li>
 </ul>
 <h1 id="free"><a href="#free" class="headerlink" title="free"></a>free</h1><p>释放内存，避免内存泄漏<br><code>free(p)</code></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/14/stdio-h/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/android.svg">
-      <meta itemprop="name" content="白乐天">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="白乐天">
-      <meta itemprop="description" content="在安卓逆向和爬虫的道路上渐行渐远!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 白乐天">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/14/stdio-h/" class="post-title-link" itemprop="url">stdio.h</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-14 16:17:49" itemprop="dateCreated datePublished" datetime="2024-07-14T16:17:49+08:00">2024-07-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-09 22:03:25" itemprop="dateModified" datetime="2024-08-09T22:03:25+08:00">2024-08-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/C%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h1><h2 id="printf"><a href="#printf" class="headerlink" title="printf"></a>printf</h2><p><code>printf(&quot;格式化字符串&quot;，参变量)</code><br>格式化输出</p>
-<h2 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf"></a>sprintf</h2><p>sprintf 是一个标准库函数，用于将格式化的数据写入字符串中。它的功能类似于 printf，但不是将输出打印到控制台，而是将格式化后的结果存储到一个字符串中。<br><code>sprintf(char *str,&quot;format&quot;,...)</code>  </p>
-<ul>
-<li><code>str</code>是目标字符串的指针，存储格式化后的结果</li>
-<li><code>&quot;format&quot;</code>是格式控制字符串，指定存储格式</li>
-<li><code>...</code>是可选参数列表，根据format来传递相应参数</li>
-</ul>
-<h3 id="将十进制数据转换为为十六进制数据"><a href="#将十进制数据转换为为十六进制数据" class="headerlink" title="将十进制数据转换为为十六进制数据"></a>将十进制数据转换为为十六进制数据</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> *msg = <span class="string">&quot;12345678&quot;</span>;</span><br><span class="line"><span class="type">int</span> len = <span class="built_in">strlen</span>(msg);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,len);</span><br><span class="line"><span class="type">int</span> i,j;</span><br><span class="line"><span class="type">char</span> *result = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="number">32</span>);</span><br><span class="line"><span class="built_in">memset</span>(result,<span class="number">0x00</span>,<span class="keyword">sizeof</span>(<span class="type">char</span>)*<span class="number">32</span>);</span><br><span class="line"><span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">16</span>;j++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,result[j]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">    <span class="built_in">sprintf</span>(result+i*<span class="number">2</span>,<span class="string">&quot;%2x&quot;</span>,msg[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">32</span>;j++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,result[j]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">0000000000000000</span></span><br><span class="line"><span class="number">3132333435363738</span></span><br></pre></td></tr></table></figure>
-<h2 id="snprintf"><a href="#snprintf" class="headerlink" title="snprintf"></a>snprintf</h2><p>格式化输出字符串，并将结果写入到指定的缓冲区，与 sprintf() 不同的是，snprintf() 会限制输出的字符数，避免缓冲区溢出。<br><code>int snprintf(char * str,size_t size,const char * format,...);</code>  </p>
-<ul>
-<li><code>str</code>：目标字符串，用于存储格式化后的字符串的字符数组的指针。</li>
-<li><code>size</code>：字符数组的大小。</li>
-<li><code>format</code>：格式化字符串。</li>
-<li><code>...</code>：可变参数</li>
-</ul>
-<h2 id="fprintf"><a href="#fprintf" class="headerlink" title="fprintf"></a>fprintf</h2><p><code>int fprintf(FILE *stream, const char *format, ...)</code><br>发送格式化输出到流stream中  </p>
-<ul>
-<li><strong>stream</strong>，这是指向 FILE 对象的指针，该 FILE 对象标识了流。  </li>
-<li><strong>format</strong>，格式化标签</li>
-<li>**…**，参变量</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">   FILE * fp;</span><br><span class="line">   fp = fopen (<span class="string">&quot;file.txt&quot;</span>, <span class="string">&quot;w+&quot;</span>);</span><br><span class="line">   <span class="built_in">fprintf</span>(fp, <span class="string">&quot;%s %s %s %d&quot;</span>, <span class="string">&quot;We&quot;</span>, <span class="string">&quot;are&quot;</span>, <span class="string">&quot;in&quot;</span>, <span class="number">2014</span>);</span><br><span class="line">   fclose(fp);</span><br><span class="line">   <span class="keyword">return</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="putc"><a href="#putc" class="headerlink" title="putc"></a>putc</h2><p><code>int putc(int char, FILE *stream)</code>  </p>
-<ul>
-<li><strong>char</strong>，被写入的字符。该字符以其对应的 int 值进行传递。</li>
-<li><strong>stream</strong>，指向 FILE 对象的指针，该 FILE 对象标识了要被写入字符的流。</li>
-</ul>
-<h2 id="getc"><a href="#getc" class="headerlink" title="getc"></a>getc</h2><p><code>int getc(FILE *stream)</code>  </p>
-<ul>
-<li><strong>stream</strong>，指向 FILE 对象的指针。  </li>
-<li><strong>返回值</strong>，该函数以无符号 char 强制转换为 int 的形式返回读取的字符，如果到达文件末尾或发生读错误，则返回 EOF。</li>
-</ul>
-<h2 id="fputc"><a href="#fputc" class="headerlink" title="fputc"></a>fputc</h2><p><code>int putc(int char, FILE *stream)</code>  </p>
-<ul>
-<li><strong>char</strong>，要被写入的字符。该字符以其对应的 int 值进行传递。  </li>
-<li><strong>stream</strong>，指向 FILE 对象的指针，该 FILE 对象标识了要被写入字符的流。  </li>
-<li><strong>返回值</strong>，以无符号 char 强制转换为 int 的形式返回写入的字符，如果发生错误则返回 EOF。</li>
-</ul>
-<h2 id="fgetc"><a href="#fgetc" class="headerlink" title="fgetc"></a>fgetc</h2><p><code>int fgetc(FILE *stream)</code><br>指定的流 stream 获取下一个字符（一个无符号字符），并把位置标识符往前移动。  </p>
-<ul>
-<li><strong>stream</strong>，指向 FILE 对象的指针。</li>
-<li><strong>返回值</strong>，该函数以无符号 char 强制转换为 int 的形式返回读取的字符，如果到达文件末尾或发生读错误，则返回 EOF。</li>
-</ul>
-<h2 id="fputs"><a href="#fputs" class="headerlink" title="fputs"></a>fputs</h2><p><code>int fputs(const char *str, FILE *stream)</code><br>把字符串写入到指定的流 stream 中，但不包括空字符。  </p>
-<ul>
-<li><strong>str</strong>，一个字符数组，包含了要写入的以空字符终止的字符序列。</li>
-<li><strong>stream</strong>，指向 FILE 对象的指针，该 FILE 对象标识了要被写入字符串的流。</li>
-</ul>
-<h2 id="fgets"><a href="#fgets" class="headerlink" title="fgets"></a>fgets</h2><p><code>char *fgets(char *str, int n, FILE *stream)</code><br>从指定的流 stream 读取一行，并把它存储在 str 所指向的字符串内。当读取 (n-1) 个字符时，或者读取到换行符时，或者到达文件末尾时，它会停止，具体视情况而定。  </p>
-<ul>
-<li><strong>str</strong>，指向一个字符数组的指针，该数组存储了要读取的字符串。</li>
-<li><strong>n</strong>，读取的最大字符数，通常是字符串数组长度</li>
-<li><strong>stream</strong>，指向 FILE 对象的指针，该 FILE 对象标识了要从中读取字符的流。</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    FILE *fp = fopen(<span class="string">&quot;democ.txt&quot;</span>,<span class="string">&quot;r+&quot;</span>);</span><br><span class="line">    <span class="type">char</span> str[<span class="number">20</span>];</span><br><span class="line">    fgets(str,<span class="number">15</span>,fp);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>,str);</span><br><span class="line">    <span class="built_in">fputs</span>(<span class="string">&quot;Hello World!123456&quot;</span>, fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">Hello World!<span class="number">12</span></span><br></pre></td></tr></table></figure>
-
 
       
     </div>
